@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--- basic page needs
+      ================================================== -->
+    <meta charset="UTF-8">
+    <title> Maze the 28th,Album Information</title>
+    <!-- mobile specific metas
+      ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
+    <!-- CSS
+      ================================================== -->
+    <link href="AlBuMsELl.css" rel="stylesheet">
+    <style></style>
+</head>
+
+<header>
+    <!--h1>Into The Mind of An Overthinker</h1>
+    <h2>The album</h2>
+    <h3>By Maze the 28th</h3-->
+
+    <div style="text-align:center;">
+        <div class="padding">
+            <li>
+                <a href="my rap website.html" target="_blank">
+                    <button>Home</button>
+                </a>
+                <a href="Merch.html" target="_blank">
+                    <button>Merch</button>
+                </a>
+                <a href="booking.html" target="_blank">
+                    <button>Booking</button>
+                </a>
+                <a href="raps.html" target="_blank">
+                    <button>Catalog</button>
+                </a>
+            </li>
+        </div>
+    </div>
+</header>
+
+
+
+<body>
+    <div class="container">
+        <div class="page red"></div>
+        <div style="text-align: center;"><!--To align text to the center-->
+            <section id="AlbumIntro" class="content">
+
+                <div class="page orangered">
+                    <h1>Welcome Into the mind of an Overthinker!</h1>
+                </div>
+
+                <div class="page blue">
+                    <p>Get ready to experience the unfiltered</p>
+                    <p>through the eyes of Maze 28.</p>
+
+                    <p>With his Debut album</p>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="page cyan">
+            <p><strong>Into The Mind of an Overthinker</strong></p>
+        </div>
+
+        <div class="page purple">
+            <p>Taking the listeners on a journey of self-discovery,</p>
+            <p>perseverance,and empowerment.</p>
+        </div>
+
+        <div class="page blue">
+            <p>Through his raw,honest lyrics,he shares his story </p>
+            <p>of overcoming adversity,navigating relationships,</p>
+            <p>and staying true to himself.</p>
+        </div>
+
+        <div class="page yellow">
+            <p>With a unique blend of Hip-hop,Soul and Afro-centric elements</p>
+            <p>,his music is a reflection of his Eclectic personality,</p>
+            <p>andartistic vision.</p>
+        </div>
+
+        <div class="page limegreen">
+            <p>Join him on his sonic journey and re-discover the power of music</p>
+            <p>to inspire,heal,and uplift the soul.</p>
+            </section>
+        </div>
+    </div>
+    </div>
+
+
+    <div style="text-align: center;"><!--To align text to the center-->
+        <p>Into The Mind Of an Overthinker</p>
+        <p>Date August 1st</p>
+        <div id="countdown">
+            <h2>Countdown To Release</h2>
+            <p id="timer"></p>
+        </div>
+    </div>
+
+
+
+
+    <section id="preorder" class="preorder-section">
+        <div class="preorder-container">
+            <h2>Pre-order "Into The Mind of an Overthinker"</h2>
+            <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
+                August 1st.
+            </p>
+            <div class="preorder-buttons">
+                <!-- Pre-order button link, you can replace the # with a link to your store -->
+                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order Now</a>
+                <!-- Optional: Add a countdown -->
+                <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2024 Maze the 28th. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+
+
+    // Set the target date and time for the countdown
+    const countDownDate = new Date("Jul 31, 2025 23:59:59").getTime();
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(function () {
+        const now = new Date().getTime();
+        const timeRemaining = countDownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML =
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, display a message
+        if (timeRemaining < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("timer").innerHTML = "Countdown Finished!";
+        }
+    }, 1000);
+</script>
+
+</html>

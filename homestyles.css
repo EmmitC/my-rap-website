@@ -1,0 +1,860 @@
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.videos-section {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.videos-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: #f5a623;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.video {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video iframe,
+.video video {
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.video iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.video video {
+    max-width: 640px;
+    height: 360px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .video {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.thumbnail {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.video p {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #f5a623;
+}
+
+
+
+
+
+
+
+header.hero {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+header {
+    flex-wrap: nowrap;
+    text-align: center;
+    text-emphasis-position: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("images/20241030_123706.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    /* Change to column for better positioning */
+    position: relative;
+    /* Required for absolute positioning of the blurred overlay */
+    padding: 0;
+    /* Remove any extra padding */
+    margin: 0;
+    /* Remove any margin */
+    color: #fff;
+    /* Make the text white for contrast */
+}
+
+/* Background Blur */
+header.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    backdrop-filter: blur(10px);
+    /* Apply background blur */
+    z-index: -1;
+    /* Place the overlay behind the content */
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* Add spacing between links */
+    font-size: 1.5rem;
+    /* Make the font larger */
+    font-weight: bold;
+    /* Bold text */
+    text-transform: uppercase;
+    /* Capitalize all letters */
+    margin-top: 20px;
+    /* Add spacing from the top */
+}
+
+header nav a {
+    color: #fff;
+    /* White color for the links */
+    text-decoration: none;
+    /* Remove underline */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth hover effects */
+}
+
+header .navigate:hover {
+    background-color: #333;
+    /* Darken the background when hovered */
+}
+
+header h1 {
+    font-size: 3rem;
+    /* Larger font size for the title */
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* Space between title and navigation */
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    /* Space below the paragraph */
+    max-width: 600px;
+    /* Limit text width */
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*CSS(for ANIMATIONS)*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease out,
+        transform 0.6s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*CSS (Button Hover Effect)*/
+button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: white;
+    color: #000000;
+}
+
+/*Responsive Design*/
+@media (max-width:1064px) {
+    h1 {
+        font-size: 2em;
+        align-items: center;
+        justify-content: center;
+        text-align: right;
+
+    }
+
+    .icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .platforms {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+}
+
+
+@media(max-width:768px) {
+    .social-media-icons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .icon-link {
+        margin: 0 10px;
+        font-size: 24px;
+        color: #fff;
+        transition: color 0.2s ease;
+    }
+
+    .icon-link:hover {
+        color: #ccc;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        /* Smaller font size on mobile */
+    }
+
+    header nav {
+        flex-direction: column;
+        /* Stack links vertically on smaller screens */
+        gap: 15px;
+        /* Smaller gap */
+    }
+
+    header p {
+        font-size: 1rem;
+        /* Smaller font size on mobile */
+    }
+
+    h1 {
+
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font: size 7em;
+        letter-spacing: 2px;
+        /*Optional for a sleek look*/
+        text-transform: uppercase;
+        margin: 1000px 250px 30px;
+        /*This looks redundunt*/
+    }
+
+    h2 {
+        font: size 2em;
+    }
+
+    h3 {
+        color: #ffffff;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    .content {
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .platformimages {
+        width: auto;
+        height: auto;
+        position: center;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .backgroundimages {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        /*ensure the image is behind the content*/
+
+    }
+
+    .icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .platformsimages {
+        position: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        /*ensure the image is behind the content*/
+    }
+
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    background-image: url("");
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+
+}
+
+.about {
+    background-color: #ccc;
+}
+
+
+.navigate {
+    background-color: z-index -1;
+    border: 6px;
+    height: 20px;
+    padding: 10px;
+    width: 180px;
+    margin: 550px 10px 0 25px;
+    display: flex;
+    position: center, fixed;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+section {
+    padding: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
+
+.music-links {
+    padding: 40px;
+    background-color: 800080;
+}
+
+.event-notification {
+    background-color: #FF5733;
+    /* Bright color to grab attention */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+    /* Hidden by default */
+}
+
+.event-notification a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.event-notification.show {
+    display: block;
+    /* Display when the class 'show' is added */
+}
+
+
+
+.event-popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    display: none;
+}
+
+.event-popup button {
+    background-color: #f5a623;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.event-popup button:hover {
+    background-color: #e08500;
+}
+
+
+
+
+
+
+.booking-section {
+    background-color: #2c2f36;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.booking-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.booking-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #f5a623;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 1rem;
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+
+textarea {
+    height: 120px;
+}
+
+button {
+    background-color: black;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: white;
+}
+
+
+
+
+
+
+
+.booking-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f5a623;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.booking-cta:hover {
+    background-color: #d57b19;
+}
+
+
+
+
+
+
+
+
+.platforms {
+    display: flex;
+    justify-content: center;
+    /* Center icons horizontally */
+    align-items: center;
+    /* Center icons vertically */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    flex-direction: row;
+    /* Align icons in a row */
+    -webkit-overflow-scrolling: touch;
+    /* Enables smooth scrolling on mobile */
+    flex-wrap: nowrap;
+    /* Prevent icons from wrapping to a new line */
+    gap: 30px;
+    /* Space between icons */
+    padding: 20px;
+    /* Optional padding around the container */
+    scroll-snap-type: x mandatory;
+    /* Optional: Enables smooth snap scrolling (useful for mobile) */
+
+}
+
+.platforms .icon {
+    width: 50px;
+    /* Set the width of each icon */
+    height: 50px;
+    /* Set the height of each icon */
+    transition: transform 0.5s ease;
+    /* Smooth transition on hover */
+}
+
+.platforms .icon:hover {
+    transform: scale(1.5);
+    /* Slightly scale the icon when hovered */
+}
+
+
+
+/*general styling carousel*/
+.carousel{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+
+    margin: 20px auto;
+    max-width: 90%;
+
+}
+
+.carousel-item{
+    
+  
+display: inline-block;
+    max-width: 300px;
+
+    transition: transform 0.3s ease-in-out;
+    flex: none;
+}
+
+.carousel-item img{
+    width: 100px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease,
+    tranform 0.3s ease;
+
+}
+
+.carousel-item img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.carousel-dots {
+    margin-top: 10px;
+}
+
+.carousel-dots span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-dots span.active{
+    background-color: #fff;
+}
+   
+
+/* Icon styles */
+.icon {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+    /* Smooth zoom effect on hover */
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    /* Zoom effect on hover */
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    /* Center icons horizontally */
+    align-items: center;
+    /* Center icons vertically */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    flex-direction: row;
+    /* Align icons in a row */
+    -webkit-overflow-scrolling: touch;
+    /* Enables smooth scrolling on mobile */
+    flex-wrap: nowrap;
+    /* Prevent icons from wrapping to a new line */
+    gap: 30px;
+    /* Space between icons */
+    padding: 20px;
+    /* Optional padding around the container */
+    scroll-snap-type: x mandatory;
+    /* Optional: Enables smooth snap scrolling (useful for mobile) */
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+#countdown {
+    /* Dark background for contrast */
+    background-color: gray;
+    color: #fff;
+    /* White text for readability */
+    padding: 20px;
+    /* Padding around the countdown */
+    text-align: center;
+    /* Center the timer text */
+    border-radius: 10px;
+    /* Rounded corners */
+    font-family: 'Montserrat', sans-serif;
+    /* Use a bold, modern font */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    /* Shadow for depth */
+    max-width: 500px;
+    /* Limit the width */
+    margin: 20px auto;
+    /* Center the timer block horizontally */
+    font-size: 2rem;
+    /* Larger text size */
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdown.background-image {
+    opacity: 0.1;
+}
+
+#countdown h2 {
+    font-size: 1.5rem;
+    /* Smaller title size */
+    margin-bottom: 10px;
+    /* Space between title and timer */
+    text-transform: uppercase;
+    /* Bold, capitalized text */
+    letter-spacing: 2px;
+    /* Add spacing for style */
+    font-weight: bold;
+    /* Bold text for prominence */
+    color: #f5a623;
+    /* A golden color to stand out */
+}
+
+#timer {
+    font-size: 3rem;
+    /* Make the timer big and bold */
+    font-weight: 700;
+    /* Make the timer text bold */
+    color: white;
+    /* A vibrant color for urgency (can be red or something bright) */
+    font-size: 24px;
+    letter-spacing: 3px;
+    /* Add some spacing for effect */
+    animation: timerAnimation 1s ease-in-out infinite;
+    /* Make the numbers slightly pulse */
+}
+
+
+@keyframes timerAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Slightly enlarge the timer text */
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#countdown .finished {
+    color: #6ccf8f;
+    /* Green color when finished */
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 15px;
+    /* Space after timer */
+    text-align: center;
+}
+
+/* Pre-order Section */
+.preorder-section {
+    background-image: url("images/AlbumArt.jpg");
+    /* Dark background to contrast the page */
+    color: #fff;
+    text-align: center;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 8px;
+}
+
+.preorder-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.preorder-container p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.preorder-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.preorder-button {
+    background-color: #f5a623;
+    /* A bright color to grab attention */
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.preorder-button:hover {
+    background-color: #e08500;
+    transform: scale(1.05);
+}
+
+#countdownText {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.padding {
+    width: 0;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 0px;
+    position: relative;
+    margin-top: 0px;
+    bottom: 0;
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 10px;
+    bottom: 0;
+    width: 100%;
+}

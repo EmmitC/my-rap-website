@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+      ================================================== -->
+  <meta charset="UTF-8">
+  <title> Maze the 28th,Booking</title>
+  <!-- mobile specific metas
+      ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
+  <!-- CSS
+      ================================================== -->
+  <link href="booking.css" rel="stylesheet">
+  <style></style>
+</head>
+
+<body>
+  <header>
+    <h1><strong></strong>Interested in booking For an Event?</strong></h1>
+    <h3>Forward Your Request below!</h3>
+    <h3>And we will get back to you</h3>
+
+
+    <nav>
+      <a href="my rap website.html" target="_blank">
+        <button>Home</button>
+      </a>
+      <a href="Merch.html" target="_blank">
+        <button>Merch</button>
+      </a>
+      <a href="AlbumPromo.html" target="_blank">
+        <button>Latest Release</button>
+      </a>
+    </nav>
+
+  </header>
+  <section id="booking" class="booking-section">
+    <h2>Book Maze the 28th for Your Event</h2>
+    <p>Interested in booking Maze for a concert, private performance, or special event? Fill out the form below and
+      we’ll
+      get back to you as soon as possible!</p>
+
+    <form action="your-server-side-processing-link" method="POST">
+      <label for="name">Your Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="event-type">Event Type:</label>
+      <select id="event-type" name="event-type">
+        <option value="concert">Concert</option>
+        <option value="private-performance">Private Performance</option>
+        <option value="corporate-event">Corporate Event</option>
+        <option value="party">Private Party</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="event-date">Preferred Event Date:</label>
+      <input type="date" id="event-date" name="event-date" required>
+
+      <label for="event-location">Event Location (City, Country):</label>
+      <input type="text" id="event-location" name="event-location" required>
+
+      <label for="message">Additional Information / Special Requests:</label>
+      <textarea id="message" name="message"></textarea>
+
+      <button type="submit">Submit Booking Request</button>
+    </form>
+  </section>
+
+
+<div style="text-align: center;"><!--To align text to the center-->
+  <div id="payment">
+    <h3>Pay for Your Booking</h3>
+    <p>To confirm your booking, please submit a deposit below.</p>
+    <!-- Add a PayPal button or Stripe integration -->
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
+      <input type="submit" value="Pay Now" class="cta-button">
+    </form>
+  </div>
+
+
+
+  <div id="confirmation-message" class="confirmation-message">
+    <h3>Thank you for your booking request!</h3>
+    <p>We'll review your submission and get back to you shortly with more details.</p>
+  </div>
+</div>
+  <footer>
+    <p>&copy; 2024 Maze the 28th. All rights reserved.</p>
+  </footer>
+
+</body>
+<script>
+  
+
+    // Set the target date and time for the countdown
+    const countDownDate = new Date("Jul 31, 2025 23:59:59").getTime();
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(function () {
+      const now = new Date().getTime();
+      const timeRemaining = countDownDate - now;
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="timer"
+      document.getElementById("timer").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // If the countdown is over, display a message
+      if (timeRemaining < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("timer").innerHTML = "Countdown Finished!";
+      }
+    }, 1000);
+  </script>
+
+</html>

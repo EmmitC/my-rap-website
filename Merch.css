@@ -1,0 +1,277 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background-image: url("images/IMG_20241030_123521_219.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    /* Change to column for better positioning */
+    position: relative;
+    /* Required for absolute positioning of the blurred overlay */
+    padding: 0;
+    /* Remove any extra padding */
+    margin: 0;
+    /* Remove any margin */
+    color: #fff;
+    /* Make the text white for contrast */
+
+    text-align: center;
+    text-emphasis-position: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+
+}
+
+header.hero {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+
+/* Background Blur */
+header.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    backdrop-filter: blur(10px);
+    /* Apply background blur */
+    z-index: -1;
+    /* Place the overlay behind the content */
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* Add spacing between links */
+    font-size: 1.5rem;
+    /* Make the font larger */
+    font-weight: bold;
+    /* Bold text */
+    text-transform: uppercase;
+    /* Capitalize all letters */
+    margin-top: 20px;
+    /* Add spacing from the top */
+}
+
+header nav a {
+    color: #fff;
+    /* White color for the links */
+    text-decoration: none;
+    /* Remove underline */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth hover effects */
+}
+
+header .navigate:hover {
+    background-color: #333;
+    /* Darken the background when hovered */
+}
+
+header h1 {
+    font-size: 3rem;
+    /* Larger font size for the title */
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* Space between title and navigation */
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    /* Space below the paragraph */
+    max-width: 600px;
+    /* Limit text width */
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*Body design*/
+body {
+    background-color: black;
+}
+
+/*buttons design */
+button {
+    background-color: black;
+    border: none;
+    padding: 10px 20px;
+    color: gold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: white;
+}
+
+/* Merch Section */
+.merch-section {
+    background-color: #333;
+    /* Dark background to contrast */
+    background-image: url("images/IMG_20241030_123521_219.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*prevents repetition*/
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.merch-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.merch-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.merch-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.merch-item {
+    background-color: #444;
+    /* Slightly lighter background */
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.merch-item:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+.merch-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.merch-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.merch-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    display: inline-block;
+    background-color: #f5a623;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #e08500;
+    transform: scale(1.05);
+}
+
+/* Pre-order Section */
+.preorder-section {
+    background-image: url("images/AlbumArt.jpg");
+    /* Dark background to contrast the page */
+    color: #fff;
+    text-align: center;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 8px;
+}
+
+.preorder-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.preorder-container p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.preorder-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.preorder-button {
+    background-color: #f5a623;
+    /* A bright color to grab attention */
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.preorder-button:hover {
+    background-color: #e08500;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 10px;
+    bottom: 0;
+    width: 100%;
+}

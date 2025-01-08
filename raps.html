@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze 28 Rap Audios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header and Hero Section */
+        header {
+            position: relative;
+            background-color: #333333;
+            text-align: center;
+            padding: 100px 20px;
+            background-image: url("images/20241030_123706.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1,
+        header h3 {
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: orangered;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hamburger Menu for Responsive */
+        .hamburger {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        /* Main Play Section */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .music-player {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        .music-player h2 {
+            color: #1db954;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .music-player button {
+            background-color: #1db954;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .music-player button:hover {
+            background-color: #14833b;
+        }
+
+        /* Playlist Styling */
+        .playlist {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .playlist audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Countdown Timer */
+        #countdown {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: orangered;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .playlist audio {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <h1>Take a Listen to Some of My Works</h1>
+        <h3>Verses I've Written While Honing My Craft</h3>
+        <nav id="navLinks">
+            <a href="my rap website.html">Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Music Player Section -->
+    <div class="container">
+        <!-- Now Playing Section -->
+        <div class="music-player">
+            <h2>Now Playing</h2>
+            <audio id="audioPlayer" controls>
+                <source src="audio/Good_vibes-Maze_28(1).mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Additional Playlists -->
+        <div class="playlist">
+            <h2>Other Songs</h2>
+            <div class="music-player">
+                <h3>Melodies by Maze 28</h3>
+                <audio controls>
+                    <source src="audio/melodies_by_maze_28.m4a" type="audio/m4a">
+                </audio>
+            </div>
+            <div class="music-player">
+                <h3>Nirvana</h3>
+                <audio controls>
+                    <source src="audio/nirvana_maze_28.mp3" type="audio/mp3">
+                </audio>
+            </div>
+            <div class="music-player">
+                <h3>Aggressor</h3>
+                <audio controls>
+                    <source src="audio/Aggressor_cut.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+
+        <!-- Countdown Section -->
+        <div id="countdown">
+            <h2>New Album Release</h2>
+            <p id="timer"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Maze the 28th. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Menu, Play/Pause Button, and Countdown Timer -->
+    <script>
+        // Hamburger Menu Functionality
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Countdown Timer Functionality
+        const countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+        const countdownInterval = setInterval(function () {
+            const now = new Date().getTime();
+            const timeRemaining = countDownDate - now;
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("timer").innerHTML = "Countdown Finished!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
