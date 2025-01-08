@@ -24,4 +24,11 @@ C```html
 6. **Footer**: 
    - Added some margin to the footer and improved text alignment for better readability.
 
-This should now work smoothly without conflicting styles. If you still encounter any specific issues, let me know!
+This should now work smoothly without conflicting styles.
+
+
+
+
+
+
+
