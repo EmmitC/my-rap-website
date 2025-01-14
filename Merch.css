@@ -3,7 +3,7 @@ html {
 }
 
 header {
-    background-image: url("images/IMG_20241030_123521_219.jpg");
+    background-image: url("images/booking.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -46,7 +46,7 @@ header.hero::after {
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     /* Dark overlay */
-    backdrop-filter: blur(10px);
+   /* backdrop-filter: blur(10px);*/
     /* Apply background blur */
     z-index: -1;
     /* Place the overlay behind the content */
@@ -127,7 +127,7 @@ button:hover {
 .merch-section {
     background-color: #333;
     /* Dark background to contrast */
-    background-image: url("images/IMG_20241030_123521_219.jpg");
+    background-image: url("images/booking.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     /*prevents repetition*/

@@ -12,6 +12,8 @@ main {
 
 .videos-section {
     background-color: #1a1a1a;
+    background-image: url('images/booking.jpg');
+
     color: white;
     padding: 40px 20px;
     text-align: center;
@@ -86,7 +88,67 @@ main {
 
 
 
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Hamburger icon */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+}
+
+/* Navigation menu */
+.menu {
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #444;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Active menu */
+.menu.active {
+    display: flex;
+}
 
 
 
@@ -103,7 +165,7 @@ header {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("images/20241030_123706.jpg");
+    background-image: url("images/IMG_20241231_165746_461.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -130,7 +192,7 @@ header.hero::after {
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     /* Dark overlay */
-    backdrop-filter: blur(10px);
+    /*backdrop-filter: blur(10px);*/
     /* Apply background blur */
     z-index: -1;
     /* Place the overlay behind the content */
@@ -355,10 +417,12 @@ button:hover {
 body {
     font-family: Arial, sans-serif;
     background-color: #000000;
-    background-image: url("");
+    background-image: url("images/20250101_211343.jpg");
+    background-repeat: no-repeat;
     color: #ffffff;
     margin: 0;
     padding: 0;
+    text-align: center;
 
 }
 
@@ -428,7 +492,7 @@ section {
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #333;
+    background-image: url('images/AlbumArt.jpg');
     color: white;
     padding: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
@@ -525,7 +589,9 @@ button:hover {
 
 
 
-
+.event-notification.show {
+    background-color: #000000;
+}
 
 
 
@@ -564,7 +630,7 @@ button:hover {
     /* Enables horizontal scrolling */
     flex-direction: row;
     /* Align icons in a row */
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;*/
     /* Enables smooth scrolling on mobile */
     flex-wrap: nowrap;
     /* Prevent icons from wrapping to a new line */
@@ -572,7 +638,7 @@ button:hover {
     /* Space between icons */
     padding: 20px;
     /* Optional padding around the container */
-    scroll-snap-type: x mandatory;
+    /*scroll-snap-type: x mandatory;*/
     /* Optional: Enables smooth snap scrolling (useful for mobile) */
 
 }
@@ -594,6 +660,7 @@ button:hover {
 
 
 /*general styling carousel*/
+/*
 .carousel{
     display: flex;
     justify-content: center;
@@ -647,7 +714,7 @@ display: inline-block;
 .carousel-dots span.active{
     background-color: #fff;
 }
-   
+*/
 
 /* Icon styles */
 .icon {
@@ -672,7 +739,7 @@ display: inline-block;
     /* Enables horizontal scrolling */
     flex-direction: row;
     /* Align icons in a row */
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;*/
     /* Enables smooth scrolling on mobile */
     flex-wrap: nowrap;
     /* Prevent icons from wrapping to a new line */
@@ -696,6 +763,7 @@ display: inline-block;
 #countdown {
     /* Dark background for contrast */
     background-color: gray;
+    background-image: url('images/booking.jpg');
     color: #fff;
     /* White text for readability */
     padding: 20px;

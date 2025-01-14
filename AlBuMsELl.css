@@ -10,25 +10,26 @@ main {
 }
 
 /*Small devices(phones,600px and down)*/
-@media only screen and(max-width:600px){
-    .container{
+@media only screen and(max-width:600px) {
+    .container {
         margin: 0 10px;
     }
 }
 
 /*medium devices(tablets,601px to 992px)*/
-@media only screen and (min-width:601px) and (max-width:992px){
-    .container{
+@media only screen and (min-width:601px) and (max-width:992px) {
+    .container {
         margin: 0 20px;
     }
 }
 
 /*large devices(laptops/desktops,993px and up)*/
-@media only screen and (min-width:993px){
-    .container{
-        margin:0 auto;
+@media only screen and (min-width:993px) {
+    .container {
+        margin: 0 auto;
     }
 }
+
 header {
     background-image: url("images/albumheaderBlured.jpg");
     height: 100vh;
@@ -239,6 +240,7 @@ button:hover {
     animation: timerAnimation 1s ease-in-out infinite;
     /* Make the numbers slightly pulse */
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -247,6 +249,9 @@ button:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
+    flex-wrap: no wrap;
+    /*Fix a few issues with the text positioning*/
 }
 
 .page {
@@ -261,7 +266,7 @@ button:hover {
     justify-content: center;
 }
 
-.red{
+.red {
     background-color: red;
 }
 
