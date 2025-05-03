@@ -46,7 +46,7 @@ header.hero::after {
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     /* Dark overlay */
-   /* backdrop-filter: blur(10px);*/
+    /* backdrop-filter: blur(10px);*/
     /* Apply background blur */
     z-index: -1;
     /* Place the overlay behind the content */
@@ -161,9 +161,10 @@ button:hover {
 .merch-item {
     background-color: #444;
     /* Slightly lighter background */
-    padding: 20px;
+    padding: 40px;
     width: 250px;
     text-align: center;
+    position: relative;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
