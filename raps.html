@@ -5,170 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze 28 Rap Audios</title>
+    <link rel="icon" type="image" href="./images/maze28icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styles */
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Header and Hero Section */
-        header {
-            position: relative;
-            background-color: #333333;
-            text-align: center;
-            padding: 100px 20px;
-            background-image: url("images/20241030_123706.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        header h1,
-        header h3 {
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Navigation */
-        nav {
-            margin-top: 20px;
-        }
-
-        nav a {
-            color: orangered;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 10px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hamburger Menu for Responsive */
-        .hamburger {
-            display: none;
-            font-size: 2em;
-            cursor: pointer;
-        }
-
-        /* Main Play Section */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .music-player {
-            background: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-            margin-top: 20px;
-        }
-
-        .music-player h2 {
-            color: #1db954;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .music-player button {
-            background-color: #1db954;
-            border: none;
-            color: #ffffff;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .music-player button:hover {
-            background-color: #14833b;
-        }
-
-        /* Playlist Styling */
-        .playlist {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .playlist audio {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        /* Countdown Timer */
-        #countdown {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: orangered;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333333;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header {
-                padding: 60px 10px;
-            }
-
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .playlist audio {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./homestyles.css">
+    <style></style>
 </head>
 
 <body>
-    <!-- Hero Section -->
-    <header>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        <h1>Take a Listen to Some of My Works</h1>
-        <h3>Verses I've Written While Honing My Craft</h3>
-        <nav id="navLinks">
-            <a href="index.html">Home</a>
-        </nav>
-    </header>
+     <header id="NavigationBar">
+    <nav>
+      <ul>
+         <li><a href="./index.html">Home</a></li>
+         <li><a href="./raps.html" class="active">raps</a></li>
+         <li><a href="./AlbumPromo.html">album</a></li>
+         <li><a href="./Merch.html">merch</a></li>
+        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./tours.html">Tours</a></li>
+    </ul>
+    </nav>
+  </header>
+  
+  <section id="hero-image">
+    <img src="./images/elite-music.jpg" alt="">
+  </section>
 
     <!-- Main Music Player Section -->
     <div class="container">
+
         <!-- Now Playing Section -->
         <div class="music-player">
             <h2>Now Playing</h2>
@@ -181,21 +44,22 @@
         <!-- Additional Playlists -->
         <div class="playlist">
             <h2>Other Songs</h2>
+
             <div class="music-player">
                 <h3>Melodies by Maze 28</h3>
-                <audio controls>
+                <audio controls id="controls">
                     <source src="audio/melodies_by_maze_28.m4a" type="audio/m4a">
                 </audio>
             </div>
             <div class="music-player">
                 <h3>Nirvana</h3>
-                <audio controls>
+                <audio controls  id="controls">
                     <source src="audio/nirvana_maze_28.mp3" type="audio/mp3">
                 </audio>
             </div>
             <div class="music-player">
                 <h3>Aggressor</h3>
-                <audio controls>
+                <audio controls  id="controls">
                     <source src="audio/Aggressor_cut.mp3" type="audio/mp3">
                 </audio>
             </div>
@@ -208,9 +72,48 @@
         </div>
     </div>
 
+
+
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>Pre-order "Into The Mind of an Overthinker"</h3>
+      <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
+        August 1st.
+      </p>
+
+      
+      <div class="preorder-buttons">
+        <!-- Pre-order button link, you can replace the # with a link to your store -->
+        <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
+
+        <!-- Optional: Add a countdown -->
+        <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
+      </div>
+    </div>
+  </section>
+
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Maze the 28th. All rights reserved.</p>
+        <section id="socials" class="platforms">
+    <a href="https://facebook.com/@Maze284" target="blank">
+      <img src="images/facebook.png" alt="facebook" class="icon-s">
+    </a>
+
+    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
+      <img src="images/instagram.png" alt="Instagram" class="icon-s">
+    </a>
+
+    <a href="https://x.com/@Maze284" target="blank">
+      <img src="images/5969020.png" alt="X" class="icon-s">
+    </a>
+
+
+    <a href="https://threads/@Maze284" target="blank">
+      <img src="images/threads.png" alt="Threads" class="icon-s">
+    </a>
+  </section>
+        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
     </footer>
 
     <!-- JavaScript for Menu, Play/Pause Button, and Countdown Timer -->
@@ -222,7 +125,7 @@
         }
 
         // Countdown Timer Functionality
-        const countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+        const countDownDate = new Date("Aug 1, 2025 23:59:59").getTime();
         const countdownInterval = setInterval(function () {
             const now = new Date().getTime();
             const timeRemaining = countDownDate - now;

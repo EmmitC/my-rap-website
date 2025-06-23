@@ -2,66 +2,80 @@
 <html lang="en">
 
 <head>
-    <!--- basic page needs
-      ================================================== -->
     <meta charset="UTF-8">
     <title> Maze the 28th,Album Information</title>
-    <!-- mobile specific metas
-      ================================================== -->
+    <link rel="icon" type="image" href="./images/maze28icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
-    <!-- CSS
-      ================================================== -->
-    <link href="AlBuMsELl.css" rel="stylesheet">
-    <style></style>
+    <link rel="stylesheet" href="./homestyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+  // Function to wrap each word with a span
+  function wrapWords(selector) {
+    document.querySelectorAll(selector).forEach(element => {
+      const words = element.innerText.split(' ');
+      element.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+    });
+
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  document.querySelectorAll('.animated-text span').forEach(span => {
+    observer.observe(span);
+  });
+  }
+
+  // Call it on your animated text
+  wrapWords('.animated-text');
+</script>
+
 </head>
 
 <header>
-    <!--h1>Into The Mind of An Overthinker</h1>
-    <h2>The album</h2>
-    <h3>By Maze the 28th</h3-->
-
-    <!--div style="text-align:center;"-->
-        <div class="padding">
-
-            <a href="index.html" target="_blank">
-                <button>Home</button>
-            </a>
-            <a href="Merch.html" target="_blank">
-                <button>Merch</button>
-            </a>
-            <a href="booking.html" target="_blank">
-                <button>Booking</button>
-            </a>
-            <a href="raps.html" target="_blank">
-                <button>Catalog</button>
-            </a>
-
-        </div>
-    <!--/div-->
+<header id="NavigationBar">
+    <nav>
+      <ul>
+         <li><a href="./index.html">Home</a></li>
+         <li><a href="./raps.html">raps</a></li>
+         <li><a href="./AlbumPromo.html" class="active">album</a></li>
+         <li><a href="./Merch.html">merch</a></li>
+        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./tours.html">Tours</a></li>
+    </ul>
+    </nav>
+  </header>
 </header>
 
 
 
 <body>
-    <div class="container">
-        <div class="page red"></div>
-        <!--div style="text-align: center;"--><!--To align text to the center-->
+    <section id="her0-image">
+        <img src="./images/albumheader.jpg" alt="">
+    </section>
+   
             <section id="AlbumIntro" class="content">
 
-                <div class="page orangered">
-                    <h1>Welcome Into the mind of an Overthinker!</h1>
-                </div>
+                <section   class="page" id="page-1">
+                    <h1>Welcome <br> <marquee behavior="spin" direction="left" >Into the mind of an Overthinker!</marquee></h1>
+                </section>
+                <hr/>
 
-                <div class="page blue">
-                    <p>Get ready to experience the unfiltered</p>
-                    <p>through the eyes of Maze 28.</p>
+                <section  class="page" id="page-2">
+                    <p>Get ready to experience the unfiltered through the eyes of Maze 28.<br/> With his Debut album</p>
+                </section>
 
-                    <p>With his Debut album</p>
-                </div>
-        </div>
-
-
+                <hr/>
+    
 
 
 
@@ -71,51 +85,48 @@
 
 
 
-        <div class="page cyan">
-            <p><strong>Into The Mind of an Overthinker</strong></p>
-        </div>
 
-        <div class="page purple">
-            <p>Taking the listeners on a journey of self-discovery,</p>
-            <p>perseverance,and empowerment.</p>
-        </div>
 
-        <div class="page blue">
-            <p>Through his raw,honest lyrics,he shares his story </p>
-            <p>of overcoming adversity,navigating relationships,</p>
-            <p>and staying true to himself.</p>
-        </div>
+        <section  class="page" id="page-3">
+            <p class="animated-text-02"><marquee behaviour="slide" direction="right">Into</marquee> 
+                <marquee behaviour="slide" direction="left">The</marquee> 
+                <marquee behaviour="slide" direction="right">Mind of an </marquee>
+                <marquee behaviour="slide" >Overthinker</marquee></p>
+        </section>
+        <hr/>
 
-        <div class="page yellow">
-            <p>With a unique blend of Hip-hop,Soul and Afro-centric elements</p>
-            <p>,his music is a reflection of his Eclectic personality,</p>
-            <p>andartistic vision.</p>
-        </div>
-
-        <div class="page limegreen">
-            <p>Join him on his sonic journey and re-discover the power of music</p>
-            <p>to inspire,heal,and uplift the soul.</p>
+        <section class="page" id="page-4">
+            <p>Taking the listeners on a journey of self-discovery,<br/> perseverance,and empowerment.</p>
+        </section>
+ <hr/>
+        <section class="page" id="page-5">
+            <p>Through his raw,honest lyrics,he shares his story <br/>of overcoming adversity,navigating relationships, and staying true to himself.</p>
+        </section>
+ <hr/>
+        <section class="page" id="page-6">
+            <p>With a unique blend of Hip-hop,Soul and Afro-centric elements<br/>,his music is a reflection of his Eclectic personality,<br/>andartistic vision.</p>
+        </section>
+ <hr/>
+        <section class="page" id="page-7">
+            <p>Join him on his sonic journey and re-discover the power of music<br/>to inspire,heal,and uplift the soul.</p>
             </section>
-        </div>
-    </div>
-    </div>
+        </section>
+         <hr/>
+    
+   
 
 
     <!--div style="text-align: center;"--><!--To align text to the center-->
-        <p>Into The Mind Of an Overthinker</p>
+        <h2>Into The Mind Of an Overthinker</h2>
         <p>Date August 1st</p>
         <div id="countdown">
             <h2>Countdown To Release</h2>
             <p id="timer"></p>
         </div>
-    </div>
-
-
-
-
+  
     <section id="preorder" class="preorder-section">
         <div class="preorder-container">
-            <h2>Pre-order "Into The Mind of an Overthinker"</h2>
+            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
             <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
                 August 1st.
             </p>
@@ -131,7 +142,26 @@
 
 
     <footer>
-        <p>&copy; 2025 Maze the 28th. All rights reserved.</p>
+        <section id="socials" class="platforms">
+    <a href="https://facebook.com/@Maze284" target="blank">
+      <img src="images/facebook.png" alt="facebook" class="icon-s">
+    </a>
+
+    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
+      <img src="images/instagram.png" alt="Instagram" class="icon-s">
+    </a>
+
+    <a href="https://x.com/@Maze284" target="blank">
+      <img src="images/5969020.png" alt="X" class="icon-s">
+    </a>
+
+
+    <a href="https://threads/@Maze284" target="blank">
+      <img src="images/threads.png" alt="Threads" class="icon-s">
+    </a>
+  </section>
+     &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
+     
     </footer>
 
 </body>

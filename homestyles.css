@@ -1,3 +1,35 @@
+:root{
+    --shade-of-red-01:#FF0000;
+    --shade-of-red-02:#830000;
+    --shade-of-red-03:#030000;
+    --shade-of-red-04:#000000;
+
+    --shade-of-yellow-01:#FF9900;
+    --shade-of-yellow-02:#834800;
+    --shade-of-yellow-03:#030200;
+    --shade-of-yellow-04:#000000;
+
+    --shade-of-green-01:#00FF00;
+    --shade-of-green-02:#00DD00;
+    --shade-of-green-03:#006900;
+    --shade-of-green-04:#020000;
+    --shade-of-green-05:#000000;
+
+    --shade-of-blue-01:#0F85FF;
+    --shade-of-blue-02:#0161C4;
+    --shade-of-blue-03:#032B55;
+    --shade-of-blue-04:#000102;
+    --shade-of-blue-05:#000000;
+
+    --background-color: #1a1a1a;
+    --accent-color:rgba(128, 128, 128, 0.2);
+    --accent-color-02:rgba(128, 128, 128, 0.1);
+    --translucent-background-color:rgba(128, 128, 128, 0.2); /* grey with 50% opacity */
+    --background-color-2:goldenrod;
+    --text-color: white;
+
+    --box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
 html {
     scroll-behavior: smooth;
 }
@@ -9,20 +41,158 @@ main {
     padding: 20px;
 }
 
+@font-face {
+  font-family: 'TrashHand';
+  src: url('./fonts/trashhand/TrashHand.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'TrashHand', cursive;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--background-color);
+  color: #eee;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-overlay{
+    position: relative;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.hero-overlay img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    font-family: 'TranshHand', cursive;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-text p{
+    font-family: 'TrashHand',cursive;
+    color:var(--shade-of-yellow-01)
+}
+
+
+
+
+/* Reset some default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+   
+/* navigation bar settings */
+
+nav{
+    background-color:var(--background-color);
+    padding:0px;
+    
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+a{
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 25px;
+}
+
+p{
+    font-size: 30px;
+}
+
+li{
+    position: relative;
+    text-decoration: none;
+    color: var(--color);
+    font-size: 18px;
+    padding:4px 0;
+    cursor: pointer;
+    font-family:var(--font-family);
+    font-weight: 700;
+}
+
+li::after{
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0px;
+    height: 4px;
+    background-color: var(--background-color-2);
+    transition: width 0.3s ease;
+}
+
+
+li:hover::after{
+    width: 100%;
+}
+
+
+/* the others */
+
+
+#introduction{
+    background-repeat: no-repeat;
+    font-family:var(--font-family)
+}
+
+#introduction img{
+    width:100%;
+    height:100%;
+    flex-wrap: wrap;
+   text-shadow: rgba(0, 0, 0, 0.2);
+
+}
+
+/* Header styles */
+header {
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;  
+}
+
+
+#hero-image,img{
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+
+/* videos section */
 
 .videos-section {
-    background-color: #1a1a1a;
-    background-image: url('images/booking.jpg');
-
+    background-color:var(--shade-of-blue-04);
     color: white;
-    padding: 40px 20px;
+    padding: 200px 10px;
     text-align: center;
 }
 
 .videos-section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
     color: #f5a623;
 }
 
@@ -35,7 +205,7 @@ main {
 
 .video {
     background-color: #333;
-    padding: 10px;
+    padding: 100px 50px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -57,15 +227,6 @@ main {
     width: 100%;
 }
 
-@media (max-width: 768px) {
-    .video {
-        width: 100%;
-    }
-}
-
-
-
-
 
 .thumbnail {
     width: 100%;
@@ -83,171 +244,197 @@ main {
 .video p {
     font-size: 1rem;
     margin-top: 10px;
-    color: #f5a623;
+    color: var(--shade-of-yellow-01);
 }
 
 
 
-/* Base styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+/* Base styles for playlist*/
 
-/* Header styles */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-}
+        /* Main Play Section */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            /* flex-wrap: wrap; */
+        }
 
-/* Hamburger icon */
-.menu-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-}
+        .music-player {
+            background: var(--translucent-background-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 550px;
+            height: 550px;
+            margin-top: 20px;
+             /* flex-wrap: wrap; */
+        }
 
-.menu-icon span {
-    height: 3px;
-    width: 100%;
-    background: white;
-    border-radius: 5px;
-}
+        .music-player h2 {
+            color: var(--shade-of-green-02);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
 
-/* Navigation menu */
-.menu {
-    display: none;
-    /* Hidden by default */
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #444;
-    list-style: none;
-    padding: 10px;
-    border-radius: 5px;
-}
+        .music-player button {
+            background-color: var(--shade-of-green-03);
+            border: none;
+            color: var();
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.menu li {
-    margin: 10px 0;
-}
+        .music-player button:hover {
+            background-color: var(--shade-of-green-03);
+        }
 
-.menu li a {
-    color: white;
-    text-decoration: none;
-}
+        /* Playlist Styling */
+        .playlist {
+            margin-top: 30px;
+            text-align: center;
+        }
 
-/* Active menu */
-.menu.active {
-    display: flex;
-}
+        .playlist audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+    audio {
+        background-color: var(--shade-of-green-03);
+        /* position:bottom; */
+    }
+
+    #controls{
+      
+        
+
+    }
 
 
 
-header.hero {
-    display: flex;
-    flex-direction: column-reverse;
-
-}
-
-header {
-    flex-wrap: nowrap;
-    text-align: center;
-    text-emphasis-position: center;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url("images/20250422_194107.jpg");
+/* Merch Section */
+.merch-section {
+    background-color: var(--translucent-background-color);
+    /* Dark background to contrast */
+    
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    /* Change to column for better positioning */
-    position: relative;
-    /* Required for absolute positioning of the blurred overlay */
-    padding: 0;
-    /* Remove any extra padding */
-    margin: 0;
-    /* Remove any margin */
+    /*prevents repetition*/
     color: #fff;
-    /* Make the text white for contrast */
+    padding: 40px;
+    text-align: center;
 }
 
-/* Background Blur */
-header.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    /* Dark overlay */
-    /*backdrop-filter: blur(10px);*/
-    /* Apply background blur */
-    z-index: -1;
-    /* Place the overlay behind the content */
-}
-
-header nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    /* Add spacing between links */
-    font-size: 1.5rem;
-    /* Make the font larger */
-    font-weight: bold;
-    /* Bold text */
-    text-transform: uppercase;
-    /* Capitalize all letters */
-    margin-top: 20px;
-    /* Add spacing from the top */
-}
-
-header nav a {
-    color: #fff;
-    /* White color for the links */
-    text-decoration: none;
-    /* Remove underline */
-    transition: color 0.3s ease, transform 0.3s ease;
-    /* Smooth hover effects */
-}
-
-header .navigate:hover {
-    background-color: #333;
-    /* Darken the background when hovered */
-}
-
-header h1 {
-    font-size: 3rem;
-    /* Larger font size for the title */
+.merch-section h2 {
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
-    /* Space between title and navigation */
 }
 
-header p {
+.merch-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    /* Space below the paragraph */
-    max-width: 600px;
-    /* Limit text width */
-    line-height: 1.5;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.5;
+}
+
+.merch-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.merch-item {
+    background-color: var(--translucent-background-color);
+    /* Slightly lighter background */
+    padding: 40px;
+    width: 250px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.merch-item:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+.merch-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.merch-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.merch-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    display: inline-block;
+    background-color: var(--shade-of-yellow-01);
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: var(--shade-of-yellow-02);
+    transform: scale(1.05);
 }
 
 
+.color-options {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.6px solid var(--shade-of-yellow-01);
+  cursor: pointer;
+  border-style: groove;
+  position:relative;
+  right: -63px;
+  top: -30px;
+ 
+}
+
+.color-circle:hover{
+    border:1.63px solid var(--shade-of-green-01);
+    transform: scale(1.05);
+
+}
 
 /*CSS(for ANIMATIONS)*/
 .fade-in {
@@ -262,23 +449,28 @@ header p {
     transform: translateY(0);
 }
 
-/*CSS (Button Hover Effect)*/
-button {
-    background-color: #000000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+.animated-text span.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-button:hover {
-    background-color: white;
-    color: #000000;
+.animated-text-02{
+    display: inline-block;
+    transform: translateX(20px);
+  transition: all 0.5s ease;
 }
+
+
+
 
 /*Responsive Design*/
-@media (max-width:1064px) {
+/* @media (max-width:1064px) { */
     h1 {
         font-size: 2em;
         align-items: center;
@@ -288,10 +480,11 @@ button:hover {
     }
 
     .icon {
-        width: 80px;
-        height: 80px;
+        width: 30px;
+        height: 30px;
     }
-
+    
+  
     .platforms {
         display: flex;
         flex-direction: column;
@@ -299,10 +492,18 @@ button:hover {
 
         justify-content: center;
     }
-}
+/* to handle the footer social media icons */
+    .icon-s{
+         width: 25px;
+        height: 25px;
+    }
 
 
-@media(max-width:768px) {
+    #fontAwesome{
+        color: var(--text-color);
+        
+    }
+
     .social-media-icons {
         display: flex;
         justify-content: space-around;
@@ -313,12 +514,12 @@ button:hover {
     .icon-link {
         margin: 0 10px;
         font-size: 24px;
-        color: #fff;
+        color: var(--text-color);
         transition: color 0.2s ease;
     }
 
     .icon-link:hover {
-        color: #ccc;
+        color:var(--text-color);
     }
 
     header h1 {
@@ -338,28 +539,32 @@ button:hover {
         /* Smaller font size on mobile */
     }
 
-    h1 {
+    
 
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        text-align: center;
-        font: size 7em;
-        letter-spacing: 2px;
-        /*Optional for a sleek look*/
-        text-transform: uppercase;
-        margin: 1000px 250px 30px;
-        /*This looks redundunt*/
+    h1,.graffiti-text {
+      font-family: 'TrashHand', cursive;
+      font-size: 100px;
+      color: var(--shade-of-yellow-01);
+      letter-spacing: 1px;
     }
 
     h2 {
         font: size 2em;
+        color: var(--shade-of-yellow-01);
     }
 
     h3 {
-        color: #ffffff;
+        color: var(--shade-of-green-02);
+        font-size: 50px;
+        text-shadow: var(--text-color);
     }
 
     p {
         line-height: 1.6;
+    }
+
+    a{
+        color: var(--shade-of-yellow-01);
     }
 
     .content {
@@ -410,59 +615,105 @@ button:hover {
         /*ensure the image is behind the content*/
     }
 
-}
+/* } */
 
 
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000000;
-    background-image: url("images/20250101_211343.jpg");
-    background-repeat: no-repeat;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-
-}
 
 .about {
     background-color: #ccc;
 }
 
-
-.navigate {
-    background-color: z-index -1;
-    border: 6px;
-    height: 20px;
-    padding: 10px;
-    width: 180px;
-    margin: 550px 10px 0 25px;
-    display: flex;
-    position: center, fixed;
-    justify-content: center;
-    text-align: center;
+button.graffiti-text{
+    background-color:var(--shade-of-green-02);
+    color: var(--text-color);
+    font-size: 30px;
+    padding-bottom: 10px;
+    
 }
-
 
 
 section {
     padding: 20px;
+  
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'); */
+
+/* this will handle the pages in the promo section */
+.page{
+      width: 100%;
+      height: 100vh;
+}
+#page-1{
+background-color: var(--shade-of-blue-04);
+
+}
+
+#page-2{
+    background-color: var(--shade-of-blue-03);
+   
+ 
+}
+ #page-2 p{
+    font-size: 80px;
+ }
 
 
+#page-3{
+    background-color: var(--shade-of-blue-02);
+    color: var(--shade-of-yellow-01);
+}
 
+#page-3 p{
+     font-size: 80px;
+     font-weight:900;
+}
+
+#page-4{
+    background-color: var(--shade-of-green-03);
+}
+
+#page-4 p{
+    font-size: 80px;
+ }
+
+
+#page-5{
+    background-color: var(--shade-of-yellow-02);
+}
+
+#page-5 p{
+    font-size: 60px;
+ }
+
+#page-6{
+    background-color: var(--shade-of-red-02);
+}
+
+#page-6 p{
+    font-size: 60px;
+ }
+
+
+#page-7{
+    background-color: var(--shade-of-yellow-02);
+}
+
+#page-7 p{
+    font-size: 60px;
+ }
+
+/* this will handle the music links and popups */
 .music-links {
     padding: 40px;
-    background-color: 800080;
+    background-color:var(--shade-of-blue-03);
 }
 
 .event-notification {
-    background-color: #FF5733;
+    background-color: var(--shade-of-yellow-02);
     /* Bright color to grab attention */
-    color: white;
+    color: var(--text-color);
     text-align: center;
     padding: 10px;
     font-size: 1.2rem;
@@ -475,7 +726,7 @@ section {
 }
 
 .event-notification a {
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
     text-decoration: underline;
 }
@@ -493,24 +744,105 @@ section {
     left: 50%;
     transform: translateX(-50%);
     background-image: url('images/AlbumArt.jpg');
-    color: white;
+    color: var(--text-color);
     padding: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow);
     z-index: 1001;
     display: none;
 }
 
 .event-popup button {
-    background-color: #f5a623;
+    background-color: var(--background-color-2);
     border: none;
-    color: white;
+    color: var(--text-color);
     padding: 5px 10px;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .event-popup button:hover {
-    background-color: #e08500;
+    background-color: var(--shade-of-yellow-01);
+}
+
+
+
+.cta-button{
+    background-color: var(--background-color-2);
+    border: none;
+}
+
+
+.booking-section {
+    background-color: var(--translucent-background-color);
+    color:var(--text-color);
+    padding: 50px;
+    text-align: center;
+}
+
+.booking-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.booking-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    
+}
+
+label {
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid var(--shade-of-yellow-01);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color:var(--text-color);
+    font-size: 1rem;
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+
+textarea {
+    height: 120px;
+}
+
+/*CSS (Button Hover Effect)*/
+
+#button {
+    background-color:var(--shade-of-green-04);
+    border: none;
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#button:hover {
+    background-color:var(--shade-of-green-03);
+    color: var(--text-color);
 }
 
 
@@ -518,9 +850,144 @@ section {
 
 
 
+.event-notification.show {
+    background-color: var(--shade-of-yellow-04);
+}
+
+
+
+.booking-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color:var(--shade-of-green-03);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    color:var(--text-color);
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.booking-cta:hover {
+    background-color: var(--accent-color);
+    color: var(--shade-of-yellow-01);
+    /* color: */
+}
+
+.cta-button{
+    background-color: var(--shade-of-yellow-01);
+    
+
+}
+
+.cta-button:hover{
+    background-color: var(--shade-of-yellow-02);
+}
+
+
+
+
+
+
+.platforms {
+    display: flex;
+    justify-content: center;
+    /* Center icons horizontally */
+    align-items: center;
+    /* Center icons vertically */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    flex-direction: row;
+    /* Align icons in a row */
+    /*-webkit-overflow-scrolling: touch;*/
+    /* Enables smooth scrolling on mobile */
+    flex-wrap: wrap;
+    /* Prevent icons from wrapping to a new line */
+    gap: 30px;
+    /* Space between icons */
+    padding: 20px;
+    /* Optional padding around the container */
+    /*scroll-snap-type: x mandatory;*/
+    /* Optional: Enables smooth snap scrolling (useful for mobile) */
+
+}
+
+.platforms .icon {
+    width: 50px;
+    /* Set the width of each icon */
+    height: 50px;
+    /* Set the height of each icon */
+    transition: transform 0.5s ease;
+    /* Smooth transition on hover */
+}
+
+.platforms .icon:hover {
+    transform: scale(1.5);
+    /* Slightly scale the icon when hovered */
+}
+
+
+
+/* Icon styles */
+.icon {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+    /* Smooth zoom effect on hover */
+}
+
+.icon:hover {
+    transform: scale(1.8);
+    /* Zoom effect on hover */
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    /* Center icons horizontally */
+    align-items: center;
+    /* Center icons vertically */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    flex-direction: row;
+    /* Align icons in a row */
+
+    /* Enables smooth scrolling on mobile */
+    flex-wrap: wrap;
+    /* Prevent icons from wrapping to a new line */
+    gap: 30px;
+    /* Space between icons */
+    padding: 20px;
+    /* Optional padding around the container */
+    scroll-snap-type: x mandatory;
+    
+}
+
+#socials{
+    background-color: var(--background-color);
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.preorder-section{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+/* booking section css */
 .booking-section {
-    background-color: #2c2f36;
-    color: white;
+    background: color z index -1px;;
+    color: var(--text-color);
     padding: 50px;
     text-align: center;
 }
@@ -557,10 +1024,10 @@ textarea {
     padding: 10px;
     width: 100%;
     max-width: 400px;
-    border: 2px solid #f5a623;
+    border: 2px solid var(--shade-of-yellow-01);
     border-radius: 5px;
-    background-color: #444;
-    color: white;
+    background-color: var(--translucent-background-color);
+    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -573,206 +1040,62 @@ textarea {
 }
 
 button {
-    background-color: black;
+    background-color: var(--shade-of-yellow-04);
     border: none;
     padding: 10px 20px;
-    color: white;
+    color: var(--text-color);
     font-size: 1.1rem;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
 }
 
-button:hover {
-    background-color: white;
+button,.cta-button,.preorder-button{
+    transition: transform 0.3s ease,var(--box-shadow);
+}
+
+button:hover,.cta-button:hover,.preorder-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0  4px 12px rgba(255,255,255,0.2);
+}
+
+.add-btn{
+    background-color: var(--translucent-background-color);
+}
+
+.add-btn:hover{
+    background-color: var(--shade-of-yellow-03);
+}
+
+
+#listen{
+    background-color: var(--shade-of-green-02);
+   
+}
+
+#listen:hover{
+    background-color: var(--shade-of-green-03);
 }
 
 
 
-.event-notification.show {
-    background-color: #000000;
-}
-
-
-
-.booking-cta {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #f5a623;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-.booking-cta:hover {
-    background-color: #d57b19;
-}
-
-
-
-
-
-
-
-
-.platforms {
-    display: flex;
-    justify-content: center;
-    /* Center icons horizontally */
-    align-items: center;
-    /* Center icons vertically */
-    overflow-x: auto;
-    /* Enables horizontal scrolling */
-    flex-direction: row;
-    /* Align icons in a row */
-    /*-webkit-overflow-scrolling: touch;*/
-    /* Enables smooth scrolling on mobile */
-    flex-wrap: nowrap;
-    /* Prevent icons from wrapping to a new line */
-    gap: 30px;
-    /* Space between icons */
-    padding: 20px;
-    /* Optional padding around the container */
-    /*scroll-snap-type: x mandatory;*/
-    /* Optional: Enables smooth snap scrolling (useful for mobile) */
-
-}
-
-.platforms .icon {
-    width: 50px;
-    /* Set the width of each icon */
-    height: 50px;
-    /* Set the height of each icon */
-    transition: transform 0.5s ease;
-    /* Smooth transition on hover */
-}
-
-.platforms .icon:hover {
-    transform: scale(1.5);
-    /* Slightly scale the icon when hovered */
-}
-
-
-
-/*general styling carousel*/
-/*
-.carousel{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-
-    margin: 20px auto;
-    max-width: 90%;
-
-}
-
-.carousel-item{
-    
-  
-display: inline-block;
-    max-width: 300px;
-
-    transition: transform 0.3s ease-in-out;
-    flex: none;
-}
-
-.carousel-item img{
-    width: 100px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease,
-    tranform 0.3s ease;
-
-}
-
-.carousel-item img:hover{
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.carousel-dots {
-    margin-top: 10px;
-}
-
-.carousel-dots span{
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    background-color: #555;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.carousel-dots span.active{
-    background-color: #fff;
-}
-*/
-
-/* Icon styles */
-.icon {
-    width: 50px;
-    height: auto;
-    transition: transform 0.3s ease;
-    /* Smooth zoom effect on hover */
-}
-
-.icon:hover {
-    transform: scale(1.1);
-    /* Zoom effect on hover */
-}
-
-.socials {
-    display: flex;
-    justify-content: center;
-    /* Center icons horizontally */
-    align-items: center;
-    /* Center icons vertically */
-    overflow-x: auto;
-    /* Enables horizontal scrolling */
-    flex-direction: row;
-    /* Align icons in a row */
-    /*-webkit-overflow-scrolling: touch;*/
-    /* Enables smooth scrolling on mobile */
-    flex-wrap: nowrap;
-    /* Prevent icons from wrapping to a new line */
-    gap: 30px;
-    /* Space between icons */
-    padding: 20px;
-    /* Optional padding around the container */
-    scroll-snap-type: x mandatory;
-    /* Optional: Enables smooth snap scrolling (useful for mobile) */
-
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 960px;
-    margin: 0 auto;
-}
 
 
 #countdown {
-    /* Dark background for contrast */
-    background-color: gray;
-    background-image: url('images/booking.jpg');
-    color: #fff;
+    background-color: var(--shade-of-red-03);
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
     /* White text for readability */
-    padding: 20px;
+    border-style:groove;
+    padding: 50px;
     /* Padding around the countdown */
     text-align: center;
     /* Center the timer text */
     border-radius: 10px;
     /* Rounded corners */
-    font-family: 'Montserrat', sans-serif;
+    font-size: 90px;
+    font-weight: bolder;
     /* Use a bold, modern font */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     /* Shadow for depth */
@@ -804,7 +1127,7 @@ display: inline-block;
     /* Add spacing for style */
     font-weight: bold;
     /* Bold text for prominence */
-    color: #f5a623;
+    color: var(--shade-of-yellow-01);
     /* A golden color to stand out */
 }
 
@@ -813,7 +1136,7 @@ display: inline-block;
     /* Make the timer big and bold */
     font-weight: 700;
     /* Make the timer text bold */
-    color: white;
+    color: var(--text-color);
     /* A vibrant color for urgency (can be red or something bright) */
     font-size: 24px;
     letter-spacing: 3px;
@@ -839,7 +1162,7 @@ display: inline-block;
 }
 
 #countdown .finished {
-    color: #6ccf8f;
+    color: var(--shade-of-green-01);
     /* Green color when finished */
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -851,9 +1174,11 @@ display: inline-block;
 
 /* Pre-order Section */
 .preorder-section {
-    background-image: url("images/AlbumArt.jpg");
+    background-image: url("images/albumheaderBlured.jpg");
+    width: 100%;
+    height: 100%;
     /* Dark background to contrast the page */
-    color: #fff;
+    color: var(--text-color);
     text-align: center;
     padding: 40px;
     margin: 40px 0;
@@ -883,9 +1208,9 @@ display: inline-block;
 }
 
 .preorder-button {
-    background-color: #f5a623;
+    background-color: var(--shade-of-yellow-01);
     /* A bright color to grab attention */
-    padding: 15px 30px;
+    padding: 10px 20px;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -895,7 +1220,7 @@ display: inline-block;
 }
 
 .preorder-button:hover {
-    background-color: #e08500;
+    background-color: var(--shade-of-yellow-01);
     transform: scale(1.05);
 }
 
@@ -907,8 +1232,8 @@ display: inline-block;
 
 .padding {
     width: 0;
-    background-color: black;
-    color: #ffffff;
+    background-color: var(--shade-of-blue-05);
+    color: var(--text-color);
     text-align: center;
     padding: 0px;
     position: relative;
@@ -916,9 +1241,10 @@ display: inline-block;
     bottom: 0;
 }
 
+/* footer section */
 footer {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: var(--background-color);
+    color:var(--text-color);
     text-align: center;
     padding: 20px;
     position: relative;
