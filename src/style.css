@@ -1,0 +1,206 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #1a1a1a;
+    overflow-x: hidden;
+}
+
+/* Navigation Styles */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9900, #00DD00);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Platform Icons */
+.platform-icon {
+    @apply text-center p-4 rounded-xl bg-maze-accent/20 backdrop-blur-sm hover:bg-maze-accent/40 transition-all duration-300;
+}
+
+/* Journey Steps */
+.journey-step {
+    position: relative;
+}
+
+.journey-step::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(180deg, transparent, #FF9900, transparent);
+    transform: translateX(-50%);
+}
+
+/* Merch Cards */
+.merch-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.merch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.merch-card:hover::before {
+    left: 100%;
+}
+
+/* Tour Dates */
+.tour-date {
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-date::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9900, #00DD00);
+    transition: width 0.3s ease;
+}
+
+.tour-date:hover::before {
+    width: 100%;
+}
+
+/* Thought Bubbles */
+.thought-bubble {
+    animation: thoughtBubble 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF9900;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #834800;
+}
+
+/* Locomotive Scroll */
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.has-scroll-smooth body {
+    overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    transform-origin: center right;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+}
+
+.c-scrollbar:hover {
+    transform: scaleX(1.45);
+}
+
+.c-scrollbar.c-scrollbar_grabbed {
+    transform: scaleX(1.45);
+}
+
+.c-scrollbar.c-scrollbar_visible {
+    opacity: 1;
+}
+
+.c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FF9900;
+    opacity: 0.5;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.c-scrollbar_thumb.c-scrollbar_thumb_grabbed {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .font-trash {
+        font-size: 2.5rem !important;
+    }
+    
+    .journey-step {
+        margin-bottom: 2rem;
+    }
+    
+    .platform-icon {
+        padding: 1rem;
+    }
+}

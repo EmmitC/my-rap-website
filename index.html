@@ -1,299 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-          <title> Maze-the-28th</title>
-             <link rel="icon" type="image" href="./images/maze28icon.png">
-               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;700&family=Oswald&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <link href="homestyles.css" rel="stylesheet">
-    <style></style>
-    
+    <meta charset="UTF-8">
+    <title>Maze the 28th - Into the Mind of an Overthinker</title>
+    <link rel="icon" type="image" href="./images/maze28icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="./src/style.css">
+    <style>
+        @font-face {
+            font-family: 'TrashHand';
+            src: url('./fonts/trashhand/TrashHand.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 
-<body>   
+<body class="bg-maze-dark text-white overflow-x-hidden" data-scroll-container>
+    <!-- Thought Bubbles Background -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="thought-bubble absolute top-20 left-10 w-16 h-16 bg-maze-yellow-100 opacity-20 rounded-full animate-thought-bubble"></div>
+        <div class="thought-bubble absolute top-40 right-20 w-12 h-12 bg-maze-green-200 opacity-15 rounded-full animate-thought-bubble" style="animation-delay: 1s;"></div>
+        <div class="thought-bubble absolute bottom-40 left-1/4 w-20 h-20 bg-maze-blue-200 opacity-10 rounded-full animate-thought-bubble" style="animation-delay: 2s;"></div>
+        <div class="thought-bubble absolute top-1/2 right-1/3 w-8 h-8 bg-maze-red-100 opacity-25 rounded-full animate-thought-bubble" style="animation-delay: 3s;"></div>
+    </div>
 
-  <header>
-  
-    <nav>
-      <ul>
-         <li><a href="./index.html" class="active">Home</a></li>
-         <li><a href="./raps.html">raps</a></li>
-         <li><a href="./AlbumPromo.html">album</a></li>
-         <li><a href="./Merch.html">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
-        <li><a href="./tours.html">Tours</a></li>
-    </ul>
+    <!-- Neural Network Background -->
+    <div class="fixed inset-0 bg-neural-pattern opacity-30 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-maze-dark/80 backdrop-blur-md border-b border-maze-accent transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-maze-yellow-100 font-trash text-2xl animate-pulse-slow">
+                    Maze 28
+                </div>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8 font-montserrat font-bold">
+                    <li><a href="#home" class="nav-link text-maze-yellow-100 hover:text-white transition-all duration-300 relative">Home</a></li>
+                    <li><a href="#music" class="nav-link text-white hover:text-maze-yellow-100 transition-all duration-300 relative">Music</a></li>
+                    <li><a href="#album" class="nav-link text-white hover:text-maze-yellow-100 transition-all duration-300 relative">Album</a></li>
+                    <li><a href="#merch" class="nav-link text-white hover:text-maze-yellow-100 transition-all duration-300 relative">Merch</a></li>
+                    <li><a href="#booking" class="nav-link text-white hover:text-maze-yellow-100 transition-all duration-300 relative">Booking</a></li>
+                    <li><a href="#tours" class="nav-link text-white hover:text-maze-yellow-100 transition-all duration-300 relative">Tours</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+                <ul class="space-y-4 font-montserrat font-bold">
+                    <li><a href="#home" class="block text-maze-yellow-100 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#music" class="block text-white hover:text-maze-yellow-100 transition-colors">Music</a></li>
+                    <li><a href="#album" class="block text-white hover:text-maze-yellow-100 transition-colors">Album</a></li>
+                    <li><a href="#merch" class="block text-white hover:text-maze-yellow-100 transition-colors">Merch</a></li>
+                    <li><a href="#booking" class="block text-white hover:text-maze-yellow-100 transition-colors">Booking</a></li>
+                    <li><a href="#tours" class="block text-white hover:text-maze-yellow-100 transition-colors">Tours</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section id="hero-image">
-    <div class="hero-overlay">
-      <img src="./images/maze28posterblack.jpg">
-      <div class="hero-text">
-        <!-- <h1>Maze the 28th</h1>
-        <p>Into the mind of an Overthinker <br/>- Out August 1st</p> -->
-      </div>
-
-    </div>
-    
-  </section>
-
-
-  <section id="introduction">
-  
-  <p>Emmit Christopher, aka Maze 28, a multi-talented artist,rapper,singer, songwriter, producer, and
-        poet,<br/> <br/>born
-        in
-        Kampala, Uganda on August 10th, 2002.<br/> <br/>
-    
-    
-      Standing at 5ft11 with dark brown eyes and black hair, I'm a creative force to be reckoned with.
-      My music is a reflection of my experiences, thoughts, and emotions, all woven together with a unique blend of
-        lyrics and
-        melodies.
-      With a passion for music and poetry, honed and refined his skills and voice.
-      Known for his story telling prowess,thought provoking lyrics,satire and social commentary,
-        on a mission to share my art with the world, inspiring and connecting with like-minded individuals along the
-        way.<br/>
-        Take a listen,to glipse Into the Mind of an Overthinker</p>
-      
-    </section>
-
-
-
-
-    <section id="catalog" class="content">
-      <h2>Streaming on</h2>
-
-      <div class="platforms">
-        <div class="platforms-item" data-aos="fade-up">
-          <a href=" https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym?si=rD0T95DjT6-liX_baGYewg" target="_blank">
-          <img src="images/spotify.png" alt="Spotify" class="icon">
-          </a>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden" data-scroll-section>
+        <div class="absolute inset-0 z-0">
+            <img src="./images/maze28posterblack.jpg" alt="Maze 28" class="w-full h-full object-cover" data-scroll data-scroll-speed="-1">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-maze-dark/50 to-maze-dark"></div>
         </div>
-
-        <div class="platforms-item">
-          <a href="https://music.apple.com/artist/myapplemusiclink" target="_blank">
-            <img src="images/apple-music-icon.png" class="icon" alt="apple-music">
-          </a>
-        </div>
-
-        <div class="platforms-item">
-          <a href="https://soundcloud.com/artist/mysoundcloudlink" target="_blank">
-          <img src="images/soundcloud.png" alt="SoundCloud" class="icon">
-          </a>
-        </div>
-
-
-        <div class="platforms-item">
-          <a href="https://www.youtube.com/artist/myyoutubechannellink" target="_blank">
-            <img src="./images/youtubecircle.png" alt="YouTube" class="icon">
-          </a>
-        </div>
-        <div class="platforms-item">
-          <a href="https://www.tic-tok.com/artist/tic-toklink" target="_blank">
-            <img src="images/tik-tok.png" alt="tik-tok" class="icon">
-          </a>
-        </div>
-
-
-        <div class="platforms-item">
-          <a href="https://www.audiomac.com/artist/myaudiomaclink" target="_blank">
-            <img src="images/audiomack-icon.png" alt="AudioMac" class="icon" >
-          </a>
-        </div>
-
-
-        <div class="platforms-item">
-          <a href="https://www.amazonmusic.com/artist/myamazonmuisiclink" target="_blank">
-            <img src="images/amazon-music-icon.png" class="icon" alt="amazon-music">
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-
-    <a href="raps.html" target="_blank">
-      <button class="graffiti-text"id="listen">Listen Up!</button>
-    </a>
-<br/> <br/> <br/>
-    <hr/>
-
-  </div>
-
-  <section id="videos" class="videos-section">
-    <div class="video-container">
-      <!-- YouTube Video -->
-      <div class="video">
-        <iframe width="100%" height="50%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <!-- Another YouTube Video -->
-      <div class="video">
-        <iframe width="100%" height="50%" src="https://www.youtube.com/embed/ANOTHER_VIDEO_ID" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
- 
- 
-
-
-
-
-  
-  <iframe src="https://open.spotify.com/embed/album/myalbumId" width="80%" height="380" frameholder="0"
-    allowtransparency="true" allow="encrypted-media">
-  </iframe>
-<br/> <br/>
-  <h2>New Album... </h2>
-  <p><strong>Into The Mind Of an Overthinker</strong><br/> Dropping on August 1st</p>
-  
-  <div id="countdown">
-    <h2>Countdown To Release</h2>
-    <p id="timer"></p>
-  </div>
-
-  <section id="preorder" class="preorder-section">
-    <div class="preorder-container">
-      <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-      <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
-        August 1st.
-      </p>
-
-      
-      <div class="preorder-buttons">
-        <!-- Pre-order button link, you can replace the # with a link to your store -->
-        <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-
-        <!-- Optional: Add a countdown -->
-        <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <div id="event-notification" class="event-notification">
-    <p>🎤 Maze the 28th's upcoming concert ticket sales start tomorrow! Don't miss out! <a
-        href="https://link-to-ticket-sales.com" class="cta-button">Get Your Tickets Now</a></p>
-  </div>
-
-
-
-  <div id="event-popup" class="event-popup">
-    <p>Tickets for Maze's upcoming concert are now available! <a href="https://link-to-ticket-sales.com"
-        class="cta-button">Buy Now</a></p>
-    <button id="close-popup">X</button>
-  </div>
-
-
-
-
-
-  <!-- Floating booking button -->
-  <div id="booking-cta" class="booking-cta">
-    <a href="booking.html">Book Maze for Your Event!</a>
-    <a href="https://preorderlink.com" class="preorder-button">
-      &#128293; Pre-order now
-    </a>
-  </div>
-
-
-
-  <div id="payment">
-    <h3>Pay for Your Booking</h3>
-    <p>To confirm your booking, please submit a deposit below.</p>
-
-    <!-- Add a PayPal button or Stripe integration -->
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
-      <input type="submit" value="Secure Your's" class="cta-button">
-    </form>
-  </div>
-
-
-  
-
-  </section>
-
-  
-
- 
-
-
-  </div>
-  <footer>
-    <section id="socials" class="platforms">
-    <a href="https://facebook.com/@Maze284" target="blank">
-      <img src="images/facebook.png" alt="facebook" class="icon-s">
-    </a>
-
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="./images/icons8-instagram.gif" alt="Instagram" class="icon-s">
-    </a>
-
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="images/5969020.png" alt="X" class="icon-s">
-    </a>
-
-
-    <a href="https://threads/@Maze284" target="blank">
-      <img src="images/threads.png" alt="Threads" class="icon-s">
-    </a>
-
-     <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram" id="fontAwesome"></a>
-             <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter" id="fontAwesome"></a>
-            <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook" id="fontAwesome"></a>
+        
+        <div class="relative z-10 text-center px-6" data-aos="fade-up" data-aos-duration="1500">
+            <h1 class="font-trash text-6xl md:text-8xl lg:text-9xl text-maze-yellow-100 mb-6 animate-glitch">
+                Maze the 28th
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-montserrat animate-fade-in" style="animation-delay: 0.5s;">
+                Into the Mind of an <span class="text-maze-green-200 font-bold">Overthinker</span>
+            </p>
+            <p class="text-lg mb-12 opacity-80 animate-fade-in" style="animation-delay: 1s;">
+                Dropping August 1st
+            </p>
             
-     &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved</p>
-     
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style="animation-delay: 1.5s;">
+                <button class="bg-maze-yellow-100 text-maze-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-maze-yellow-200 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Pre-order Now
+                </button>
+                <button class="border-2 border-maze-green-200 text-maze-green-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-maze-green-200 hover:text-maze-dark transform hover:scale-105 transition-all duration-300">
+                    Listen Now
+                </button>
+            </div>
+        </div>
 
-  </footer>
-  <script src="homestyles.js"></script>
-  <script src="script.js"></script>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-20 relative" data-scroll-section>
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="font-trash text-4xl md:text-6xl text-maze-yellow-100 mb-8">
+                    The Mind Behind the Music
+                </h2>
+                <div class="text-lg md:text-xl leading-relaxed space-y-6 font-montserrat">
+                    <p data-aos="fade-up" data-aos-delay="200">
+                        Emmit Christopher, aka <span class="text-maze-green-200 font-bold">Maze 28</span>, a multi-talented artist, rapper, singer, songwriter, producer, and poet, born in Kampala, Uganda on August 10th, 2002.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Standing at 5ft11 with dark brown eyes and black hair, I'm a creative force to be reckoned with. My music is a reflection of my experiences, thoughts, and emotions, all woven together with a unique blend of lyrics and melodies.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="600">
+                        Known for storytelling prowess, thought-provoking lyrics, satire and social commentary, on a mission to share my art with the world, inspiring and connecting with like-minded individuals along the way.
+                    </p>
+                    <p class="text-maze-yellow-100 font-bold text-xl" data-aos="fade-up" data-aos-delay="800">
+                        Take a listen, to glimpse Into the Mind of an Overthinker
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-   
+    <!-- Streaming Platforms -->
+    <section id="music" class="py-20 bg-maze-accent/20" data-scroll-section>
+        <div class="container mx-auto px-6">
+            <h2 class="font-trash text-4xl md:text-6xl text-center text-maze-yellow-100 mb-16" data-aos="fade-up">
+                Streaming On
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 max-w-6xl mx-auto">
+                <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" 
+                   class="platform-icon group" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/spotify.png" alt="Spotify" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Spotify</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/apple-music-icon.png" alt="Apple Music" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Apple Music</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="images/soundcloud.png" alt="SoundCloud" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">SoundCloud</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="images/youtubecircle.png" alt="YouTube" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">YouTube</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="images/tik-tok.png" alt="TikTok" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">TikTok</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/audiomack-icon.png" alt="Audiomack" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Audiomack</span>
+                </a>
+                
+                <a href="#" target="_blank" class="platform-icon group" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="images/amazon-music-icon.png" alt="Amazon Music" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Amazon Music</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    // Set the target date and time for the countdown
-    const countDownDate = new Date("Jul 31, 2025 23:59:59").getTime();
+    <!-- Album Journey Section -->
+    <section id="album" class="py-20 relative overflow-hidden" data-scroll-section>
+        <div class="absolute inset-0 bg-gradient-to-b from-maze-blue-300 via-maze-green-300 to-maze-red-300 opacity-20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-trash text-5xl md:text-7xl text-maze-yellow-100 mb-8">
+                    Welcome Into the Mind of an Overthinker!
+                </h2>
+            </div>
 
-    // Update the countdown every second
-    const countdownInterval = setInterval(function () {
-      const now = new Date().getTime();
-      const timeRemaining = countDownDate - now;
+            <!-- Journey Steps -->
+            <div class="space-y-32">
+                <div class="journey-step" data-aos="fade-right">
+                    <div class="bg-maze-blue-300/30 p-12 rounded-3xl backdrop-blur-sm">
+                        <h3 class="font-trash text-3xl md:text-5xl text-maze-yellow-100 mb-6">
+                            The Journey Begins
+                        </h3>
+                        <p class="text-xl font-montserrat">
+                            Get ready to experience the unfiltered through the eyes of Maze 28. With his Debut album taking listeners on a journey of self-discovery, perseverance, and empowerment.
+                        </p>
+                    </div>
+                </div>
 
-      // Calculate days, hours, minutes, and seconds
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                <div class="journey-step" data-aos="fade-left">
+                    <div class="bg-maze-green-300/30 p-12 rounded-3xl backdrop-blur-sm">
+                        <h3 class="font-trash text-3xl md:text-5xl text-maze-green-200 mb-6">
+                            Raw & Honest
+                        </h3>
+                        <p class="text-xl font-montserrat">
+                            Through his raw, honest lyrics, he shares his story of overcoming adversity, navigating relationships, and staying true to himself.
+                        </p>
+                    </div>
+                </div>
 
-      // Display the result in the element with id="timer"
-      document.getElementById("timer").innerHTML =days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                <div class="journey-step" data-aos="fade-right">
+                    <div class="bg-maze-red-300/30 p-12 rounded-3xl backdrop-blur-sm">
+                        <h3 class="font-trash text-3xl md:text-5xl text-maze-red-100 mb-6">
+                            Unique Sound
+                        </h3>
+                        <p class="text-xl font-montserrat">
+                            With a unique blend of Hip-hop, Soul and Afro-centric elements, his music is a reflection of his eclectic personality and artistic vision.
+                        </p>
+                    </div>
+                </div>
 
-      // If the countdown is over, display a message
-      if (timeRemaining < 0) {
-        clearInterval(countdownInterval);
-        document.getElementById("timer").innerHTML = "Countdown Finished!";
-      }
-    }, 1000);
+                <div class="journey-step" data-aos="fade-left">
+                    <div class="bg-maze-yellow-200/30 p-12 rounded-3xl backdrop-blur-sm">
+                        <h3 class="font-trash text-3xl md:text-5xl text-maze-yellow-100 mb-6">
+                            Sonic Journey
+                        </h3>
+                        <p class="text-xl font-montserrat">
+                            Join him on his sonic journey and re-discover the power of music to inspire, heal, and uplift the soul.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Countdown Section -->
+    <section class="py-20 bg-gradient-to-r from-maze-red-300 to-maze-blue-300" data-scroll-section>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-trash text-4xl md:text-6xl text-maze-yellow-100 mb-8" data-aos="fade-up">
+                Into The Mind Of an Overthinker
+            </h2>
+            <p class="text-2xl mb-12 font-montserrat" data-aos="fade-up" data-aos-delay="200">
+                Dropping August 1st
+            </p>
+            
+            <div class="bg-maze-dark/80 backdrop-blur-md rounded-3xl p-8 max-w-2xl mx-auto" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-2xl font-bold mb-6 text-maze-yellow-100">Countdown To Release</h3>
+                <div id="countdown-timer" class="text-4xl md:text-6xl font-bold text-white font-montserrat"></div>
+            </div>
 
-     // to handle dynamic years
-    document.addEventListener("DOMContentLoaded",()=>{
-        const yearSpan=document.getElementById("year");
-        const currentYear=new Date().getFullYear();
-        yearSpan.textContent=currentYear;
-    })
-  </script>
- </body>
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="600">
+                <button class="bg-maze-yellow-100 text-maze-dark px-12 py-4 rounded-full font-bold text-xl hover:bg-maze-yellow-200 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Pre-order Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merch Section -->
+    <section id="merch" class="py-20 bg-maze-accent/10" data-scroll-section>
+        <div class="container mx-auto px-6">
+            <h2 class="font-trash text-4xl md:text-6xl text-center text-maze-yellow-100 mb-16" data-aos="fade-up">
+                Exclusive Merch
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Merch Item 1 -->
+                <div class="merch-card bg-maze-dark/50 backdrop-blur-sm rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Merch and T-Shirts/Maze_T-shirt-white.jpg" alt="Maze T-Shirt" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Maze the 28th T-Shirt</h3>
+                        <p class="text-gray-300 mb-4">High-quality cotton T-shirt with Maze logo and branding.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-maze-yellow-100">$25.00</span>
+                            <button class="bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merch Item 2 -->
+                <div class="merch-card bg-maze-dark/50 backdrop-blur-sm rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Merch and T-Shirts/Maze_Hoodie-Grey.jpg" alt="Maze Hoodie" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Maze Grey Hoodie</h3>
+                        <p class="text-gray-300 mb-4">Limited edition album hoodie, endorsed by Maze!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-maze-yellow-100">$55.00</span>
+                            <button class="bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merch Item 3 -->
+                <div class="merch-card bg-maze-dark/50 backdrop-blur-sm rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Merch and T-Shirts/Maze_Snapback-Hat-Black.jpg" alt="Maze Hat" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Maze Snapback Hat</h3>
+                        <p class="text-gray-300 mb-4">Premium snapback hat with Maze's logo embroidered on the front.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-maze-yellow-100">$20.00</span>
+                            <button class="bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-gradient-to-b from-maze-blue-300 to-maze-green-300" data-scroll-section>
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-trash text-4xl md:text-6xl text-maze-yellow-100 mb-8" data-aos="fade-up">
+                    Book Maze the 28th
+                </h2>
+                <p class="text-xl mb-12 font-montserrat" data-aos="fade-up" data-aos-delay="200">
+                    Interested in booking Maze for a concert, private performance, or special event? Let's make it happen!
+                </p>
+
+                <form class="bg-maze-dark/80 backdrop-blur-md rounded-3xl p-8 space-y-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Your Full Name" class="bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-maze-yellow-100 transition-colors">
+                        <input type="email" placeholder="Your Email" class="bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-maze-yellow-100 transition-colors">
+                    </div>
+                    
+                    <select class="w-full bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white focus:outline-none focus:border-maze-yellow-100 transition-colors">
+                        <option value="">Select Event Type</option>
+                        <option value="concert">Concert</option>
+                        <option value="private">Private Performance</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="party">Private Party</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="date" class="bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white focus:outline-none focus:border-maze-yellow-100 transition-colors">
+                        <input type="text" placeholder="Event Location" class="bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-maze-yellow-100 transition-colors">
+                    </div>
+                    
+                    <textarea placeholder="Additional Information / Special Requests" rows="4" class="w-full bg-maze-accent/30 border border-maze-accent rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-maze-yellow-100 transition-colors resize-none"></textarea>
+                    
+                    <button type="submit" class="w-full bg-maze-yellow-100 text-maze-dark py-4 rounded-xl font-bold text-lg hover:bg-maze-yellow-200 transform hover:scale-105 transition-all duration-300">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="py-20 bg-maze-accent/20" data-scroll-section>
+        <div class="container mx-auto px-6">
+            <h2 class="font-trash text-4xl md:text-6xl text-center text-maze-yellow-100 mb-16" data-aos="fade-up">
+                Upcoming Tours
+            </h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="tour-date bg-maze-dark/50 backdrop-blur-sm rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between hover:bg-maze-dark/70 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center md:text-left mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold text-maze-yellow-100">Legends Grounds</h3>
+                        <p class="text-gray-300">Kampala, Uganda</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold">August 15, 2025</p>
+                        <button class="mt-2 bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tour-date bg-maze-dark/50 backdrop-blur-sm rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between hover:bg-maze-dark/70 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center md:text-left mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold text-maze-yellow-100">Freedom City</h3>
+                        <p class="text-gray-300">Kampala, Uganda</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold">September 2, 2025</p>
+                        <button class="mt-2 bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tour-date bg-maze-dark/50 backdrop-blur-sm rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between hover:bg-maze-dark/70 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center md:text-left mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold text-maze-yellow-100">Kololo Airstrip</h3>
+                        <p class="text-gray-300">Kampala, Uganda</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold">October 10, 2025</p>
+                        <button class="mt-2 bg-maze-green-200 text-maze-dark px-6 py-2 rounded-full font-bold hover:bg-maze-green-100 transition-colors">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maze-dark border-t border-maze-accent py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="font-trash text-3xl text-maze-yellow-100 mb-4">Follow the Journey</h3>
+                    <div class="flex space-x-6">
+                        <a href="https://facebook.com/@Maze284" target="_blank" class="social-icon hover:scale-110 transition-transform">
+                            <img src="images/facebook.png" alt="Facebook" class="w-8 h-8">
+                        </a>
+                        <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="_blank" class="social-icon hover:scale-110 transition-transform">
+                            <img src="images/instagram.png" alt="Instagram" class="w-8 h-8">
+                        </a>
+                        <a href="https://x.com/@Maze284" target="_blank" class="social-icon hover:scale-110 transition-transform">
+                            <img src="images/5969020.png" alt="X" class="w-8 h-8">
+                        </a>
+                        <a href="https://threads/@Maze284" target="_blank" class="social-icon hover:scale-110 transition-transform">
+                            <img src="images/threads.png" alt="Threads" class="w-8 h-8">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">
+                        &copy; <span id="current-year"></span> Maze 28. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button class="bg-maze-yellow-100 text-maze-dark p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 animate-pulse-slow">
+            <i class="fas fa-music text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="./src/main.js"></script>
+</body>
 </html>
