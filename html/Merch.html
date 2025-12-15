@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Maze the 28th,Merch</title>
+    <link rel="icon" type="image" href="./images/maze28icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./homestyles.css">
+    <link rel="stylesheet" href="./platform.css">
+    <link rel="stylesheet" href="./fallback.css">
+    <style></style>
+</head>
+
+<body>
+    
+
+    <header id="NavigationBar">
+    <nav>
+      <ul>
+         <li><a href="./index2.html">Home</a></li>
+         <li><a href="./raps.html">raps</a></li>
+         <li><a href="./AlbumPromo.html">album</a></li>
+         <li><a href="./Merch.html" class="active">merch</a></li>
+        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./tours.html">Tours</a></li>
+
+
+    </ul>
+    </nav>
+
+  </header>
+    
+    <section id="merch" class="merch-section">
+        <h2>Exclusive Merch</h2>
+        <p>Show your support with exclusive merch from Maze the 28th! Check out the collection below and grab yours
+            before
+            its gone.</p>
+
+            <!-- Product Listings (dynamic content loaded with JS) -->
+            <section class="max-w-6xl mx-auto px-6 py-10 slide-up" id="shop">
+    <h2 class="text-4xl font-bold mb-10 text-center">Explore Our Collection</h2>
+    <div class="category-buttons">
+      <button class="category-btn active" data-category="all">Apparel</button>
+      <button class="category-btn" data-category="men">Collectibles</button>
+      <button class="category-btn" data-category="women">Exclusive items</button>
+      <!-- <button class="category-btn" data-category="unisex" type="button">Unisex</button> -->
+      <button class="category-btn" data-category="accessories">Accessories</button>
+  
+    </div>
+    <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Product items will be rendered here -->
+    </div>
+  </section>
+
+        
+    </section>
+  <div class="New">
+       <h2>New Album... </h2>
+  <p>Into The Mind Of an Overthinker<br/> Dropping on August 1st</p>
+  
+  <div id="countdown">
+    <h2>Countdown To Release</h2>
+    <p id="timer"></p>
+  </div>
+</div>
+
+  
+
+
+
+   <section id="preorder" class="preorder-section">
+        <div class="preorder-container">
+            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
+            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
+                August 1st.
+            </p>
+            <div class="preorder-buttons">
+                <!-- Pre-order button link, you can replace the # with a link to your store -->
+                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
+                <!-- Optional: Add a countdown -->
+                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <section id="socials" class="platforms">
+       <a href="https://apple/@Maze284" target="blank">
+      <img src="./icons/apple.svg" alt="apple" class="icon-s">
+    </a>
+
+    <a href="https://discord/@Maze284" target="blank">
+      <img src="./icons/discord.svg" alt="discord" class="icon-s">
+    </a>
+
+    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
+      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
+    </a>
+
+
+    <a href="https://soundcloud/@Maze284" target="blank">
+      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
+    </a>
+
+    <a href="https://spotify/@Maze284" target="blank">
+      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
+    </a>
+
+    <a href="https://x.com/@Maze284" target="blank">
+      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
+    </a>
+
+    <a href="https://youtube/@Maze284" target="blank">
+      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
+    </a>
+
+    
+  </section>
+        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
+    </footer>
+
+    
+  <script>
+   
+
+    
+
+    const cart = [];
+document.querySelectorAll('.add-btn').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const productName = btn.parentElement.querySelector('h3').innerText;
+    cart.push(productName);
+    alert(`${productName} added to cart!`);
+  });
+});
+
+  </script>
+  <script src="./products.js"></script>
+  <script src="./year.js"></script>
+  <script src="./countdown.js"></script>
+  <script src="./pre-order.js"></script>
+</body>
+
+</html>

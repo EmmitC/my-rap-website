@@ -16,7 +16,7 @@
     <header id="NavigationBar">
     <nav>
       <ul>
-         <li><a href="./index.html">Home</a></li>
+         <li><a href="./index2.html">Home</a></li>
          <li><a href="./raps.html">raps</a></li>
          <li><a href="./AlbumPromo.html">album</a></li>
          <li><a href="./Merch.html">merch</a></li>
@@ -88,75 +88,61 @@
     <p id="timer"></p>
   </div>
 
-  <section id="preorder" class="preorder-section">
-    <div class="preorder-container">
-      <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-      <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
-        August 1st.
-      </p>
+   <section id="preorder" class="preorder-section">
+        <div class="preorder-container">
+            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
+            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
+                August 1st.
+            </p>
+            <div class="preorder-buttons">
+                <!-- Pre-order button link, you can replace the # with a link to your store -->
+                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
+                <!-- Optional: Add a countdown -->
+                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
+            </div>
+        </div>
+    </section>
 
-      
-      <div class="preorder-buttons">
-        <!-- Pre-order button link, you can replace the # with a link to your store -->
-        <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
+   <footer>
+        <section id="socials" class="platforms">
+       <a href="https://apple/@Maze284" target="blank">
+      <img src="./icons/apple.svg" alt="apple" class="icon-s">
+    </a>
 
-        <!-- Optional: Add a countdown -->
-        <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <section id="socials" class="platforms">
-    <a href="https://facebook.com/@Maze284" target="blank">
-      <img src="images/facebook.png" alt="facebook" class="icon-s">
+    <a href="https://discord/@Maze284" target="blank">
+      <img src="./icons/discord.svg" alt="discord" class="icon-s">
     </a>
 
     <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="images/instagram.png" alt="Instagram" class="icon-s">
+      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
+    </a>
+
+
+    <a href="https://soundcloud/@Maze284" target="blank">
+      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
+    </a>
+
+    <a href="https://spotify/@Maze284" target="blank">
+      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
     </a>
 
     <a href="https://x.com/@Maze284" target="blank">
-      <img src="images/5969020.png" alt="X" class="icon-s">
+      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
     </a>
 
-
-    <a href="https://threads/@Maze284" target="blank">
-      <img src="images/threads.png" alt="Threads" class="icon-s">
+    <a href="https://youtube/@Maze284" target="blank">
+      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
     </a>
+
+    
   </section>
-     &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-     
-  </footer>
+        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
+    </footer>
+
 
 </body>
-<script>
-  
+<script src="./countdown.js"></script>
+<script src="./pre-order.js"></script>
 
-    // Set the target date and time for the countdown
-    const countDownDate = new Date("Jul 31, 2025 23:59:59").getTime();
-
-    // Update the countdown every second
-    const countdownInterval = setInterval(function () {
-      const now = new Date().getTime();
-      const timeRemaining = countDownDate - now;
-
-      // Calculate days, hours, minutes, and seconds
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="timer"
-      document.getElementById("timer").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-      // If the countdown is over, display a message
-      if (timeRemaining < 0) {
-        clearInterval(countdownInterval);
-        document.getElementById("timer").innerHTML = "Countdown Finished!";
-      }
-    }, 1000);
-  </script>
 
 </html>

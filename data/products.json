@@ -1,0 +1,188 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Maze Official Logo Tee",
+      "price": 25,
+      "category": "Apparel",
+      "colors": ["#000000", "#ffffff", "#e50914"],
+      "colorImages": {
+      "#000000": "../images/Merch-and-T-Shirts/maze-official-logo-tee.jpg",
+      "#ffffff": "../images/Merch-and-T-Shirts/maze-official-logo-tee-white.jpg",
+      "#e50914": "../images/Merch-and-T-Shirts/maze-official-logo-tee-red.jpg"
+      },
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "image": "../images/Merch-and-T-Shirts/maze-official-logo-tee.jpg",
+      "description": "Premium cotton tee featuring the iconic Maze logo. Perfect for everyday wear.",
+      "stock": 15,
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Unisex Green Maze T-Shirt",
+      "price": 30,
+      "category": "Apparel",
+      "colors": ["#4a5d23", "#000000"],
+      "colorImages": {
+      "#000000": "../images/Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
+      "#ffffff": "../images/Merch and T-Shirts/--.jpg"
+      },
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "image": "../images/Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
+      "description": "Army green unisex tee with bold Maze branding. Comfortable fit for all.",
+      "stock": 22,
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Why So Serious Tee",
+      "price": 30,
+      "category": "Apparel",
+      "colors": ["#000000", "#ffffff"],
+      "colorImages": {
+      "#000000": "../images/Merch and T-Shirts/PosterMaker_18012025_150305.jpg",
+      "#ffffff": "../images/Merch and T-Shirts/PosterMaker_18012025_125035.jpg"
+      },
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "image": "../images/Merch and T-Shirts/PosterMaker_18012025_150305.jpg",
+      "description": "Statement tee, inspired by the joker.",
+      "stock": 8,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Maze Hoodie",
+      "price": 55,
+      "category": "Apparel",
+      "colors": ["#000000", "#808080"],
+      "colorImages": {
+      "#000000": "../images/Merch and T-Shirts/Maze_Hoodie-Black.jpg",
+      "#808080": "../images/Merch and T-Shirts/Maze_Hoodie-Grey.jpg"
+      },
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "image": "../images/Merch and T-Shirts/Maze_Hoodie-Black.jpg",
+      "description": "Classic black hoodie with embroidered Maze logo. Ultimate comfort meets style.",
+      "stock": 12,
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Grey Maze Hoodie",
+      "price": 55,
+      "category": "Apparel",
+      "colors": ["", "#a9a9a9"],
+      "colorImages": {
+      "#000000": "../images/Merch and T-Shirts/--.jpg",
+      "#ffffff": "../images/Merch and T-Shirts/--.jpg"
+      },
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "../images/Merch and T-Shirts/Maze_Hoodie-Grey.jpg",
+      "description": "Comfortable grey hoodie perfect for casual outings and streetwear looks.",
+      "stock": 10,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Maze Snapback Hat",
+      "price": 35,
+      "category": "Apparel",
+      "colors": ["#000000", "#ffffff"],
+      "sizes": ["One Size"],
+      "image": "../images/Merch and T-Shirts/Maze_Snapback-Hat-Black.jpg",
+      "description": "Premium snapback hat with 3D embroidered logo. Adjustable fit.",
+      "stock": 25,
+      "featured": true
+    },
+    {
+      "id": 7,
+      "title": "Maze T-Shirt",
+      "price": 28,
+      "category": "Apparel",
+      "colors": ["#ffffff","#000000"],
+      "colorImages": {
+      "#000000": "../images/Merch and T-Shirts/Maze_T-shirt-white.jpg",
+      "#ffffff": "../images/Merch and T-Shirts/Maze_T-shirt-black-basic.jpg"
+      },
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "image": "../images/Merch and T-Shirts/Maze_T-shirt-white.jpg",
+      "description": "Clean white tee with minimalist Maze branding. Essential wardrobe piece.",
+      "stock": 18,
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Statement Graphic Tee",
+      "price": 32,
+      "category": "Apparel",
+      "colors": ["#4a5d23", "#000000"],
+      "colorImages": {
+      "#4a5d23": "../images/Merch and T-Shirts/shut-the-fuck-up-tee.jpg",
+      "#000000": "../images/Merch and T-Shirts/shut-the-fuck-up-tee-black.jpg"
+      },
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "../images/Merch and T-Shirts/shut-the-fuck-up-tee.jpg",
+      "description": "Bold statement piece for those who aren't afraid to stand out.",
+      "stock": 6,
+      "featured": true
+    },
+    {
+      "id": 9,
+      "title": "Premium Silver Ring",
+      "price": 85,
+      "category": "accessories",
+      "colors": ["#c0c0c0"],
+      "sizes": ["6", "7", "8", "9", "10", "11"],
+      "image": "../images/products/silver-ring.jpg",
+      "description": "Handcrafted sterling silver ring with unique Axios design elements.",
+      "stock": 4,
+      "featured": true
+    },
+    {
+      "id": 10,
+      "title": "Comfort Sweatshirt",
+      "price": 48,
+      "category": "Apparel",
+      "colors": ["#4682b4"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "image": "../images/products/sweatshirt.jpg",
+      "description": "Ultra-soft sweatshirt perfect for lounging or casual outings.",
+      "stock": 14,
+      "featured": false
+    },
+
+    {
+      "id": 11,
+      "title": "Quit Yapping T-Shirt",
+      "price": 22,
+      "category": "Apparel",
+      "colors": ["#4a5d23", "#000000"],
+      "colorImages": {
+        "#4a5d23": "../images/Merch and T-Shirts/quitYapping.jpg",
+        "#000000": "../images/Merch and T-Shirts/quit-yapping-black-tee.jpg"
+      },
+
+      "sizes":["S", "M", "L", "XL", "XXL"],
+      "image": "../images/Merch and T-Shirts/quitYapping.jpg",
+      "description": "Warm and stylish beanie with embroidered Maze logo. Perfect for colder days.",
+      "stock": 20,
+      "featured": true
+    },
+     {
+      "id": 12,
+      "title": "I choose Violence T-Shirt",
+      "price": 22,
+      "category": "Apparel",
+      "colors": ["#000000", "#ffffff"],
+      "colorImages": {
+        "#000000": "../images/Merch and T-Shirts/I-choose-violence-duck-black.jpg",
+        "#ffffff": "../images/Merch and T-Shirts/I-choose-violence-duck-white.jpg"
+      },
+
+      "sizes": ["One Size"],
+      "image": "../images/Merch and T-Shirts/I-choose-violence-duck-black.jpg",
+      "description": "Peace was never an option,I choose Violence! T-Shirt with bold graphics. Inpired by the iconic duck meme.",
+      "stock": 20,
+      "featured": true
+    }
+  ]
+}

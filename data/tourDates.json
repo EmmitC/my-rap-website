@@ -1,0 +1,36 @@
+[
+    {
+        "City":"Kampala",
+        "location":"Lugogo",
+        "venue":"Legends Rugby Grounds",
+        "date":"15-06-2026"
+    },
+
+      {
+        "City":"Kampala",
+        "location":"Lugogo",
+        "venue":"Kyaddondo Rugby Grounds",
+        "date":"15-07-2026"
+    },
+
+      {
+        "City":"Kampala",
+        "location":"Old-Kampala",
+        "venue":"Freedom City",
+        "date":"15-08-2026"
+    },
+
+      {
+        "City":"Kampala",
+        "location":"Bweyogerere",
+        "venue":"Mandela National Stadium",
+        "date":"15-09-2026"
+    },
+    
+      {
+        "City":"Gulu",
+        "location":"Gulu city",
+        "venue":"Gulu Stadium",
+        "date":"15-09-2026"
+    }
+]

@@ -7,7 +7,7 @@
     <link rel="icon" type="image" href="./images/maze28icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./homestyles.css">
+    <link rel="stylesheet" href="../css/homestyles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -41,11 +41,11 @@
 
 </head>
 
-<header>
+
 <header id="NavigationBar">
     <nav>
       <ul>
-         <li><a href="./index.html">Home</a></li>
+         <li><a href="./index2.html">Home</a></li>
          <li><a href="./raps.html">raps</a></li>
          <li><a href="./AlbumPromo.html" class="active">album</a></li>
          <li><a href="./Merch.html">merch</a></li>
@@ -54,19 +54,19 @@
     </ul>
     </nav>
   </header>
-</header>
+
 
 
 
 <body>
     <section id="her0-image">
-        <img src="./images/albumheader.jpg" alt="">
+        <img src="../images/albumheader.jpg" alt="">
     </section>
    
-            <section id="AlbumIntro" class="content">
+            <section id="AlbumIntro" class="content"></section>
 
                 <section   class="page" id="page-1">
-                    <h1>Welcome <br> <marquee behavior="spin" direction="left" >Into the mind of an Overthinker!</marquee></h1>
+                    <h1>Welcome <br>Into the mind of an Overthinker!</h1>
                 </section>
                 <hr/>
 
@@ -87,15 +87,16 @@
 
 
 
-        <section  class="page" id="page-3">
-            <p class="animated-text-02"><marquee behaviour="slide" direction="right">Into</marquee> 
-                <marquee behaviour="slide" direction="left">The</marquee> 
-                <marquee behaviour="slide" direction="right">Mind of an </marquee>
-                <marquee behaviour="slide" >Overthinker</marquee></p>
+        <section  class="page" id="page-3" class="container">
+            <p class="animated-text-02">
+              Into 
+              The
+              Mind of an
+              Overthinker
         </section>
         <hr/>
 
-        <section class="page" id="page-4">
+        <section class="page" id="page-4" class="container">
             <p>Taking the listeners on a journey of self-discovery,<br/> perseverance,and empowerment.</p>
         </section>
  <hr/>
@@ -124,74 +125,64 @@
             <p id="timer"></p>
         </div>
   
-    <section id="preorder" class="preorder-section">
+     <section id="preorder" class="preorder-section">
         <div class="preorder-container">
             <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
+            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
                 August 1st.
             </p>
             <div class="preorder-buttons">
                 <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order Now</a>
+                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
                 <!-- Optional: Add a countdown -->
-                <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
+                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
             </div>
         </div>
     </section>
 
 
 
-    <footer>
+     <footer>
         <section id="socials" class="platforms">
-    <a href="https://facebook.com/@Maze284" target="blank">
-      <img src="images/facebook.png" alt="facebook" class="icon-s">
+       <a href="https://apple/@Maze284" target="blank">
+      <img src="../icons/apple.svg" alt="apple" class="icon-s">
+    </a>
+
+    <a href="https://discord/@Maze284" target="blank">
+      <img src="../icons/discord.svg" alt="discord" class="icon-s">
     </a>
 
     <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="images/instagram.png" alt="Instagram" class="icon-s">
+      <img src="../icons/instagram.svg" alt="Instagram" class="icon-s">
+    </a>
+
+
+    <a href="https://soundcloud/@Maze284" target="blank">
+      <img src="../icons/soundcloud.svg" alt="soundcloud" class="icon-s">
+    </a>
+
+    <a href="https://spotify/@Maze284" target="blank">
+      <img src="../icons/spotify.svg" alt="Spotify" class="icon-s">
     </a>
 
     <a href="https://x.com/@Maze284" target="blank">
-      <img src="images/5969020.png" alt="X" class="icon-s">
+      <img src="../icons/x-twitter.svg" alt="X" class="icon-s">
     </a>
 
-
-    <a href="https://threads/@Maze284" target="blank">
-      <img src="images/threads.png" alt="Threads" class="icon-s">
+    <a href="https://youtube/@Maze284" target="blank">
+      <img src="../icons/youtube.svg" alt="youtube" class="icon-s">
     </a>
+
+    
   </section>
-     &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-     
+        &copy; MAZE  28 <span id="year"></span> All rights reserved
     </footer>
 
+
 </body>
-<script>
 
-
-    // Set the target date and time for the countdown
-    const countDownDate = new Date("Jul 31, 2025 23:59:59").getTime();
-
-    // Update the countdown every second
-    const countdownInterval = setInterval(function () {
-        const now = new Date().getTime();
-        const timeRemaining = countDownDate - now;
-
-        // Calculate days, hours, minutes, and seconds
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-        // Display the result in the element with id="timer"
-        document.getElementById("timer").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-        // If the countdown is over, display a message
-        if (timeRemaining < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById("timer").innerHTML = "Countdown Finished!";
-        }
-    }, 1000);
-</script>
+<script src="../js/countdown.js"></script>
+<script src="../js/year.js"></script>
+<script src="../js/pre-order.js"></script>
 
 </html>

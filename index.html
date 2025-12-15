@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="homestyles.css">
     <style>
         @font-face {
             font-family: 'TrashHand';
@@ -30,7 +30,7 @@
     </div>
 
     <!-- Neural Network Background -->
-    <div class="fixed inset-0 bg-neural-pattern opacity-30 pointer-events-none z-0"></div>
+    <!-- <div class="fixed inset-0 bg-neural-pattern opacity-30 pointer-events-none z-0"></div> -->
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-maze-dark/80 backdrop-blur-md border-b border-maze-accent transition-all duration-300" id="navbar">
@@ -51,9 +51,9 @@
                 </ul>
 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
+                <!-- <button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
-                </button>
+                </button> -->
             </div>
 
             <!-- Mobile Menu -->
@@ -141,7 +141,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 max-w-6xl mx-auto">
                 <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" 
                    class="platform-icon group" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/spotify.png" alt="Spotify" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <img src="images/spotify.png" alt="Spotify" class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300" id="music-icon">
                     <span class="block mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Spotify</span>
                 </a>
                 
@@ -224,42 +224,49 @@
                     </div>
                 </div>
 
-                <div class="journey-step" data-aos="fade-left">
-                    <div class="bg-maze-yellow-200/30 p-12 rounded-3xl backdrop-blur-sm">
-                        <h3 class="font-trash text-3xl md:text-5xl text-maze-yellow-100 mb-6">
-                            Sonic Journey
-                        </h3>
-                        <p class="text-xl font-montserrat">
-                            Join him on his sonic journey and re-discover the power of music to inspire, heal, and uplift the soul.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Another YouTube Video -->
+      <div class="video">
+        <iframe width="100%" height="50%" src="https://www.youtube.com/embed/ANOTHER_VIDEO_ID" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+ 
+ 
 
-    <!-- Countdown Section -->
-    <section class="py-20 bg-gradient-to-r from-maze-red-300 to-maze-blue-300" data-scroll-section>
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-trash text-4xl md:text-6xl text-maze-yellow-100 mb-8" data-aos="fade-up">
-                Into The Mind Of an Overthinker
-            </h2>
-            <p class="text-2xl mb-12 font-montserrat" data-aos="fade-up" data-aos-delay="200">
-                Dropping August 1st
-            </p>
-            
-            <div class="bg-maze-dark/80 backdrop-blur-md rounded-3xl p-8 max-w-2xl mx-auto" data-aos="zoom-in" data-aos-delay="400">
-                <h3 class="text-2xl font-bold mb-6 text-maze-yellow-100">Countdown To Release</h3>
-                <div id="countdown-timer" class="text-4xl md:text-6xl font-bold text-white font-montserrat"></div>
-            </div>
 
-            <div class="mt-12" data-aos="fade-up" data-aos-delay="600">
-                <button class="bg-maze-yellow-100 text-maze-dark px-12 py-4 rounded-full font-bold text-xl hover:bg-maze-yellow-200 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    Pre-order Now
-                </button>
-            </div>
-        </div>
-    </section>
+
+
+  
+  <iframe src="https://open.spotify.com/embed/album/myalbumId" width="80%" height="380" frameholder="0"
+    allowtransparency="true" allow="encrypted-media">
+  </iframe>
+<br/> <br/>
+  <h2>New Album... </h2>
+  <p><strong>Into The Mind Of an Overthinker</strong><br/> Dropping on August 1st</p>
+  
+  <div id="countdown">
+    <h2>Countdown To Release</h2>
+    <p id="timer"></p>
+  </div>
+
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>Pre-order "Into The Mind of an Overthinker"</h3>
+      <p>Get exclusive early access to my new album! Pre-order now and be the first to listen when it drops on
+        August 1st.
+      </p>
+
+      
+      <div class="preorder-buttons">
+        <!-- Pre-order button link, you can replace the # with a link to your store -->
+        <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
+
+        <!-- Optional: Add a countdown -->
+        <p id="countdownText">Pre-order ends in: <span id="timer"></span></p>
+      </div>
+    </div>
+  </section>
 
     <!-- Merch Section -->
     <section id="merch" class="py-20 bg-maze-accent/10" data-scroll-section>

@@ -52,11 +52,23 @@ body {
   font-family: 'TrashHand', cursive;
   font-size: 18px;
   line-height: 1.5;
-  background-color: var(--background-color);
+  background-color: var(--shade-of-blue-04);
   color: #eee;
   text-align: center;
   margin: 0;
   padding: 0;
+}
+
+
+.container{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:0 36px
+}
+
+
+.New{
+    display: block;
 }
 
 .hero-overlay{
@@ -87,6 +99,17 @@ body {
 }
 
 
+.vertical-text {
+  position: relative;
+  bottom: 40px;
+  left: -50px;
+  transform: rotate(-90deg); /* rotate horizontally written text */
+  transform-origin: right bottom;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
 
 
 /* Reset some default spacing */
@@ -98,11 +121,99 @@ body {
    
 /* navigation bar settings */
 
+
+
 nav{
-    background-color:var(--background-color);
-    padding:0px;
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+
+nav a{
+  text-decoration:none;
+  padding:8px 14px;
+  font-weight:600;
+  transition:background .3s ease,color .3s ease
+}
+
+nav a:active{
+  background:var(--c-accent);
+  color:#fff;
+}
+
+nav a:hover{
+  border:1px var(--c-accent) solid;
+  border-radius: 10px;
+}
+
+.navbar-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    gap: 1.5rem;
+    cursor: pointer;
     
 }
+
+.navbar-container .navbar-menu li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    transition: all 0.7s ease;
+    border: 2px solid transparent;
+    white-space: nowrap;
+
+}
+
+
+.navbar-container .navbar-menu li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    transition: all 0.7s ease;
+    border: 2px solid transparent;
+    white-space: nowrap;
+
+}
+
+.navbar-container .navbar-menu li a:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    
+    
+} 
+
+.navbar-toggle{
+    background:transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: none;
+
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+
+/* #NavigationBar{
+    background-color: var(--shade-of-yellow-03);
+} */
 
 ul{
     display: flex;
@@ -122,6 +233,7 @@ p{
 
 li{
     position: relative;
+    list-style: none;
     text-decoration: none;
     color: var(--color);
     font-size: 18px;
@@ -259,18 +371,28 @@ z-index: -1;
             max-width: 960px;
             margin: 0 auto;
             padding: 20px;
-            /* flex-wrap: wrap; */
+            flex-wrap: wrap;
         }
-
+        #music-icon{
+            width: 25px;
+            height: 25px;
+        }
         .music-player {
-            background: var(--translucent-background-color);
-            padding: 20px;
+            background: var(--shade-of-blue-03);
+            padding: 32px;
             border-radius: 10px;
             text-align: center;
             width: 550px;
-            height: 550px;
+            height: auto;
             margin-top: 20px;
              /* flex-wrap: wrap; */
+        }
+
+        .music-player img{
+            width: 100%;
+            height: auto;
+            background-blend-mode:soft-light
+            ;
         }
 
         .music-player h2 {
@@ -280,18 +402,17 @@ z-index: -1;
         }
 
         .music-player button {
-            background-color: var(--shade-of-green-03);
+            background-color: var(--text-color);
             border: none;
-            color: var();
             padding: 10px 20px;
             font-size: 1em;
-            border-radius: 5px;
+            border-radius: 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         .music-player button:hover {
-            background-color: var(--shade-of-green-03);
+            background-color: rgb(191, 189, 189);
         }
 
         /* Playlist Styling */
@@ -302,18 +423,38 @@ z-index: -1;
 
         .playlist audio {
             width: 100%;
-            margin: 10px 0;
+            margin: 16px 0;
         }
     audio {
-        background-color: var(--shade-of-green-03);
-        /* position:bottom; */
+        width: 70%;
+        max-width: 400px;
+        flex: 1;
     }
 
-    #controls{
-      
+    .controls{
+        align-items: center;
+        gap: 16px;
+        margin: 20px 0;
+        margin-bottom: 20px;  
+
+    }
+    
+
+    #like{
+        width: 12px;
+        height: 12px;
+        border-radius: 1rem;
+        margin-bottom: 4px;
+       
+        /* padding: 10px 15px; */
+        transition: 0.2s;
+    
         
-
     }
+    
+    /* svg{
+        fill: var(--text-color);
+    } */
 
 
 
@@ -466,6 +607,8 @@ z-index: -1;
   transition: all 0.5s ease;
 }
 
+/* ....... */
+
 
 
 
@@ -522,6 +665,24 @@ z-index: -1;
         color:var(--text-color);
     }
 
+    
+header{
+  position:sticky;
+  top:16px;
+  z-index:100;
+  padding:12px 0;
+  -webkit-backdrop-filter:blur(12px);
+          backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--c-bg) 80%,transparent);
+  border-radius:var(--radius)
+}
+
+.nav-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
     header h1 {
         font-size: 2.5rem;
         /* Smaller font size on mobile */
@@ -549,7 +710,7 @@ z-index: -1;
     }
 
     h2 {
-        font: size 2em;
+        font: size 10em;
         color: var(--shade-of-yellow-01);
     }
 
@@ -619,6 +780,25 @@ z-index: -1;
 
 
 
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+
+
+html,body{
+  height:100%
+}
 
 .about {
     background-color: #ccc;
@@ -650,6 +830,14 @@ background-color: var(--shade-of-blue-04);
 
 }
 
+#page-1 h1{
+    animation: fadeIn 1s ease-in forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 #page-2{
     background-color: var(--shade-of-blue-03);
    
@@ -657,17 +845,30 @@ background-color: var(--shade-of-blue-04);
 }
  #page-2 p{
     font-size: 80px;
+    animation: slideInLeft 0.8s ease-out forwards;
  }
 
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 
 #page-3{
     background-color: var(--shade-of-blue-02);
     color: var(--shade-of-yellow-01);
+    
+    
 }
 
 #page-3 p{
      font-size: 80px;
      font-weight:900;
+     animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 #page-4{
@@ -966,7 +1167,7 @@ textarea {
 }
 
 #socials{
-    background-color: var(--background-color);
+    filter: invert();
 }
 
 .flex-container {
@@ -1173,6 +1374,7 @@ button:hover,.cta-button:hover,.preorder-button:hover{
 }
 
 /* Pre-order Section */
+
 .preorder-section {
     background-image: url("images/albumheaderBlured.jpg");
     width: 100%;
@@ -1191,13 +1393,19 @@ button:hover,.cta-button:hover,.preorder-button:hover{
     margin-bottom: 20px;
 }
 
-.preorder-container p {
-    font-size: 1.1rem;
+.preorder-container p{
+    font-size: 2.1rem;
+    font-weight: bolder;
     margin-bottom: 20px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.5;
+}
+
+#Pre-orderText p,a{
+    font-size: 2rem;
+    font-weight: bolder;
 }
 
 .preorder-buttons {
@@ -1226,8 +1434,39 @@ button:hover,.cta-button:hover,.preorder-button:hover{
 
 #countdownText {
     margin-top: 20px;
-    font-size: 1.1rem;
+    font-size: 3.1rem;
     font-weight: bold;
+}
+
+
+#Pre-ordertimer {
+    font-size: 3rem;
+    /* Make the timer big and bold */
+    font-weight: 700;
+    /* Make the timer text bold */
+    color: var(--text-color);
+    /* A vibrant color for urgency (can be red or something bright) */
+    font-size: 24px;
+    letter-spacing: 3px;
+    /* Add some spacing for effect */
+    animation: timerAnimation 1s ease-in-out infinite;
+    /* Make the numbers slightly pulse */
+}
+
+
+@keyframes Pre-ordertimerAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Slightly enlarge the timer text */
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .padding {
@@ -1251,4 +1490,137 @@ footer {
     margin-top: 10px;
     bottom: 0;
     width: 100%;
+}
+
+
+
+
+@media (min-width: 640px){
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:flex-row{
+    flex-direction: row;
+  }
+
+  .sm\:px-3{
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .sm\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+
+  .md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:col-span-1{
+    grid-column: span 1 / span 1;
+  }
+
+  .lg\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+
+  .lg\:h-auto{
+    height: auto;
+  }
+
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row{
+    flex-direction: row;
+  }
+
+  .lg\:items-center{
+    align-items: center;
+  }
+
+  .lg\:justify-between{
+    justify-content: space-between;
+  }
+
+  .lg\:px-8{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:py-24{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .lg\:py-32{
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .lg\:text-6xl{
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }

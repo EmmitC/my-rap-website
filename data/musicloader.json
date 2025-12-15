@@ -1,0 +1,37 @@
+[
+    {
+        "title":"Good Vibes",
+        "artist":"Maze 28",
+        "cover":"./images/AlbumArt.jpg",
+        "file":"./audio/Good_vibes-Maze_28(1).mp3"
+    },
+
+     {
+        "title":"Melodies",
+        "artist":"Maze 28",
+        "cover":"./images/AlbumArt.jpg",
+        "file":"./audio/melodies_by_maze_28.m4a"
+    },
+
+     {
+        "title":"Nirvana",
+        "artist":"Maze 28",
+        "cover":"./images/AlbumArt.jpg",
+        "file":"./audio/nirvana_maze_28.mp3"
+    },
+
+     {
+        "title":"Aggressor",
+        "artist":"Maze 28",
+        "cover":"./images/AlbumArt.jpg",
+        "file":"./audio/Aggressor_cut.mp3"
+    },
+
+    {
+        "title":"",
+        "artist":"",
+        "cover":"",
+        "file":""
+    }
+
+]

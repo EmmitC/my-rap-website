@@ -1,0 +1,46 @@
+.bg-\[var\(--bg\)\] {
+    background-color: var(--);
+}
+
+.bg-\[var\(--transparent\)\] {
+    background-color: var(--transparent);
+}
+
+.sticky {
+    position: sticky;
+}
+
+.top-0 {
+    top: 0px;
+}
+
+.z-50 {
+    z-index: 50;
+}
+
+.px-6 {
+    padding-left: 1.5rem /* 24px */;
+    padding-right: 1.5rem /* 24px */;
+}
+
+.py-4 {
+    padding-top: 1rem /* 16px */;
+    padding-bottom: 1rem /* 16px */;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+@media (min-width: 1024px) {
+    .lg\:flex {
+        display: flex;
+    }
+}
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
