@@ -1,149 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title> Maze the 28th,Merch</title>
-    <link rel="icon" type="image" href="./images/maze28icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./homestyles.css">
-    <link rel="stylesheet" href="./platform.css">
-    <link rel="stylesheet" href="./fallback.css">
-    <style></style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merch — Maze the 28th</title>
+  <meta name="description" content="Official Maze the 28th merchandise — tees, hoodies, hats and more.">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
+  <style>
+    /* Cart sidebar */
+    #cart-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 998;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    #cart-overlay.open { opacity: 1; visibility: visible; }
+
+    #cart-sidebar {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(400px, 100vw);
+      background: #0e0e0e;
+      border-left: 1px solid rgba(255,153,0,0.2);
+      z-index: 999;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    #cart-sidebar.open { transform: translateX(0); }
+
+    .cart-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .cart-hd h2 { font-family: 'TrashHand',cursive; font-size: 1.7rem; color: #FF9900; }
+    .cart-close { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; opacity: 0.6; transition: opacity 0.2s; }
+    .cart-close:hover { opacity: 1; }
+
+    .cart-body { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
+
+    .cart-empty-msg { text-align: center; padding: 3rem 1rem; color: rgba(255,255,255,0.35); }
+    .cart-empty-msg i { font-size: 2.5rem; color: rgba(255,153,0,0.25); margin-bottom: 0.75rem; }
+
+    .cart-item {
+      display: flex; gap: 0.9rem; align-items: center;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cart-item-img { width: 58px; height: 58px; border-radius: 8px; object-fit: cover; background: rgba(255,255,255,0.05); flex-shrink: 0; }
+    .cart-item-info { flex: 1; min-width: 0; }
+    .cart-item-name { font-weight: 700; font-size: 0.88rem; }
+    .cart-item-price { font-size: 0.82rem; color: #FF9900; font-weight: 700; }
+    .cart-item-size  { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+    .cart-qty { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.35rem; }
+    .q-btn { width: 22px; height: 22px; background: rgba(255,255,255,0.08); border: none; border-radius: 4px; color: white; cursor: pointer; font-size: 0.85rem; display:flex;align-items:center;justify-content:center;transition: background 0.2s; }
+    .q-btn:hover { background: rgba(255,153,0,0.3); }
+    .q-num { font-size: 0.82rem; font-weight: 700; min-width: 1.25rem; text-align: center; }
+    .cart-rm { background: none; border: none; color: rgba(255,255,255,0.25); cursor: pointer; font-size: 0.82rem; transition: color 0.2s; }
+    .cart-rm:hover { color: #FF3333; }
+
+    .cart-ft {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.3);
+    }
+    .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .cart-total-row span { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+    .cart-total-row strong { font-size: 1.5rem; color: #FF9900; font-weight: 900; }
+    .checkout-btn { width: 100%; background: #FF9900; color: #000; border: none; padding: 0.9rem; border-radius: 10px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; }
+    .checkout-btn:hover { background: #ffb833; transform: scale(1.02); }
+
+    #cart-toast {
+      position: fixed; bottom: 2rem; left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: #1a1a1a; border: 1px solid rgba(255,153,0,0.35);
+      color: white; padding: 0.7rem 1.5rem; border-radius: 999px;
+      font-size: 0.88rem; font-weight: 600;
+      z-index: 9999; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      white-space: nowrap;
+    }
+    #cart-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Search + sort toolbar */
+    .shop-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 180px;
+      position: relative;
+    }
+    .search-box i {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.3);
+      font-size: 0.78rem;
+      pointer-events: none;
+    }
+    .search-box input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.65rem 1rem 0.65rem 2.2rem;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .search-box input:focus {
+      border-color: rgba(255,153,0,0.4);
+      box-shadow: 0 0 0 3px rgba(255,153,0,0.1);
+    }
+    .search-box input::placeholder { color: rgba(255,255,255,0.2); }
+    .sort-select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.25s;
+    }
+    .sort-select:focus { border-color: rgba(255,153,0,0.4); }
+    .sort-select option { background: #1a1a1a; }
+
+    /* Cart FAB */
+    #cart-fab {
+      position: fixed; bottom: 2rem; right: 1.5rem; z-index: 990;
+      width: 52px; height: 52px;
+      background: #FF9900; color: #000;
+      border: none; border-radius: 50%;
+      font-size: 1.2rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,153,0,0.4);
+      transition: all 0.25s;
+    }
+    #cart-fab:hover { transform: scale(1.1); background: #ffb833; }
+    #cart-fab-badge {
+      position: absolute; top: -4px; right: -4px;
+      background: #FF3333; color: white;
+      border-radius: 50%; width: 20px; height: 20px;
+      font-size: 0.72rem; font-weight: 700;
+      display: none; align-items: center; justify-content: center;
+    }
+  </style>
 </head>
-
 <body>
-    
 
-    <header id="NavigationBar">
+  <!-- NAV -->
+  <header id="NavigationBar">
     <nav>
+      <a href="../index2.html" class="nav-brand">Maze 28</a>
       <ul>
-         <li><a href="./index2.html">Home</a></li>
-         <li><a href="./raps.html">raps</a></li>
-         <li><a href="./AlbumPromo.html">album</a></li>
-         <li><a href="./Merch.html" class="active">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./raps.html">Listen</a></li>
+        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./Merch.html" class="active">Merch</a></li>
+        <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
-
-
-    </ul>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
-
   </header>
-    
-    <section id="merch" class="merch-section">
-        <h2>Exclusive Merch</h2>
-        <p>Show your support with exclusive merch from Maze the 28th! Check out the collection below and grab yours
-            before
-            its gone.</p>
 
-            <!-- Product Listings (dynamic content loaded with JS) -->
-            <section class="max-w-6xl mx-auto px-6 py-10 slide-up" id="shop">
-    <h2 class="text-4xl font-bold mb-10 text-center">Explore Our Collection</h2>
-    <div class="category-buttons">
-      <button class="category-btn active" data-category="all">Apparel</button>
-      <button class="category-btn" data-category="men">Collectibles</button>
-      <button class="category-btn" data-category="women">Exclusive items</button>
-      <!-- <button class="category-btn" data-category="unisex" type="button">Unisex</button> -->
-      <button class="category-btn" data-category="accessories">Accessories</button>
-  
-    </div>
-    <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <!-- Product items will be rendered here -->
+  <!-- MERCH HEADER -->
+  <section id="merch" style="padding-top:3.5rem;">
+    <div class="container">
+      <h2>The Gear</h2>
+      <p>Wear the music. Every piece is part of the story.</p>
     </div>
   </section>
 
-        
-    </section>
-  <div class="New">
-       <h2>New Album... </h2>
-  <p>Into The Mind Of an Overthinker<br/> Dropping on August 1st</p>
-  
-  <div id="countdown">
-    <h2>Countdown To Release</h2>
-    <p id="timer"></p>
-  </div>
-</div>
-
-  
-
-
-
-   <section id="preorder" class="preorder-section">
-        <div class="preorder-container">
-            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
-                August 1st.
-            </p>
-            <div class="preorder-buttons">
-                <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-                <!-- Optional: Add a countdown -->
-                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
-            </div>
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="container">
+      <div class="category-buttons" id="category-buttons">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="Apparel">Apparel</button>
+        <button class="category-btn" data-category="accessories">Accessories</button>
+      </div>
+      <div class="shop-toolbar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search gear...">
         </div>
-    </section>
-
-
-
-
-    <footer>
-        <section id="socials" class="platforms">
-       <a href="https://apple/@Maze284" target="blank">
-      <img src="./icons/apple.svg" alt="apple" class="icon-s">
-    </a>
-
-    <a href="https://discord/@Maze284" target="blank">
-      <img src="./icons/discord.svg" alt="discord" class="icon-s">
-    </a>
-
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
-    </a>
-
-
-    <a href="https://soundcloud/@Maze284" target="blank">
-      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
-    </a>
-
-    <a href="https://spotify/@Maze284" target="blank">
-      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
-    </a>
-
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
-    </a>
-
-    <a href="https://youtube/@Maze284" target="blank">
-      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
-    </a>
-
-    
+        <select id="sortSelect" class="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low → High</option>
+          <option value="price-high">Price: High → Low</option>
+          <option value="name">A – Z</option>
+        </select>
+      </div>
+      <div id="productList">
+        <!-- Rendered by products.js -->
+      </div>
+    </div>
   </section>
-        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-    </footer>
 
-    
+  <!-- COUNTDOWN -->
+  <div id="countdown">
+    <h2>Next Show Countdown</h2>
+    <div class="timer-display" id="timer">
+      <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-mins">00</span><span class="timer-label">Mins</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-secs">00</span><span class="timer-label">Secs</span></div>
+    </div>
+    <p  ></p>
+  </div>
+
+  <!-- PRE-ORDER -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The debut album is out now — stream it on all platforms.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i> Stream Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cart-overlay"></div>
+  <aside id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-hd">
+      <h2><i class="fas fa-shopping-cart" style="font-size:1.3rem;margin-right:0.5rem;"></i>Cart</h2>
+      <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <div class="cart-empty-msg" id="cart-empty">
+        <i class="fas fa-shopping-bag"></i>
+        <p style="font-weight:700;">Your cart is empty</p>
+        <p style="font-size:0.82rem;">Add some merch to get started!</p>
+      </div>
+    </div>
+    <div class="cart-ft" id="cart-ft" style="display:none;">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button class="checkout-btn" id="checkout-btn"><i class="fas fa-lock" style="margin-right:0.4rem;"></i>Checkout</button>
+    </div>
+  </aside>
+
+  <!-- CART FAB -->
+  <button id="cart-fab" aria-label="Open cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-fab-badge"></span>
+  </button>
+
+  <div id="cart-toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/year.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/products.js"></script>
+  <script src="../js/countdown.js"></script>
   <script>
-   
+    /* ---- Countdown ---- */
+    (function () {
+      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      function tick() {
+        const safe = Math.max(0, target - Date.now());
+        document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
+      }
+      tick(); setInterval(tick, 1000);
+    })();
 
-    
+    /* ---- Navbar scroll ---- */
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-    const cart = [];
-document.querySelectorAll('.add-btn').forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    const productName = btn.parentElement.querySelector('h3').innerText;
-    cart.push(productName);
-    alert(`${productName} added to cart!`);
-  });
-});
+    /* ---- Cart ---- */
+    let cart = JSON.parse(localStorage.getItem('maze28cart') || '[]');
 
+    const overlay   = document.getElementById('cart-overlay');
+    const sidebar   = document.getElementById('cart-sidebar');
+    const cartBody  = document.getElementById('cart-body');
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartFt    = document.getElementById('cart-ft');
+    const cartTotal = document.getElementById('cart-total');
+    const cartFab   = document.getElementById('cart-fab');
+    const fabBadge  = document.getElementById('cart-fab-badge');
+    const toast     = document.getElementById('cart-toast');
+
+    function openCart()  { overlay.classList.add('open'); sidebar.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeCart() { overlay.classList.remove('open'); sidebar.classList.remove('open'); document.body.style.overflow = ''; }
+
+    cartFab.addEventListener('click', openCart);
+    document.getElementById('cart-close').addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      showToast('Checkout coming soon — DM @Maze284 to order!');
+    });
+
+    function saveCart() { localStorage.setItem('maze28cart', JSON.stringify(cart)); }
+
+    function renderCart() {
+      const count = cart.reduce((s,i) => s + i.qty, 0);
+      const total = cart.reduce((s,i) => s + i.price * i.qty, 0);
+
+      fabBadge.textContent   = count;
+      fabBadge.style.display = count ? 'flex' : 'none';
+      cartTotal.textContent  = '$' + total.toFixed(2);
+      cartFt.style.display   = cart.length ? 'block' : 'none';
+
+      if (!cart.length) {
+        cartBody.innerHTML = '';
+        cartBody.appendChild(cartEmpty);
+        return;
+      }
+      cartEmpty.remove();
+      cartBody.innerHTML = cart.map(item => `
+        <div class="cart-item" data-id="${item.id}">
+          <img class="cart-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-size">${item.size || ''}</div>
+            <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+            <div class="cart-qty">
+              <button class="q-btn" data-id="${item.id}" data-act="dec">−</button>
+              <span class="q-num">${item.qty}</span>
+              <button class="q-btn" data-id="${item.id}" data-act="inc">+</button>
+            </div>
+          </div>
+          <button class="cart-rm" data-id="${item.id}" aria-label="Remove"><i class="fas fa-trash"></i></button>
+        </div>
+      `).join('');
+
+      cartBody.querySelectorAll('.q-btn').forEach(b => b.addEventListener('click', () => {
+        const item = cart.find(i => i.id === b.dataset.id);
+        if (!item) return;
+        b.dataset.act === 'inc' ? item.qty++ : item.qty--;
+        if (item.qty <= 0) cart = cart.filter(i => i.id !== b.dataset.id);
+        saveCart(); renderCart();
+      }));
+      cartBody.querySelectorAll('.cart-rm').forEach(b => b.addEventListener('click', () => {
+        cart = cart.filter(i => i.id !== b.dataset.id);
+        saveCart(); renderCart();
+      }));
+    }
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    /* Intercept add-to-cart from products.js */
+    window.addToCartFromModal = function () {
+      if (!window.productModal || !window.productModal.currentProduct) return;
+      const p    = window.productModal.currentProduct;
+      const size = window.productModal.selectedSize;
+      const id   = `${p.id}-${size}`;
+      const existing = cart.find(i => i.id === id);
+      if (existing) { existing.qty++; }
+      else { cart.push({ id, name: p.title, price: p.price, img: p.image, size, qty: 1 }); }
+      saveCart(); renderCart();
+      window.productModal.close();
+      showToast(`${p.title} — added to cart`);
+    };
+
+    renderCart();
   </script>
-  <script src="./products.js"></script>
-  <script src="./year.js"></script>
-  <script src="./countdown.js"></script>
-  <script src="./pre-order.js"></script>
 </body>
-
 </html>

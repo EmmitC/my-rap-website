@@ -1,188 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title> Maze the 28th,Album Information</title>
-    <link rel="icon" type="image" href="./images/maze28icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/homestyles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script>
-  // Function to wrap each word with a span
-  function wrapWords(selector) {
-    document.querySelectorAll(selector).forEach(element => {
-      const words = element.innerText.split(' ');
-      element.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
-    });
-
-
-    const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.5
-  });
-
-  document.querySelectorAll('.animated-text span').forEach(span => {
-    observer.observe(span);
-  });
-  }
-
-  // Call it on your animated text
-  wrapWords('.animated-text');
-</script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album — Maze the 28th</title>
+  <meta name="description" content="Into the Mind of an Overthinker — debut album by Maze the 28th.">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
 </head>
+<body>
 
-
-<header id="NavigationBar">
+  <!-- ============================================================ NAV -->
+  <header id="NavigationBar">
     <nav>
+      <a href="../index2.html" class="nav-brand">Maze 28</a>
       <ul>
-         <li><a href="./index2.html">Home</a></li>
-         <li><a href="./raps.html">raps</a></li>
-         <li><a href="./AlbumPromo.html" class="active">album</a></li>
-         <li><a href="./Merch.html">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./raps.html">Listen</a></li>
+        <li><a href="./AlbumPromo.html" class="active">Album</a></li>
+        <li><a href="./Merch.html">Merch</a></li>
+        <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
-    </ul>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-
-
-
-<body>
-    <section id="her0-image">
-        <img src="../images/albumheader.jpg" alt="">
-    </section>
-   
-            <section id="AlbumIntro" class="content"></section>
-
-                <section   class="page" id="page-1">
-                    <h1>Welcome <br>Into the mind of an Overthinker!</h1>
-                </section>
-                <hr/>
-
-                <section  class="page" id="page-2">
-                    <p>Get ready to experience the unfiltered through the eyes of Maze 28.<br/> With his Debut album</p>
-                </section>
-
-                <hr/>
-    
-
-
-
-
-
-
-
-
-
-
-
-        <section  class="page" id="page-3" class="container">
-            <p class="animated-text-02">
-              Into 
-              The
-              Mind of an
-              Overthinker
-        </section>
-        <hr/>
-
-        <section class="page" id="page-4" class="container">
-            <p>Taking the listeners on a journey of self-discovery,<br/> perseverance,and empowerment.</p>
-        </section>
- <hr/>
-        <section class="page" id="page-5">
-            <p>Through his raw,honest lyrics,he shares his story <br/>of overcoming adversity,navigating relationships, and staying true to himself.</p>
-        </section>
- <hr/>
-        <section class="page" id="page-6">
-            <p>With a unique blend of Hip-hop,Soul and Afro-centric elements<br/>,his music is a reflection of his Eclectic personality,<br/>andartistic vision.</p>
-        </section>
- <hr/>
-        <section class="page" id="page-7">
-            <p>Join him on his sonic journey and re-discover the power of music<br/>to inspire,heal,and uplift the soul.</p>
-            </section>
-        </section>
-         <hr/>
-    
-   
-
-
-    <!--div style="text-align: center;"--><!--To align text to the center-->
-        <h2>Into The Mind Of an Overthinker</h2>
-        <p>Date August 1st</p>
-        <div id="countdown">
-            <h2>Countdown To Release</h2>
-            <p id="timer"></p>
-        </div>
-  
-     <section id="preorder" class="preorder-section">
-        <div class="preorder-container">
-            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
-                August 1st.
-            </p>
-            <div class="preorder-buttons">
-                <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-                <!-- Optional: Add a countdown -->
-                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
-            </div>
-        </div>
-    </section>
-
-
-
-     <footer>
-        <section id="socials" class="platforms">
-       <a href="https://apple/@Maze284" target="blank">
-      <img src="../icons/apple.svg" alt="apple" class="icon-s">
-    </a>
-
-    <a href="https://discord/@Maze284" target="blank">
-      <img src="../icons/discord.svg" alt="discord" class="icon-s">
-    </a>
-
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="../icons/instagram.svg" alt="Instagram" class="icon-s">
-    </a>
-
-
-    <a href="https://soundcloud/@Maze284" target="blank">
-      <img src="../icons/soundcloud.svg" alt="soundcloud" class="icon-s">
-    </a>
-
-    <a href="https://spotify/@Maze284" target="blank">
-      <img src="../icons/spotify.svg" alt="Spotify" class="icon-s">
-    </a>
-
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="../icons/x-twitter.svg" alt="X" class="icon-s">
-    </a>
-
-    <a href="https://youtube/@Maze284" target="blank">
-      <img src="../icons/youtube.svg" alt="youtube" class="icon-s">
-    </a>
-
-    
+  <!-- ============================================================ HERO -->
+  <section id="her0-image">
+    <img src="../images/albumheader.jpg" alt="Into the Mind of an Overthinker — Album Cover">
+    <div class="hero-overlay">
+      <h1 class="hero-title animate-fade-up">Into the Mind</h1>
+      <p class="hero-subtitle animate-fade-up delay-1">of an Overthinker</p>
+      <span class="hero-tag animate-fade-up delay-2">Debut Album  Out Now</span>
+      <div class="hero-cta animate-fade-up delay-3">
+        <a href="./raps.html" class="btn btn-primary"><i class="fas fa-play"></i> Listen Now</a>
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-spotify"></i> Spotify</a>
+      </div>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
   </section>
-        &copy; MAZE  28 <span id="year"></span> All rights reserved
-    </footer>
 
+  <!-- ============================================================ ALBUM PAGES -->
+  <section id="AlbumIntro">
 
+    <div class="page" id="page-1">
+      <div>
+        <h1>Welcome<br>Into the Mind<br>of an Overthinker</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="page" id="page-2">
+      <p>Get ready to experience the unfiltered world through the eyes of Maze 28.<br>
+      His debut album is unlike anything you've heard before.</p>
+    </div>
+    <hr>
+
+    <div class="page" id="page-3">
+      <p class="animated-text-02">Into<br>The Mind<br>of an<br>Overthinker</p>
+    </div>
+    <hr>
+
+    <div class="page" id="page-4">
+      <p>Taking listeners on a journey of self-discovery, perseverance, and empowerment.<br>
+      Every track is a chapter. Every lyric is a truth.</p>
+    </div>
+    <hr>
+
+    <div class="page" id="page-5">
+      <p>Through his raw, honest lyrics he shares his story of overcoming adversity,<br>
+      navigating relationships, and staying true to himself.</p>
+    </div>
+    <hr>
+
+    <div class="page" id="page-6">
+      <p>With a unique blend of Hip-Hop, Soul, and Afro-centric elements,<br>
+      his music is a reflection of his eclectic personality and artistic vision.</p>
+    </div>
+    <hr>
+
+    <div class="page" id="page-7">
+      <p>Join him on this sonic journey and rediscover the power of music<br>
+      to inspire, heal, and uplift the soul.</p>
+    </div>
+    <hr>
+
+  </section>
+
+  <!-- ============================================================ STREAMING CTA -->
+  <section style="padding:4rem 1.5rem;text-align:center;background:rgba(255,153,0,0.04);">
+    <h2 style="font-family:'TrashHand',cursive;font-size:clamp(1.8rem,4vw,3rem);color:#FF9900;margin-bottom:0.5rem;">Stream the Album</h2>
+    <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;font-size:0.95rem;">Available on all major platforms</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="btn btn-primary"><i class="fab fa-spotify"></i> Spotify</a>
+      <a href="./raps.html" class="btn btn-outline"><i class="fas fa-headphones"></i> Listen on Site</a>
+    </div>
+  </section>
+
+  <!-- ============================================================ COUNTDOWN -->
+  <div id="countdown">
+    <h2>Next Show Countdown</h2>
+    <div class="timer-display" id="timer">
+      <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-mins">00</span><span class="timer-label">Mins</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-secs">00</span><span class="timer-label">Secs</span></div>
+    </div>
+    <p  ></p>
+  </div>
+
+  <!-- ============================================================ PRE-ORDER -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The debut album from Maze the 28th — stream it now on all platforms or support by grabbing the merch.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i> Stream Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
+
+  <script src="../js/year.js"></script>
+  <script>
+    (function () {
+      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      function tick() {
+        const diff = target - Date.now();
+        const safe = Math.max(0, diff);
+        document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
+        if (diff <= 0) document.querySelector('#countdown h2').textContent = 'Show Is Live!';
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/countdown.js"></script>
 </body>
-
-<script src="../js/countdown.js"></script>
-<script src="../js/year.js"></script>
-<script src="../js/pre-order.js"></script>
-
 </html>

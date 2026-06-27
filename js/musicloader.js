@@ -1,42 +1,42 @@
-//fetch JSON data and rendeer music containers
+// musicloader.js — loads tracks from ../data/musicloader.json
+// NOTE: raps.html now has a full built-in player.
+// This file is kept as a fallback loader only and does nothing
+// if the built-in #track-list is already populated by inline JS.
 
+(function () {
+  const container = document.getElementById('music-player');
+  if (!container) return;
 
+  // If inline JS already populated the track list, bail out.
+  const trackList = document.getElementById('track-list');
+  if (trackList && trackList.children.length > 0) return;
 
-fetch('./data/musicloader.json')
-.then(response=> response.json())
-.then(tracks=>{
-    const musicContainer=document.getElementById('music-player');
-    musicContainer.innerHTML=""; //clear old data
+  fetch('../data/musicloader.json')
+    .then(res => res.json())
+    .then(tracks => {
+      // Filter out empty entries
+      const valid = tracks.filter(t => t.title && t.file);
+      if (!valid.length) return;
 
-    tracks.forEach(track=>{
-        const trackCard=document.createElement('div');
-
-        document.createElement('div');
-           trackCard.classList.add('track-card');
-
-           trackCard.innerHTML=`
-           <div class="music-player">
-           <h2>Now Playing<h2>
-           <img src="${track.cover}" alt="${track.title} cover" />
-
-           <h3>${track.title}</h3>
-           <p>${track.artist}</p>
-
-           <div class="controls">
+      valid.forEach(track => {
+        const card = document.createElement('div');
+        card.className = 'track-card';
+        card.innerHTML = `
+          <div class="music-player">
+            <p class="np-label">Now Playing</p>
+            ${track.cover ? `<img src="${track.cover}" alt="${track.title} cover">` : ''}
+            <h3>${track.title}</h3>
+            <p>${track.artist}</p>
             <div class="controls">
-              <button><img src="./icons/heart.svg" id="like"></button>
-              
-              <audio controls id="controls" >
-                <source src="audio/Good_vibes-Maze_28(1).mp3" type="audio/mp3">
+              <audio controls>
+                <source src="${track.file}" type="audio/mpeg">
                 Your browser does not support the audio element.
-            </audio>
-            <button class="controls"><img src="./icons/share.svg" id="like"></button>
+              </audio>
+            </div>
           </div>
-           </div>
-           `;
-           musicContainer.appendChild(trackCard);
-
-    });
-})
-
-.catch(error=> console.error('Error loading music: ',error));
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => console.warn('musicloader: could not load tracks:', err));
+})();

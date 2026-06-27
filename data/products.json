@@ -70,7 +70,7 @@
       "title": "Grey Maze Hoodie",
       "price": 55,
       "category": "Apparel",
-      "colors": ["", "#a9a9a9"],
+      "colors": ["#a9a9a9"],
       "colorImages": {
       "#000000": "../images/Merch and T-Shirts/--.jpg",
       "#ffffff": "../images/Merch and T-Shirts/--.jpg"

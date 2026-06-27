@@ -1,109 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maze 28 Rap Audios</title>
-    <link rel="icon" type="image" href="./images/maze28icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./homestyles.css">
-    <style></style>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listen — Maze the 28th</title>
+  <meta name="description" content="Stream music by Maze the 28th — rapper, producer, poet from Kampala, Uganda.">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
+  <style>
+    /* ---- Player page extras ---- */
+    #music-player { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
 
+    .player-header { text-align: center; margin-bottom: 3rem; }
+    .player-header h2 {
+      font-family: 'TrashHand', cursive;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: #FF9900;
+      margin-bottom: 0.4rem;
+    }
+    .player-header p { color: rgba(255,255,255,0.5); font-size: 0.95rem; }
+
+    /* Now-playing card */
+    #now-playing {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,153,0,0.3);
+      border-radius: 18px;
+      padding: 2rem 2rem 1.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    #np-cover {
+      width: 140px; height: 140px;
+      border-radius: 12px;
+      margin: 0 auto 1.25rem;
+      object-fit: cover;
+      box-shadow: 0 8px 40px rgba(255,153,0,0.25);
+      background: linear-gradient(135deg, #FF9900, #00DD00);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    #np-cover img { width: 100%; height: 100%; border-radius: 12px; object-fit: cover; }
+
+    .np-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.4rem; }
+
+    #np-title {
+      font-family: 'TrashHand', cursive;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #FF9900;
+      margin-bottom: 0.15rem;
+    }
+
+    #np-artist { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
+
+    /* Progress */
+    .progress-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .time-label { font-size: 0.72rem; color: rgba(255,255,255,0.35); width: 2.5rem; flex-shrink: 0; }
+    .time-label.right { text-align: right; }
+
+    #progress-bar {
+      flex: 1; height: 5px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #progress-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #FF9900, #00DD00);
+      border-radius: 3px;
+      transition: width 0.1s linear;
+      position: relative;
+    }
+
+    #progress-fill::after {
+      content: '';
+      position: absolute; right: -5px; top: -4px;
+      width: 13px; height: 13px;
+      border-radius: 50%; background: #FF9900;
+      opacity: 0; transition: opacity 0.2s;
+    }
+
+    #progress-bar:hover #progress-fill::after { opacity: 1; }
+
+    /* Controls */
+    .controls-row { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+
+    .ctrl-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 1.1rem; cursor: pointer;
+      padding: 0.35rem; transition: color 0.2s;
+    }
+    .ctrl-btn:hover { color: white; }
+    .ctrl-btn.active { color: #FF9900; }
+
+    #play-btn {
+      width: 52px; height: 52px;
+      background: #FF9900; color: #000;
+      border: none; border-radius: 50%;
+      font-size: 1.05rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    #play-btn:hover { background: #ffb833; transform: scale(1.08); box-shadow: 0 0 24px rgba(255,153,0,0.5); }
+
+    /* Volume */
+    .volume-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1rem; }
+    .vol-icon { color: rgba(255,255,255,0.4); font-size: 0.9rem; cursor: pointer; }
+    #vol-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 90px; height: 3px;
+      background: rgba(255,255,255,0.15); border-radius: 2px; outline: none; cursor: pointer;
+    }
+    #vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 12px; height: 12px;
+      background: #FF9900; border-radius: 50;
+    }
+
+    /* Track list */
+    .tracklist-title {
+      font-family: 'TrashHand', cursive;
+      font-size: 1.4rem; color: rgba(255,255,255,0.6);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .track-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.85rem 1.1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-row::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: #FF9900;
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+
+    .track-row:hover, .track-row.active {
+      background: rgba(255,153,0,0.08);
+      border-color: rgba(255,153,0,0.25);
+      transform: translateX(3px);
+    }
+
+    .track-row:hover::before, .track-row.active::before { transform: scaleY(1); }
+
+    .track-num { font-size: 0.78rem; color: rgba(255,255,255,0.3); width: 1.5rem; text-align: right; flex-shrink: 0; }
+    .track-row.active .track-num { color: #FF9900; }
+
+    .track-icon-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,153,0,0.1); border: none;
+      color: #FF9900; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+    }
+    .track-icon-btn:hover, .track-row.active .track-icon-btn {
+      background: #FF9900; color: #000;
+    }
+
+    .track-meta { flex: 1; min-width: 0; }
+    .track-name { font-weight: 700; font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .track-artist-small { font-size: 0.75rem; color: rgba(255,255,255,0.38); margin-top: 2px; }
+
+    .bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
+    .bars span { width: 3px; background: #FF9900; border-radius: 1px; }
+    .bars span:nth-child(1) { animation: barPulse 0.8s ease-in-out infinite; }
+    .bars span:nth-child(2) { animation: barPulse 0.8s ease-in-out 0.2s infinite; }
+    .bars span:nth-child(3) { animation: barPulse 0.8s ease-in-out 0.4s infinite; }
+    @keyframes barPulse { 0%,100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+
+    /* Platforms strip */
+    .platforms-strip {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      padding: 2.5rem 1.5rem;
+      background: rgba(255,153,0,0.03);
+      border-top: 1px solid rgba(255,153,0,0.1);
+    }
+    .platforms-strip a {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: all 0.25s;
+      letter-spacing: 0.3px;
+    }
+    .platforms-strip a:hover { border-color: rgba(255,153,0,0.35); color: white; background: rgba(255,153,0,0.1); }
+    .platforms-strip img { width: 18px; height: 18px; object-fit: contain; }
+  </style>
+</head>
 <body>
-     <header id="NavigationBar">
+
+  <!-- ============================================================ NAV -->
+  <header id="NavigationBar">
     <nav>
+      <a href="../index2.html" class="nav-brand">Maze 28</a>
       <ul>
-         <li><a href="./index2.html">Home</a></li>
-         <li><a href="./raps.html" class="active">raps</a></li>
-         <li><a href="./AlbumPromo.html">album</a></li>
-         <li><a href="./Merch.html">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./raps.html" class="active">Listen</a></li>
+        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./Merch.html">Merch</a></li>
+        <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
-    </ul>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
-  
+
+  <!-- ============================================================ HERO -->
   <section id="hero-image">
-    <img src="./images/maze28posterblack.jpg" alt="">
+    <img src="../images/maze28posterblack.jpg" alt="Maze the 28th">
+    <div class="hero-overlay">
+      <h1 class="hero-title animate-fade-up">Listen Up</h1>
+      <p class="hero-subtitle animate-fade-up delay-1">Straight from the mind into your ears</p>
+    </div>
   </section>
 
-    <!-- Main Music Player Section -->
-    <div class="container" id="music-player">
-
-        Now Playing Section
-        <!-- <div class="music-player" > -->
-         <!-- playlists dynamically loaded here   -->
-        <!-- </div> -->
+  <!-- ============================================================ PLAYER -->
+  <div id="music-player">
+    <div class="player-header">
+      <h2>Into the Mind of an Overthinker</h2>
+      <p>Debut album streaming everywhere</p>
     </div>
 
-    <!-- Countdown Section -->
-        <div id="countdown">
-            <h2>New Album Release</h2>
-            <p id="timer"></p>
+    <!-- Now-playing card -->
+    <div id="now-playing">
+      <div id="np-cover"><i class="fas fa-music"></i></div>
+      <div class="np-label">Now Playing</div>
+      <div id="np-title">—</div>
+      <div id="np-artist">Maze the 28th</div>
+
+      <!-- Progress bar -->
+      <div class="progress-row">
+        <span class="time-label" id="time-current">0:00</span>
+        <div id="progress-bar">
+          <div id="progress-fill"></div>
         </div>
+        <span class="time-label right" id="time-total">0:00</span>
+      </div>
 
+      <!-- Controls -->
+      <div class="controls-row">
+        <button class="ctrl-btn" id="btn-shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
+        <button class="ctrl-btn" id="btn-prev"    title="Previous"><i class="fas fa-step-backward"></i></button>
+        <button id="play-btn" title="Play / Pause"><i class="fas fa-play" id="play-icon"></i></button>
+        <button class="ctrl-btn" id="btn-next"    title="Next"><i class="fas fa-step-forward"></i></button>
+        <button class="ctrl-btn" id="btn-repeat"  title="Repeat"><i class="fas fa-redo"></i></button>
+      </div>
 
- <section id="preorder" class="preorder-section">
-        <div class="preorder-container">
-            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
-                August 1st.
-            </p>
-            <div class="preorder-buttons">
-                <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-                <!-- Optional: Add a countdown -->
-                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
-            </div>
-        </div>
-    </section>
+      <!-- Volume -->
+      <div class="volume-row">
+        <i class="fas fa-volume-down vol-icon" id="vol-icon"></i>
+        <input type="range" id="vol-slider" min="0" max="1" step="0.05" value="0.8">
+        <i class="fas fa-volume-up vol-icon"></i>
+      </div>
+    </div>
 
+    <!-- Track list (static + dynamic from JSON) -->
+    <div class="tracklist-title" p align="center">Tracks</div>
+    <div id="track-list">
+      <!-- Injected by JS -->
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <section id="socials" class="platforms">
-       <a href="https://apple/@Maze284" target="blank">
-      <img src="./icons/apple.svg" alt="apple" class="icon-s">
+  <!-- ============================================================ PLATFORM STRIP -->
+  <div class="platforms-strip">
+    <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener">
+      <img src="../icons/spotify.svg" alt="">Spotify
     </a>
+    <a href="#" target="_blank" rel="noopener"><img src="../images/apple-music-icon.png" alt="" class="icons-s">Apple Music</a>
+    <a href="#" target="_blank" rel="noopener"><img src="../icons/soundcloud.svg" alt="">SoundCloud</a>
+    <a href="#" target="_blank" rel="noopener"><img src="../icons/youtube.svg" alt="">YouTube</a>
+    <a href="#" target="_blank" rel="noopener"><img src="../images/audiomack-icon.png" alt="">Audiomack</a>
+  </div>
 
-    <a href="https://discord/@Maze284" target="blank">
-      <img src="./icons/discord.svg" alt="discord" class="icon-s">
-    </a>
+  <!-- ============================================================ COUNTDOWN -->
+  <div id="countdown">
+    <h2>Next Show Countdown</h2>
+    <div class="timer-display" id="timer">
+      <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-mins">00</span><span class="timer-label">Mins</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-secs">00</span><span class="timer-label">Secs</span></div>
+    </div>
+    <p  ></p>
+  </div>
 
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
-    </a>
-
-
-    <a href="https://soundcloud/@Maze284" target="blank">
-      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
-    </a>
-
-    <a href="https://spotify/@Maze284" target="blank">
-      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
-    </a>
-
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
-    </a>
-
-    <a href="https://youtube/@Maze284" target="blank">
-      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
-    </a>
-
-    
+  <!-- ============================================================ PRE-ORDER -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The full debut album is out now. Stream it everywhere or grab the merch to show your support.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i> Stream Now
+        </a>
+      </div>
+    </div>
   </section>
-        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-    </footer>
 
-  
+  <!-- ============================================================ FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
+
+  <script src="../js/year.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/countdown.js"></script>
+  <script>
+    /* ---- Countdown ---- */
+    (function () {
+      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      function tick() {
+        const diff = target - Date.now();
+        const safe = Math.max(0, diff);
+        document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    /* ---- Navbar scroll ---- */
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ---- Music Player ---- */
+    const TRACKS = [
+      { title: 'Good Vibes',  artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/Good_vibes-Maze_28(1).mp3' },
+      { title: 'Aggressor',   artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/Aggressor__cut.mp3' },
+      { title: 'Smile',       artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/Smile(1).mp3' },
+      { title: 'The Flames',  artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/The_flames_.mp3' },
+      { title: 'Melodies',    artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/melodies by maze 28.m4a' },
+      { title: 'Nirvana',     artist: 'Maze the 28th', cover: '../images/AlbumArt.jpg', file: '../audio/nirvana maze 28.mp3' },
+    ];
+
+    const audio      = new Audio();
+    audio.volume     = 0.8;
+    let currentIdx   = 0;
+    let isPlaying    = false;
+    let isShuffle    = false;
+    let isRepeat     = false;
+
+    const playBtn    = document.getElementById('play-btn');
+    const playIcon   = document.getElementById('play-icon');
+    const btnPrev    = document.getElementById('btn-prev');
+    const btnNext    = document.getElementById('btn-next');
+    const btnShuffle = document.getElementById('btn-shuffle');
+    const btnRepeat  = document.getElementById('btn-repeat');
+    const trackList  = document.getElementById('track-list');
+    const progressBar= document.getElementById('progress-bar');
+    const progressFill=document.getElementById('progress-fill');
+    const timeCurrent= document.getElementById('time-current');
+    const timeTotal  = document.getElementById('time-total');
+    const volSlider  = document.getElementById('vol-slider');
+    const volIcon    = document.getElementById('vol-icon');
+    const npCover    = document.getElementById('np-cover');
+    const npTitle    = document.getElementById('np-title');
+    const npArtist   = document.getElementById('np-artist');
+
+    function fmt(s) {
+      if (!s || isNaN(s)) return '0:00';
+      return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+    }
+
+    function loadTrack(idx, autoplay) {
+      const t = TRACKS[idx];
+      currentIdx = idx;
+      audio.src  = t.file;
+      npTitle.textContent  = t.title;
+      npArtist.textContent = t.artist;
+      npCover.innerHTML = `<img src="${t.cover}" alt="${t.title}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-music\\'></i>'">`;
+      renderList();
+      if (autoplay) {
+        audio.play().then(() => { isPlaying = true; updatePlayBtn(); }).catch(() => {});
+      }
+    }
+
+    function updatePlayBtn() {
+      playIcon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+    }
+
+    function renderList() {
+      trackList.innerHTML = TRACKS.map((t, i) => `
+        <div class="track-row ${i === currentIdx ? 'active' : ''}" data-idx="${i}">
+          <span class="track-num">${i + 1}</span>
+          <button class="track-icon-btn" aria-label="Play ${t.title}">
+            ${i === currentIdx && isPlaying
+              ? `<div class="bars"><span></span><span></span><span></span></div>`
+              : `<i class="fas fa-play" style="margin-left:2px;font-size:0.7rem;"></i>`}
+          </button>
+          <div class="track-meta">
+            <div class="track-name">${t.title}</div>
+            <div class="track-artist-small">${t.artist}</div>
+          </div>
+        </div>
+      `).join('');
+
+      trackList.querySelectorAll('.track-row').forEach(row => {
+        row.addEventListener('click', () => {
+          const idx = parseInt(row.dataset.idx);
+          if (idx === currentIdx && isPlaying) {
+            audio.pause(); isPlaying = false; updatePlayBtn(); renderList();
+          } else {
+            loadTrack(idx, true);
+          }
+        });
+      });
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (!audio.src) { loadTrack(0, true); return; }
+      if (isPlaying) { audio.pause(); isPlaying = false; }
+      else           { audio.play().catch(()=>{}); isPlaying = true; }
+      updatePlayBtn(); renderList();
+    });
+
+    btnPrev.addEventListener('click', () => {
+      if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+      loadTrack((currentIdx - 1 + TRACKS.length) % TRACKS.length, isPlaying);
+    });
+
+    btnNext.addEventListener('click', () => {
+      const next = isShuffle
+        ? (()=>{ let r; do { r = Math.floor(Math.random()*TRACKS.length); } while(r===currentIdx&&TRACKS.length>1); return r; })()
+        : (currentIdx + 1) % TRACKS.length;
+      loadTrack(next, isPlaying);
+    });
+
+    btnShuffle.addEventListener('click', () => {
+      isShuffle = !isShuffle;
+      btnShuffle.classList.toggle('active', isShuffle);
+    });
+
+    btnRepeat.addEventListener('click', () => {
+      isRepeat = !isRepeat;
+      btnRepeat.classList.toggle('active', isRepeat);
+      audio.loop = isRepeat;
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      timeCurrent.textContent  = fmt(audio.currentTime);
+      timeTotal.textContent    = fmt(audio.duration);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (!isRepeat) btnNext.click();
+    });
+
+    audio.addEventListener('play',  () => { isPlaying = true;  updatePlayBtn(); renderList(); });
+    audio.addEventListener('pause', () => { isPlaying = false; updatePlayBtn(); renderList(); });
+
+    progressBar.addEventListener('click', e => {
+      if (!audio.duration) return;
+      const pct = (e.clientX - progressBar.getBoundingClientRect().left) / progressBar.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+
+    volSlider.addEventListener('input', () => {
+      audio.volume = volSlider.value;
+      volIcon.className = audio.volume < 0.1 ? 'fas fa-volume-mute vol-icon' : audio.volume < 0.5 ? 'fas fa-volume-down vol-icon' : 'fas fa-volume-up vol-icon';
+    });
+
+    volIcon.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      volIcon.className = audio.muted ? 'fas fa-volume-mute vol-icon' : 'fas fa-volume-up vol-icon';
+    });
+
+    // Init
+    renderList();
+    loadTrack(0, false);
+  </script>
 </body>
-<script src="./pre-order.js"></script>
-<script src="./countdown.js"></script>
-<script src="./hamburger.js"></script>
-<script src="./musicloader.js"></script>
-<script src="./year.js"></script>
-
 </html>

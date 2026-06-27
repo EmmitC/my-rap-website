@@ -324,13 +324,13 @@ class ProductModal {
   }
 }
 
-// Initialize managers
-let productManager;
-let productModal;
+// Initialize managers — var so window.productManager / window.productModal resolve correctly
+var productManager;
+var productModal;
 
 document.addEventListener('DOMContentLoaded', () => {
   productManager = new ProductManager();
-  productModal = new ProductModal();
+  productModal   = new ProductModal();
 });
 
 // Global functions

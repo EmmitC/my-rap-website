@@ -1,148 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title> Maze the 28th,Booking</title>
-  <link rel="icon" type="image" href="./images/maze28icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&displ=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./homestyles.css">
-  <style></style>
+  <title>Booking — Maze the 28th</title>
+  <meta name="description" content="Book Maze the 28th for concerts, private performances, and events.">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
 </head>
-
 <body>
-  <header>
-    <header id="NavigationBar">
+
+  <!-- NAV -->
+  <header id="NavigationBar">
     <nav>
+      <a href="../index2.html" class="nav-brand">Maze 28</a>
       <ul>
-         <li><a href="./index2.html">Home</a></li>
-         <li><a href="./raps.html">raps</a></li>
-         <li><a href="./AlbumPromo.html">album</a></li>
-         <li><a href="./Merch.html">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./raps.html">Listen</a></li>
+        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./Merch.html">Merch</a></li>
+        <li><a href="./booking.html" class="active">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
-    </ul>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  </header>
-  <section id="booking" class="booking-section">
-    <h2>Book Maze the 28th for Your Event</h2>
-    <p>Interested in booking Maze for a concert, private performance, or special event? Fill out the form below and
-      we’ll
-      get back to you as soon as possible!</p>
+  <!-- BOOKING SECTION -->
+  <section id="booking" style="min-height:100vh; padding-top: calc(var(--nav-h) + 3rem);">
+    <div class="container">
+      <h2>Work With Maze</h2>
+      <p>Live sets, collabs, features, private events — if you've got a vision, reach out.<br>Every conversation starts here.</p>
 
-    <form action="your-server-side-processing-link" method="POST">
-      <label for="name">Your Full Name:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Your Email Address:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="event-type">Event Type:</label>
-      <select id="event-type" name="event-type">
-        <option value="concert">Concert</option>
-        <option value="private-performance">Private Performance</option>
-        <option value="corporate-event">Corporate Event</option>
-        <option value="party">Private Party</option>
-        <option value="other">Other</option>
-      </select>
-
-      <label for="event-date">Preferred Event Date:</label>
-      <input type="date" id="event-date" name="event-date" required>
-
-      <label for="event-location">Event Location (City, Country):</label>
-      <input type="text" id="event-location" name="event-location" required>
-
-      <label for="message">Additional Information / Special Requests:</label>
-      <textarea id="message" name="message"></textarea>
-
-      <button type="submit" id="button">Submit Request</button>
-    </form>
-  </section>
-
-
-<div style="text-align: center;"><!--To align text to the center-->
-  <div id="payment">
-    <h3>Pay for Your Booking</h3>
-    <p>To confirm your booking, please submit a deposit below.</p>
-    <!-- Add a PayPal button or Stripe integration -->
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
-      <input type="submit" value="Pay Now" class="cta-button">
-    </form>
-  </div>
-
-
-
-  <div id="confirmation-message" class="confirmation-message">
-    <h3>Thank you for your booking request!</h3>
-    <p>We'll review your submission and get back to you shortly with more details.</p>
-  </div>
-</div>
-
- <div id="countdown">
-    <h2>Countdown To Release</h2>
-    <p id="timer"></p>
-  </div>
-
-   <section id="preorder" class="preorder-section">
-        <div class="preorder-container">
-            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
-                August 1st.
-            </p>
-            <div class="preorder-buttons">
-                <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-                <!-- Optional: Add a countdown -->
-                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
-            </div>
+      <form id="booking-form" novalidate>
+        <div class="form-row-2">
+          <div>
+            <label for="b-name">Full Name</label>
+            <input type="text"  id="b-name"     name="name"      placeholder="Your full name"   required autocomplete="name">
+          </div>
+          <div>
+            <label for="b-email">Email Address</label>
+            <input type="email" id="b-email"    name="email"     placeholder="your@email.com"   required autocomplete="email">
+          </div>
         </div>
-    </section>
 
-   <footer>
-        <section id="socials" class="platforms">
-       <a href="https://apple/@Maze284" target="blank">
-      <img src="./icons/apple.svg" alt="apple" class="icon-s">
-    </a>
+        <div>
+          <label for="b-type">Event Type</label>
+          <select id="b-type" name="event-type" required>
+            <option value="" disabled selected>Select event type…</option>
+            <option value="concert">Concert / Show</option>
+            <option value="private-performance">Private Performance</option>
+            <option value="corporate-event">Corporate Event</option>
+            <option value="party">Private Party</option>
+            <option value="collab">Collaboration / Feature</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-    <a href="https://discord/@Maze284" target="blank">
-      <img src="./icons/discord.svg" alt="discord" class="icon-s">
-    </a>
+        <div class="form-row-2">
+          <div>
+            <label for="b-date">Preferred Date</label>
+            <input type="date" id="b-date" name="event-date" required>
+          </div>
+          <div>
+            <label for="b-location">Location (City, Country)</label>
+            <input type="text" id="b-location" name="event-location" placeholder="Kampala, Uganda" required>
+          </div>
+        </div>
 
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
-    </a>
+        <div>
+          <label for="b-budget">Estimated Budget (USD)</label>
+          <select id="b-budget" name="budget">
+            <option value="" disabled selected>Select a range…</option>
+            <option value="under-500">Under $500</option>
+            <option value="500-2000">$500 – $2,000</option>
+            <option value="2000-5000">$2,000 – $5,000</option>
+            <option value="5000+">$5,000+</option>
+            <option value="negotiable">Let's negotiate</option>
+          </select>
+        </div>
 
+        <div>
+          <label for="b-message">Additional Info / Special Requests</label>
+          <textarea id="b-message" name="message" placeholder="Tell Maze about your event, expected attendance, special requirements…"></textarea>
+        </div>
 
-    <a href="https://soundcloud/@Maze284" target="blank">
-      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
-    </a>
+        <button type="submit" id="button">
+          <i class="fas fa-paper-plane" style="margin-right:0.45rem;"></i>Send Request
+        </button>
+      </form>
 
-    <a href="https://spotify/@Maze284" target="blank">
-      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
-    </a>
+      <!-- Success state -->
+      <div id="confirmation-message" role="status" aria-live="polite">
+        <h3><i class="fas fa-check-circle" style="color:#00DD00;margin-right:0.5rem;"></i>Request Sent!</h3>
+        <p>Thanks for reaching out — Maze will be in touch within 48 hours.</p>
+      </div>
 
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
-    </a>
-
-    <a href="https://youtube/@Maze284" target="blank">
-      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
-    </a>
-
-    
+      <!-- Deposit / payment -->
+      <div id="payment">
+        <h3><i class="fas fa-lock" style="margin-right:0.4rem;font-size:1.1rem;"></i>Secure Your Booking</h3>
+        <p>Once your booking is confirmed, submit a deposit below to lock in your date.</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
+          <input type="hidden" name="cmd"              value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
+          <input type="submit" value="Pay Deposit via PayPal" class="cta-button">
+        </form>
+      </div>
+    </div>
   </section>
-        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-    </footer>
+
+  <!-- COUNTDOWN -->
+  <div id="countdown">
+    <h2>Next Show Countdown</h2>
+    <div class="timer-display" id="timer">
+      <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-mins">00</span><span class="timer-label">Mins</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-secs">00</span><span class="timer-label">Secs</span></div>
+    </div>
+    <p id="finished-msg"></p>
+  </div>
+
+  <!-- PRE-ORDER -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The debut album from Maze the 28th is out now on all platforms.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i>Stream Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
+
+  <script src="../js/year.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/countdown.js"></script>
+  <script>
+    /* ---- Countdown ---- */
+    (function () {
+      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      function tick() {
+        const safe = Math.max(0, target - Date.now());
+        document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    /* ---- Navbar scroll ---- */
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
 
+    /* ---- Form submit ---- */
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+
+      const btn = document.getElementById('button');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right:0.45rem;"></i>Sending…';
+
+      const name     = document.getElementById('b-name').value;
+      const email    = document.getElementById('b-email').value;
+      const type     = document.getElementById('b-type').value;
+      const date     = document.getElementById('b-date').value;
+      const location = document.getElementById('b-location').value;
+      const budget   = document.getElementById('b-budget').value;
+      const message  = document.getElementById('b-message').value;
+
+      const subject = encodeURIComponent(`Booking Enquiry — ${name}`);
+      const body    = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nEvent Type: ${type}\nDate: ${date}\nLocation: ${location}\nBudget: ${budget}\n\nMessage:\n${message}`
+      );
+
+      setTimeout(() => {
+        window.location.href = `mailto:maze28bookings@gmail.com?subject=${subject}&body=${body}`;
+        this.style.display = 'none';
+        document.getElementById('confirmation-message').style.display = 'block';
+      }, 700);
+    });
+  </script>
 </body>
-<script src="./countdown.js"></script>
-<script src="./pre-order.js"></script>
-
-
 </html>

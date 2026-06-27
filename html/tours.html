@@ -1,102 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image" href="./images/maze28icon.png">
-    <title>Tours</title>
-    <link href="homestyles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tours — Maze the 28th</title>
+  <meta name="description" content="Upcoming tour dates and live shows for Maze the 28th.">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
 </head>
 <body>
-     <header id="NavigationBar">
+
+  <!-- NAV -->
+  <header id="NavigationBar">
     <nav>
+      <a href="../index2.html" class="nav-brand">Maze 28</a>
       <ul>
-         <li><a href="./index2.html">Home</a></li>
-         <li><a href="./raps.html">raps</a></li>
-         <li><a href="./AlbumPromo.html">album</a></li>
-         <li><a href="./Merch.html">merch</a></li>
-        <li><a href="./booking.html">booking</a></li>
+        <li><a href="./raps.html">Listen</a></li>
+        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./Merch.html">Merch</a></li>
+        <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html" class="active">Tours</a></li>
-    </ul>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-   <section id="hero-image">
-    <img src="./images/maze28posterblack.jpg">
+  <!-- HERO -->
+  <section id="hero-image">
+    <img src="../images/maze28posterblack.jpg" alt="Maze the 28th Live">
+    <div class="hero-overlay">
+      <h1 class="hero-title animate-fade-up">Live</h1>
+      <p class="hero-subtitle animate-fade-up delay-1">Every performance is personal.</p>
+      <div class="hero-cta animate-fade-up delay-2">
+        <a href="./booking.html" class="btn btn-primary"><i class="fas fa-ticket-alt"></i> Book a Show</a>
+      </div>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
   </section>
 
+  <!-- TOUR DATES -->
   <section id="tour-dates">
-    <h2 class="section-title">Upcoming Tour Dates</h2>
+    <div class="container">
+      <h2 class="section-title">Upcoming Shows</h2>
+      <p class="section-sub">All dates are subject to change — follow <strong style="color:#FF9900;">@Maze284</strong> for updates</p>
+
+      <!-- Loading state -->
+      <div id="tours-loading" style="text-align:center;padding:3rem;color:rgba(255,255,255,0.35);">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#FF9900;margin-bottom:0.75rem;display:block;"></i>
+        Loading shows…
+      </div>
 
       <div id="tour-cards-container"></div>
 
-
+      <!-- No dates fallback (hidden until needed) -->
+      <div id="tours-empty" style="display:none;text-align:center;padding:3rem;color:rgba(255,255,255,0.35);">
+        <i class="fas fa-calendar-times" style="font-size:2.5rem;color:rgba(255,153,0,0.3);margin-bottom:1rem;display:block;"></i>
+        <p style="font-weight:700;">No upcoming shows right now.</p>
+        <p style="font-size:0.88rem;margin-top:0.4rem;">Check back soon or <a href="./booking.html" style="color:#FF9900;font-weight:700;">book a private show</a>.</p>
+      </div>
+    </div>
   </section>
 
-<!-- imagine loading all these with a json file or api -->
-<div id="countdown">
-    <h2>Countdown To Release</h2>
-    <p id="timer"></p>
+  <!-- COUNTDOWN -->
+  <div id="countdown">
+    <h2>Next Show Countdown</h2>
+    <div class="timer-display">
+      <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-mins">00</span><span class="timer-label">Mins</span></div>
+      <div class="timer-block"><span class="timer-num" id="t-secs">00</span><span class="timer-label">Secs</span></div>
+    </div>
+    <p id="timer" style="display:none;"></p>
   </div>
 
- <section id="preorder" class="preorder-section">
-        <div class="preorder-container">
-            <h3>Pre-order "Into The Mind of an Overthinker"</h3>
-            <p>Get exclusive early access to my new album! Be the first to listen when it drops on
-                August 1st.
-            </p>
-            <div class="preorder-buttons">
-                <!-- Pre-order button link, you can replace the # with a link to your store -->
-                <a href="https://yourpreorderlink.com" class="preorder-button">Pre-order</a>
-                <!-- Optional: Add a countdown -->
-                <p id="Pre-orderText">Ends in: <span id="Pre-ordertimer"></span></p>
-            </div>
-        </div>
-    </section>
-
-    
-    <footer>
-        <section id="socials" class="platforms">
-       <a href="https://apple/@Maze284" target="blank">
-      <img src="./icons/apple.svg" alt="apple" class="icon-s">
-    </a>
-
-    <a href="https://discord/@Maze284" target="blank">
-      <img src="./icons/discord.svg" alt="discord" class="icon-s">
-    </a>
-
-    <a href="https://instagram.com/@KING_MAZE_THE_28TH" target="blank">
-      <img src="./icons/instagram.svg" alt="Instagram" class="icon-s">
-    </a>
-
-
-    <a href="https://soundcloud/@Maze284" target="blank">
-      <img src="./icons/soundcloud.svg" alt="soundcloud" class="icon-s">
-    </a>
-
-    <a href="https://spotify/@Maze284" target="blank">
-      <img src="./icons/spotify.svg" alt="Spotify" class="icon-s">
-    </a>
-
-    <a href="https://x.com/@Maze284" target="blank">
-      <img src="./icons/x-twitter.svg" alt="X" class="icon-s">
-    </a>
-
-    <a href="https://youtube/@Maze284" target="blank">
-      <img src="./icons/youtube.svg" alt="youtube" class="icon-s">
-    </a>
-
-    
+  <!-- PRE-ORDER -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The debut album is out now — stream it everywhere.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i>Stream Now
+        </a>
+      </div>
+    </div>
   </section>
-        &copy; MAZE  28 <span id="year"></span> Maze28. All rights reserved
-    </footer>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
 
+  <script src="../js/year.js"></script>
+  <script src="../js/tourdata.js"></script>
+  <script>
+    /* ---- Countdown ---- */
+    (function () {
+      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      function tick() {
+        const safe = Math.max(0, target - Date.now());
+        document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
+      }
+      tick(); setInterval(tick, 1000);
+    })();
 
-  <script src="./countdown.js"></script>
-  <script src="./year.js"></script>
-  <script src="./tourdata.js"></script>
-  <script src="./pre-order.js"></script>
- 
+    /* ---- Navbar scroll ---- */
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/countdown.js"></script>
 </body>
 </html>
