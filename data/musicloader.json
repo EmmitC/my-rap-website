@@ -56,6 +56,24 @@
       "lyrics": "Lyrics for \"Nirvana\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
     },
     {
+      "slug": "gang-vibe-freestyle",
+      "title": "Gang Vibe Freestyle",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/gang-vibe-freestyle.m4a",
+      "lyrics": "Lyrics for \"Gang Vibe Freestyle\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "legend",
+      "title": "Legend",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/legend.mp3",
+      "lyrics": "Lyrics for \"Legend\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
       "slug": "the-overthinker",
       "title": "The Overthinker",
       "tag": "Intro",
