@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tours — Maze the 28th</title>
   <meta name="description" content="Upcoming tour dates and live shows for Maze the 28th.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tours — Maze the 28th">
+  <meta property="og:description" content="Upcoming tour dates and live shows for Maze the 28th.">
+  <meta property="og:image" content="https://mazethe28th.com/images/maze28posterblack.jpg">
+  <meta property="og:url" content="https://mazethe28th.com/html/tours.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tours — Maze the 28th">
+  <meta name="twitter:description" content="Upcoming tour dates and live shows for Maze the 28th.">
+  <meta name="twitter:image" content="https://mazethe28th.com/images/maze28posterblack.jpg">
   <link rel="icon" type="image/png" href="../images/maze28icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +26,19 @@
   <!-- NAV -->
   <header id="NavigationBar">
     <nav>
-      <a href="../index2.html" class="nav-brand">Maze 28</a>
+      <a href="../index.html" class="nav-brand">Maze 28</a>
       <ul>
-        <li><a href="./raps.html">Listen</a></li>
-        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html#mixtapes">Listen</a></li>
+        <li class="nav-has-dropdown">
+          <a href="./collections.html">Collections</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="./collections.html#mixtapes">Mixtapes</a></li>
+            <li><a href="./collections.html#demos">Demos</a></li>
+            <li><a href="./AlbumPromo.html">Albums</a></li>
+          </ul>
+        </li>
+        <li><a href="./media.html">Media</a></li>
         <li><a href="./Merch.html">Merch</a></li>
         <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html" class="active">Tours</a></li>
@@ -67,6 +85,15 @@
     </div>
   </section>
 
+  <!-- PAST SHOWS (hidden until populated) -->
+  <section id="past-shows-section" class="section section-alt" style="display:none;padding-top:2rem;">
+    <div class="container">
+      <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Past Shows</h2>
+      <p class="section-sub">The story so far</p>
+      <div id="past-cards-container"></div>
+    </div>
+  </section>
+
   <!-- COUNTDOWN -->
   <div id="countdown">
     <h2>Next Show Countdown</h2>
@@ -110,9 +137,10 @@
   <script src="../js/year.js"></script>
   <script src="../js/tourdata.js"></script>
   <script>
-    /* ---- Countdown ---- */
+    /* ---- Countdown (target set dynamically by js/tourdata.js once the real
+       next-show date is known; falls back to this placeholder until then) ---- */
     (function () {
-      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      let target = new Date("Jun 15, 2026 18:00:00").getTime();
       function tick() {
         const safe = Math.max(0, target - Date.now());
         document.getElementById('t-days').textContent  = String(Math.floor(safe / 86400000)).padStart(2,'0');
@@ -121,6 +149,7 @@
         document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
       }
       tick(); setInterval(tick, 1000);
+      window.addEventListener('next-show-date', e => { target = e.detail.getTime(); tick(); });
     })();
 
     /* ---- Navbar scroll ---- */
@@ -129,6 +158,5 @@
     }, { passive: true });
   </script>
   <script src="../js/nav.js"></script>
-  <script src="../js/countdown.js"></script>
 </body>
 </html>

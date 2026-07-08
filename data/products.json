@@ -5,14 +5,9 @@
       "title": "Maze Official Logo Tee",
       "price": 25,
       "category": "Apparel",
-      "colors": ["#000000", "#ffffff", "#e50914"],
-      "colorImages": {
-      "#000000": "../images/Merch-and-T-Shirts/maze-official-logo-tee.jpg",
-      "#ffffff": "../images/Merch-and-T-Shirts/maze-official-logo-tee-white.jpg",
-      "#e50914": "../images/Merch-and-T-Shirts/maze-official-logo-tee-red.jpg"
-      },
+      "colors": ["#000000"],
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-      "image": "../images/Merch-and-T-Shirts/maze-official-logo-tee.jpg",
+      "image": "../images/Merch and T-Shirts/maze-official-logo-tee.jpg",
       "description": "Premium cotton tee featuring the iconic Maze logo. Perfect for everyday wear.",
       "stock": 15,
       "featured": true
@@ -22,11 +17,7 @@
       "title": "Unisex Green Maze T-Shirt",
       "price": 30,
       "category": "Apparel",
-      "colors": ["#4a5d23", "#000000"],
-      "colorImages": {
-      "#000000": "../images/Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
-      "#ffffff": "../images/Merch and T-Shirts/--.jpg"
-      },
+      "colors": ["#4a5d23"],
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
       "image": "../images/Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
       "description": "Army green unisex tee with bold Maze branding. Comfortable fit for all.",
@@ -71,10 +62,6 @@
       "price": 55,
       "category": "Apparel",
       "colors": ["#a9a9a9"],
-      "colorImages": {
-      "#000000": "../images/Merch and T-Shirts/--.jpg",
-      "#ffffff": "../images/Merch and T-Shirts/--.jpg"
-      },
       "sizes": ["S", "M", "L", "XL"],
       "image": "../images/Merch and T-Shirts/Maze_Hoodie-Grey.jpg",
       "description": "Comfortable grey hoodie perfect for casual outings and streetwear looks.",
@@ -86,7 +73,7 @@
       "title": "Maze Snapback Hat",
       "price": 35,
       "category": "Apparel",
-      "colors": ["#000000", "#ffffff"],
+      "colors": ["#000000"],
       "sizes": ["One Size"],
       "image": "../images/Merch and T-Shirts/Maze_Snapback-Hat-Black.jpg",
       "description": "Premium snapback hat with 3D embroidered logo. Adjustable fit.",
@@ -100,8 +87,8 @@
       "category": "Apparel",
       "colors": ["#ffffff","#000000"],
       "colorImages": {
-      "#000000": "../images/Merch and T-Shirts/Maze_T-shirt-white.jpg",
-      "#ffffff": "../images/Merch and T-Shirts/Maze_T-shirt-black-basic.jpg"
+      "#ffffff": "../images/Merch and T-Shirts/Maze_T-shirt-white.jpg",
+      "#000000": "../images/Merch and T-Shirts/maze-tee-black-basic.jpg"
       },
       "sizes": ["XS", "S", "M", "L", "XL"],
       "image": "../images/Merch and T-Shirts/Maze_T-shirt-white.jpg",

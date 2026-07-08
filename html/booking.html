@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking — Maze the 28th</title>
   <meta name="description" content="Book Maze the 28th for concerts, private performances, and events.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Booking — Maze the 28th">
+  <meta property="og:description" content="Book Maze the 28th for concerts, private performances, and events.">
+  <meta property="og:image" content="https://mazethe28th.com/images/booking.jpg">
+  <meta property="og:url" content="https://mazethe28th.com/html/booking.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Booking — Maze the 28th">
+  <meta name="twitter:description" content="Book Maze the 28th for concerts, private performances, and events.">
+  <meta name="twitter:image" content="https://mazethe28th.com/images/booking.jpg">
   <link rel="icon" type="image/png" href="../images/maze28icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +26,19 @@
   <!-- NAV -->
   <header id="NavigationBar">
     <nav>
-      <a href="../index2.html" class="nav-brand">Maze 28</a>
+      <a href="../index.html" class="nav-brand">Maze 28</a>
       <ul>
-        <li><a href="./raps.html">Listen</a></li>
-        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html#mixtapes">Listen</a></li>
+        <li class="nav-has-dropdown">
+          <a href="./collections.html">Collections</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="./collections.html#mixtapes">Mixtapes</a></li>
+            <li><a href="./collections.html#demos">Demos</a></li>
+            <li><a href="./AlbumPromo.html">Albums</a></li>
+          </ul>
+        </li>
+        <li><a href="./media.html">Media</a></li>
         <li><a href="./Merch.html">Merch</a></li>
         <li><a href="./booking.html" class="active">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
@@ -156,7 +174,6 @@
 
   <script src="../js/year.js"></script>
   <script src="../js/nav.js"></script>
-  <script src="../js/countdown.js"></script>
   <script>
     /* ---- Countdown ---- */
     (function () {

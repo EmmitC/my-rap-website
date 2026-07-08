@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merch — Maze the 28th</title>
   <meta name="description" content="Official Maze the 28th merchandise — tees, hoodies, hats and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Merch — Maze the 28th">
+  <meta property="og:description" content="Official Maze the 28th merchandise — tees, hoodies, hats and more.">
+  <meta property="og:image" content="https://mazethe28th.com/images/maze28image2.jpg">
+  <meta property="og:url" content="https://mazethe28th.com/html/Merch.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Merch — Maze the 28th">
+  <meta name="twitter:description" content="Official Maze the 28th merchandise — tees, hoodies, hats and more.">
+  <meta name="twitter:image" content="https://mazethe28th.com/images/maze28image2.jpg">
   <link rel="icon" type="image/png" href="../images/maze28icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,10 +179,19 @@
   <!-- NAV -->
   <header id="NavigationBar">
     <nav>
-      <a href="../index2.html" class="nav-brand">Maze 28</a>
+      <a href="../index.html" class="nav-brand">Maze 28</a>
       <ul>
-        <li><a href="./raps.html">Listen</a></li>
-        <li><a href="./AlbumPromo.html">Album</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html#mixtapes">Listen</a></li>
+        <li class="nav-has-dropdown">
+          <a href="./collections.html">Collections</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="./collections.html#mixtapes">Mixtapes</a></li>
+            <li><a href="./collections.html#demos">Demos</a></li>
+            <li><a href="./AlbumPromo.html">Albums</a></li>
+          </ul>
+        </li>
+        <li><a href="./media.html">Media</a></li>
         <li><a href="./Merch.html" class="active">Merch</a></li>
         <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
@@ -212,6 +230,7 @@
           <option value="name">A – Z</option>
         </select>
       </div>
+      <p id="resultCount" style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin:-1.25rem 0 1.5rem;"></p>
       <div id="productList">
         <!-- Rendered by products.js -->
       </div>
@@ -263,7 +282,7 @@
   <aside id="cart-sidebar" aria-label="Shopping cart">
     <div class="cart-hd">
       <h2><i class="fas fa-shopping-cart" style="font-size:1.3rem;margin-right:0.5rem;"></i>Cart</h2>
-      <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+      <button class="cart-close" id="cart-close" aria-label="Close cart"><i class="fas fa-times"></i></button>
     </div>
     <div class="cart-body" id="cart-body">
       <div class="cart-empty-msg" id="cart-empty">
@@ -292,7 +311,6 @@
   <script src="../js/year.js"></script>
   <script src="../js/nav.js"></script>
   <script src="../js/products.js"></script>
-  <script src="../js/countdown.js"></script>
   <script>
     /* ---- Countdown ---- */
     (function () {
@@ -361,9 +379,9 @@
             <div class="cart-item-size">${item.size || ''}</div>
             <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
             <div class="cart-qty">
-              <button class="q-btn" data-id="${item.id}" data-act="dec">−</button>
+              <button class="q-btn" data-id="${item.id}" data-act="dec" aria-label="Decrease quantity">−</button>
               <span class="q-num">${item.qty}</span>
-              <button class="q-btn" data-id="${item.id}" data-act="inc">+</button>
+              <button class="q-btn" data-id="${item.id}" data-act="inc" aria-label="Increase quantity">+</button>
             </div>
           </div>
           <button class="cart-rm" data-id="${item.id}" aria-label="Remove"><i class="fas fa-trash"></i></button>

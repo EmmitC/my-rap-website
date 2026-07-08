@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — Maze the 28th</title>
+  <meta name="description" content="Mixtapes, demos, and albums from Maze the 28th — every era in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Collections — Maze the 28th">
+  <meta property="og:description" content="Mixtapes, demos, and albums from Maze the 28th — every era in one place.">
+  <meta property="og:image" content="https://mazethe28th.com/images/maze28posterwhite.jpg">
+  <meta property="og:url" content="https://mazethe28th.com/html/collections.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Collections — Maze the 28th">
+  <meta name="twitter:description" content="Mixtapes, demos, and albums from Maze the 28th — every era in one place.">
+  <meta name="twitter:image" content="https://mazethe28th.com/images/maze28posterwhite.jpg">
+  <link rel="icon" type="image/png" href="../images/maze28icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/homestyles.css">
+  <style>
+    /* ---- Mixtape player (Collections > Mixtapes) ---- */
+    #now-playing {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,153,0,0.3);
+      border-radius: 18px;
+      padding: 2rem 2rem 1.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    #np-cover {
+      width: 140px; height: 140px;
+      border-radius: 12px;
+      margin: 0 auto 1.25rem;
+      object-fit: cover;
+      box-shadow: 0 8px 40px rgba(255,153,0,0.25);
+      background: #FF9900;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    #np-cover img { width: 100%; height: 100%; border-radius: 12px; object-fit: cover; }
+
+    .np-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.4rem; }
+
+    #np-title {
+      font-family: 'TrashHand', cursive;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #FF9900;
+      margin-bottom: 0.15rem;
+    }
+
+    #np-artist { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
+
+    /* Progress */
+    .progress-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .time-label { font-size: 0.72rem; color: rgba(255,255,255,0.35); width: 2.5rem; flex-shrink: 0; }
+    .time-label.right { text-align: right; }
+
+    #progress-bar {
+      flex: 1; height: 5px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #progress-fill {
+      height: 100%; width: 0%;
+      background: #FF9900;
+      border-radius: 3px;
+      transition: width 0.1s linear;
+      position: relative;
+    }
+
+    #progress-fill::after {
+      content: '';
+      position: absolute; right: -5px; top: -4px;
+      width: 13px; height: 13px;
+      border-radius: 50%; background: #FF9900;
+      opacity: 0; transition: opacity 0.2s;
+    }
+
+    #progress-bar:hover #progress-fill::after { opacity: 1; }
+
+    /* Controls */
+    .controls-row { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+
+    .ctrl-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 1.1rem; cursor: pointer;
+      padding: 0.35rem; transition: color 0.2s;
+    }
+    .ctrl-btn:hover { color: white; }
+    .ctrl-btn.active { color: #FF9900; }
+
+    #play-btn {
+      width: 52px; height: 52px;
+      background: #FF9900; color: #000;
+      border: none; border-radius: 50%;
+      font-size: 1.05rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    #play-btn:hover { background: #ffb833; transform: scale(1.08); }
+
+    /* Volume */
+    .volume-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1rem; }
+    .vol-icon { color: rgba(255,255,255,0.4); font-size: 0.9rem; cursor: pointer; }
+    #vol-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 90px; height: 3px;
+      background: rgba(255,255,255,0.15); border-radius: 2px; outline: none; cursor: pointer;
+    }
+    #vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 12px; height: 12px;
+      background: #FF9900; border-radius: 50;
+    }
+
+    /* Platforms strip */
+    .platforms-strip {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      padding: 2.5rem 1.5rem;
+      background: rgba(255,153,0,0.03);
+      border-top: 1px solid rgba(255,153,0,0.1);
+      margin: 0 -1.5rem;
+    }
+    .platforms-strip a {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: all 0.25s;
+      letter-spacing: 0.3px;
+    }
+    .platforms-strip a:hover { border-color: rgba(255,153,0,0.35); color: white; background: rgba(255,153,0,0.1); }
+    .platforms-strip img { width: 18px; height: 18px; object-fit: contain; }
+    .platforms-strip img[src$=".svg"] { filter: brightness(0) invert(1); opacity: 0.75; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header id="NavigationBar">
+    <nav>
+      <a href="../index.html" class="nav-brand">Maze 28</a>
+      <ul>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html#mixtapes">Listen</a></li>
+        <li class="nav-has-dropdown">
+          <a href="./collections.html" class="active">Collections</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="./collections.html#mixtapes">Mixtapes</a></li>
+            <li><a href="./collections.html#demos">Demos</a></li>
+            <li><a href="./AlbumPromo.html">Albums</a></li>
+          </ul>
+        </li>
+        <li><a href="./media.html">Media</a></li>
+        <li><a href="./Merch.html">Merch</a></li>
+        <li><a href="./booking.html">Booking</a></li>
+        <li><a href="./tours.html">Tours</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero-image">
+    <img src="../images/maze28posterwhite.jpg" alt="Maze the 28th Collections">
+    <div class="hero-overlay">
+      <h1 class="hero-title animate-fade-up">Collections</h1>
+      <p class="hero-subtitle animate-fade-up delay-1">Every mixtape, every demo, every era — in one place</p>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <!-- TAB BAR -->
+  <nav class="tab-bar">
+    <a class="tab-btn" href="#mixtapes">Mixtapes</a>
+    <a class="tab-btn" href="#demos">Demos</a>
+    <a class="tab-btn" href="#albums">Albums</a>
+  </nav>
+
+  <!-- MIXTAPES -->
+  <section id="mixtapes" class="section">
+    <div class="container" style="max-width:780px;">
+      <h2 class="section-title">Mixtapes</h2>
+      <p class="section-sub">Every track currently streaming — play right here, no detour needed</p>
+
+      <!-- Now-playing card -->
+      <div id="now-playing">
+        <div id="np-cover"><i class="fas fa-music"></i></div>
+        <div class="np-label">Now Playing</div>
+        <div id="np-title">—</div>
+        <div id="np-artist">Maze the 28th</div>
+
+        <!-- Progress bar -->
+        <div class="progress-row">
+          <span class="time-label" id="time-current">0:00</span>
+          <div id="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+          <span class="time-label right" id="time-total">0:00</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-row">
+          <button class="ctrl-btn" id="btn-shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
+          <button class="ctrl-btn" id="btn-prev"    title="Previous"><i class="fas fa-step-backward"></i></button>
+          <button id="play-btn" title="Play / Pause"><i class="fas fa-play" id="play-icon"></i></button>
+          <button class="ctrl-btn" id="btn-next"    title="Next"><i class="fas fa-step-forward"></i></button>
+          <button class="ctrl-btn" id="btn-repeat"  title="Repeat"><i class="fas fa-redo"></i></button>
+        </div>
+
+        <!-- Volume -->
+        <div class="volume-row">
+          <i class="fas fa-volume-down vol-icon" id="vol-icon"></i>
+          <input type="range" id="vol-slider" min="0" max="1" step="0.05" value="0.8">
+          <i class="fas fa-volume-up vol-icon"></i>
+        </div>
+
+        <!-- Lyrics + Follow -->
+        <div class="np-actions">
+          <button class="np-action-btn" id="lyrics-btn"><i class="fas fa-align-left"></i> Lyrics</button>
+          <button class="np-action-btn" id="follow-btn"><i class="far fa-heart"></i> Follow</button>
+        </div>
+        <div id="lyrics-panel">
+          <div class="lyrics-inner">
+            <h4>Lyrics</h4>
+            <pre id="lyrics-text"></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track list (injected by js/player.js) -->
+      <div class="tracklist-title" align="center">Tracks</div>
+      <div id="track-list"></div>
+    </div>
+
+    <!-- Platform strip -->
+    <div class="container" style="max-width:780px;">
+      <div class="platforms-strip">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener">
+          <img src="../icons/spotify.svg" alt="">Spotify
+        </a>
+        <a href="#" target="_blank" rel="noopener"><img src="../images/apple-music-icon.png" alt="">Apple Music</a>
+        <a href="#" target="_blank" rel="noopener"><img src="../icons/soundcloud.svg" alt="">SoundCloud</a>
+        <a href="#" target="_blank" rel="noopener"><img src="../icons/youtube.svg" alt="">YouTube</a>
+        <a href="#" target="_blank" rel="noopener"><img src="../images/audiomack-icon.png" alt="">Audiomack</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMOS -->
+  <section id="demos" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Demos</h2>
+      <p class="section-sub">Early sketches and works-in-progress</p>
+      <div class="empty-state">
+        <i class="fas fa-compact-disc"></i>
+        <p class="empty-title">No demos published yet</p>
+        <p>Maze 28 is still cooking these up — check back soon or <a href="#mixtapes" style="color:#FF9900;font-weight:700;">listen to the mixtapes</a> in the meantime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUMS -->
+  <section id="albums" class="section">
+    <div class="container">
+      <h2 class="section-title">Albums</h2>
+      <p class="section-sub">The full-length project</p>
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start;justify-content:center;">
+        <a class="release-card" href="./AlbumPromo.html" style="flex:0 1 300px;max-width:300px;">
+          <div class="release-cover">
+            <img src="../images/AlbumArt.jpg" alt="Into the Mind of an Overthinker" loading="lazy">
+            <div class="play-overlay"><i class="fas fa-compact-disc"></i></div>
+          </div>
+          <div class="release-info">
+            <div class="release-title">Into the Mind of an Overthinker</div>
+            <div class="release-meta">Debut Album · Maze the 28th</div>
+          </div>
+        </a>
+        <div style="flex:1 1 380px;max-width:480px;text-align:left;">
+          <div class="tracklist-title">Tracklist — Locked Until Release</div>
+          <div id="album-tracklist"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STREAM CTA -->
+  <section id="preorder" class="preorder-section">
+    <div class="preorder-container">
+      <h3>"Into The Mind of an Overthinker"</h3>
+      <p>The debut album is out now — stream it everywhere.</p>
+      <div class="preorder-buttons">
+        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="preorder-button">
+          <i class="fas fa-music" style="margin-right:0.4rem;"></i>Stream Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">Maze 28</div>
+    <div class="tagline">Into the Mind of an Overthinker</div>
+    <section id="socials" class="platforms">
+      <a href="https://instagram.com/KING_MAZE_THE_28TH" target="_blank" rel="noopener" aria-label="Instagram"><img src="../icons/instagram.svg" alt="Instagram" class="icon-s"></a>
+      <a href="https://x.com/Maze284"                   target="_blank" rel="noopener" aria-label="X"><img src="../icons/x-twitter.svg" alt="X" class="icon-s"></a>
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" aria-label="Spotify"><img src="../icons/spotify.svg" alt="Spotify" class="icon-s"></a>
+      <a href="https://soundcloud.com/Maze284"           target="_blank" rel="noopener" aria-label="SoundCloud"><img src="../icons/soundcloud.svg" alt="SoundCloud" class="icon-s"></a>
+      <a href="https://youtube.com/@Maze284"             target="_blank" rel="noopener" aria-label="YouTube"><img src="../icons/youtube.svg" alt="YouTube" class="icon-s"></a>
+      <a href="https://discord.gg/Maze284"               target="_blank" rel="noopener" aria-label="Discord"><img src="../icons/discord.svg" alt="Discord" class="icon-s"></a>
+    </section>
+    <div class="copyright">&copy; <span id="year"></span> Maze the 28th. All rights reserved.</div>
+  </footer>
+
+  <script src="../js/year.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('NavigationBar').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/player.js"></script>
+  <script src="../js/albumtracklist.js"></script>
+  <script src="../js/collections.js"></script>
+</body>
+</html>

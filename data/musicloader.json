@@ -1,37 +1,160 @@
-[
+{
+  "releaseDate": "2026-10-15T18:00:00",
+  "tracks": [
     {
-        "title":"Good Vibes",
-        "artist":"Maze 28",
-        "cover":"./images/AlbumArt.jpg",
-        "file":"./audio/Good_vibes-Maze_28(1).mp3"
+      "slug": "good-vibes",
+      "title": "Good Vibes",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/Good_vibes-Maze_28(1).mp3",
+      "lyrics": "Lyrics for \"Good Vibes\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
     },
-
-     {
-        "title":"Melodies",
-        "artist":"Maze 28",
-        "cover":"./images/AlbumArt.jpg",
-        "file":"./audio/melodies_by_maze_28.m4a"
-    },
-
-     {
-        "title":"Nirvana",
-        "artist":"Maze 28",
-        "cover":"./images/AlbumArt.jpg",
-        "file":"./audio/nirvana_maze_28.mp3"
-    },
-
-     {
-        "title":"Aggressor",
-        "artist":"Maze 28",
-        "cover":"./images/AlbumArt.jpg",
-        "file":"./audio/Aggressor_cut.mp3"
-    },
-
     {
-        "title":"",
-        "artist":"",
-        "cover":"",
-        "file":""
+      "slug": "aggressor",
+      "title": "Aggressor",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/Aggressor__cut.mp3",
+      "lyrics": "Lyrics for \"Aggressor\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "smile",
+      "title": "Smile",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/Smile(1).mp3",
+      "lyrics": "Lyrics for \"Smile\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "the-flames",
+      "title": "The Flames",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/The_flames_.mp3",
+      "lyrics": "Lyrics for \"The Flames\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "melodies",
+      "title": "Melodies",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/melodies by maze 28.m4a",
+      "lyrics": "Lyrics for \"Melodies\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "nirvana",
+      "title": "Nirvana",
+      "artist": "Maze the 28th",
+      "type": "mixtape",
+      "cover": "images/AlbumArt.jpg",
+      "file": "audio/nirvana maze 28.mp3",
+      "lyrics": "Lyrics for \"Nirvana\" haven't been added yet.\nCheck back soon — Maze 28 is working on it."
+    },
+    {
+      "slug": "the-overthinker",
+      "title": "The Overthinker",
+      "tag": "Intro",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "hope",
+      "title": "Hope",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "conditioning",
+      "title": "Conditioning",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "lessons",
+      "title": "Lessons",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "thirteen",
+      "title": "Thirteen",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "prayer",
+      "title": "Prayer",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "unbound",
+      "title": "Unbound",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "saturday",
+      "title": "Saturday",
+      "tag": "Interlude",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "energy",
+      "title": "Energy",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "heartfelt",
+      "title": "Heartfelt",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
+    },
+    {
+      "slug": "nightmares",
+      "title": "Nightmares",
+      "artist": "Maze the 28th",
+      "type": "album",
+      "cover": "images/AlbumArt.jpg",
+      "file": "",
+      "lyrics": ""
     }
-
-]
+  ]
+}

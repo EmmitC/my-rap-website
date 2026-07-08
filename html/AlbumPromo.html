@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Album — Maze the 28th</title>
   <meta name="description" content="Into the Mind of an Overthinker — debut album by Maze the 28th.">
+  <meta property="og:type" content="music.album">
+  <meta property="og:title" content="Album — Maze the 28th">
+  <meta property="og:description" content="Into the Mind of an Overthinker — debut album by Maze the 28th.">
+  <meta property="og:image" content="https://mazethe28th.com/images/AlbumArt.jpg">
+  <meta property="og:url" content="https://mazethe28th.com/html/AlbumPromo.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Album — Maze the 28th">
+  <meta name="twitter:description" content="Into the Mind of an Overthinker — debut album by Maze the 28th.">
+  <meta name="twitter:image" content="https://mazethe28th.com/images/AlbumArt.jpg">
   <link rel="icon" type="image/png" href="../images/maze28icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +26,19 @@
   <!-- ============================================================ NAV -->
   <header id="NavigationBar">
     <nav>
-      <a href="../index2.html" class="nav-brand">Maze 28</a>
+      <a href="../index.html" class="nav-brand">Maze 28</a>
       <ul>
-        <li><a href="./raps.html">Listen</a></li>
-        <li><a href="./AlbumPromo.html" class="active">Album</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html#mixtapes">Listen</a></li>
+        <li class="nav-has-dropdown">
+          <a href="./collections.html" class="active">Collections</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="./collections.html#mixtapes">Mixtapes</a></li>
+            <li><a href="./collections.html#demos">Demos</a></li>
+            <li><a href="./AlbumPromo.html" class="active">Albums</a></li>
+          </ul>
+        </li>
+        <li><a href="./media.html">Media</a></li>
         <li><a href="./Merch.html">Merch</a></li>
         <li><a href="./booking.html">Booking</a></li>
         <li><a href="./tours.html">Tours</a></li>
@@ -37,75 +55,104 @@
     <div class="hero-overlay">
       <h1 class="hero-title animate-fade-up">Into the Mind</h1>
       <p class="hero-subtitle animate-fade-up delay-1">of an Overthinker</p>
-      <span class="hero-tag animate-fade-up delay-2">Debut Album  Out Now</span>
+      <span class="hero-tag animate-fade-up delay-2">Debut Album — Coming Soon</span>
       <div class="hero-cta animate-fade-up delay-3">
-        <a href="./raps.html" class="btn btn-primary"><i class="fas fa-play"></i> Listen Now</a>
-        <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-spotify"></i> Spotify</a>
+        <a href="#album-tracklist" class="btn btn-primary"><i class="fas fa-list"></i> See Tracklist</a>
+        <a href="./collections.html#mixtapes" class="btn btn-outline"><i class="fas fa-headphones"></i> Listen to Mixtapes</a>
       </div>
     </div>
     <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
   </section>
 
   <!-- ============================================================ ALBUM PAGES -->
+  <!-- Chapter rail: scroll-spy + click-to-jump navigation through the story (desktop only) -->
+  <nav class="story-rail" id="story-rail" aria-label="Album story chapters">
+    <button type="button" data-target="page-1"><span class="rail-label">Welcome</span></button>
+    <button type="button" data-target="page-2"><span class="rail-label">The World</span></button>
+    <button type="button" data-target="page-3"><span class="rail-label">Into the Mind</span></button>
+    <button type="button" data-target="page-4"><span class="rail-label">The Journey</span></button>
+    <button type="button" data-target="page-5"><span class="rail-label">The Truth</span></button>
+    <button type="button" data-target="page-6"><span class="rail-label">The Sound</span></button>
+    <button type="button" data-target="page-7"><span class="rail-label">The Invitation</span></button>
+  </nav>
+
   <section id="AlbumIntro">
 
-    <div class="page" id="page-1">
+    <div class="page" id="page-1" data-accent="blue">
       <div>
+        <span class="page-kicker">Chapter 01 — Welcome</span>
         <h1>Welcome<br>Into the Mind<br>of an Overthinker</h1>
       </div>
     </div>
     <hr>
 
-    <div class="page" id="page-2">
-      <p>Get ready to experience the unfiltered world through the eyes of Maze 28.<br>
-      His debut album is unlike anything you've heard before.</p>
+    <div class="page" id="page-2" data-accent="green">
+      <div>
+        <span class="page-kicker">Chapter 02 — The World</span>
+        <p>Get ready to experience the unfiltered world through the eyes of Maze 28.<br>
+        His debut album is unlike anything you've heard before.</p>
+      </div>
     </div>
     <hr>
 
-    <div class="page" id="page-3">
-      <p class="animated-text-02">Into<br>The Mind<br>of an<br>Overthinker</p>
+    <div class="page" id="page-3" data-accent="yellow">
+      <div>
+        <span class="page-kicker">Chapter 03 — Into the Mind</span>
+        <p class="animated-text-02">Into<br>The Mind<br>of an<br>Overthinker</p>
+      </div>
     </div>
     <hr>
 
-    <div class="page" id="page-4">
-      <p>Taking listeners on a journey of self-discovery, perseverance, and empowerment.<br>
-      Every track is a chapter. Every lyric is a truth.</p>
+    <div class="page" id="page-4" data-accent="green">
+      <div>
+        <span class="page-kicker">Chapter 04 — The Journey</span>
+        <p>Taking listeners on a journey of self-discovery, perseverance, and empowerment.<br>
+        Every track is a chapter. Every lyric is a truth.</p>
+      </div>
     </div>
     <hr>
 
-    <div class="page" id="page-5">
-      <p>Through his raw, honest lyrics he shares his story of overcoming adversity,<br>
-      navigating relationships, and staying true to himself.</p>
+    <div class="page" id="page-5" data-accent="red">
+      <div>
+        <span class="page-kicker">Chapter 05 — The Truth</span>
+        <p>Through his raw, honest lyrics he shares his story of overcoming adversity,<br>
+        navigating relationships, and staying true to himself.</p>
+      </div>
     </div>
     <hr>
 
-    <div class="page" id="page-6">
-      <p>With a unique blend of Hip-Hop, Soul, and Afro-centric elements,<br>
-      his music is a reflection of his eclectic personality and artistic vision.</p>
+    <div class="page" id="page-6" data-accent="blue">
+      <div>
+        <span class="page-kicker">Chapter 06 — The Sound</span>
+        <p>With a unique blend of Hip-Hop, Soul, and Afro-centric elements,<br>
+        his music is a reflection of his eclectic personality and artistic vision.</p>
+      </div>
     </div>
     <hr>
 
-    <div class="page" id="page-7">
-      <p>Join him on this sonic journey and rediscover the power of music<br>
-      to inspire, heal, and uplift the soul.</p>
+    <div class="page" id="page-7" data-accent="yellow">
+      <div>
+        <span class="page-kicker">Chapter 07 — The Invitation</span>
+        <p>Join him on this sonic journey and rediscover the power of music<br>
+        to inspire, heal, and uplift the soul.</p>
+      </div>
     </div>
     <hr>
 
   </section>
 
-  <!-- ============================================================ STREAMING CTA -->
-  <section style="padding:4rem 1.5rem;text-align:center;background:rgba(255,153,0,0.04);">
-    <h2 style="font-family:'TrashHand',cursive;font-size:clamp(1.8rem,4vw,3rem);color:#FF9900;margin-bottom:0.5rem;">Stream the Album</h2>
-    <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;font-size:0.95rem;">Available on all major platforms</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="btn btn-primary"><i class="fab fa-spotify"></i> Spotify</a>
-      <a href="./raps.html" class="btn btn-outline"><i class="fas fa-headphones"></i> Listen on Site</a>
+  <!-- ============================================================ TRACKLIST (locked until release) -->
+  <section id="album-tracklist-section" class="section">
+    <div class="container" style="max-width:640px;">
+      <h2 class="section-title">The Tracklist</h2>
+      <p class="section-sub">Locked for now — every track unlocks the moment the countdown hits zero</p>
+      <div id="album-tracklist"></div>
     </div>
   </section>
 
   <!-- ============================================================ COUNTDOWN -->
   <div id="countdown">
-    <h2>Next Show Countdown</h2>
+    <h2>Album Drops In</h2>
     <div class="timer-display" id="timer">
       <div class="timer-block"><span class="timer-num" id="t-days">00</span><span class="timer-label">Days</span></div>
       <div class="timer-block"><span class="timer-num" id="t-hours">00</span><span class="timer-label">Hours</span></div>
@@ -114,6 +161,16 @@
     </div>
     <p  ></p>
   </div>
+
+  <!-- ============================================================ FOLLOW FOR UPDATES -->
+  <section style="padding:4rem 1.5rem;text-align:center;background:rgba(255,153,0,0.04);">
+    <h2 style="font-family:'TrashHand',cursive;font-size:clamp(1.8rem,4vw,3rem);color:#FF9900;margin-bottom:0.5rem;">Don't Miss the Drop</h2>
+    <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;font-size:0.95rem;">Follow now so you're first to know when it unlocks</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://open.spotify.com/user/31wakbtfeipqghb7jbdjhwmvunym" target="_blank" rel="noopener" class="btn btn-primary"><i class="fab fa-spotify"></i> Follow on Spotify</a>
+      <a href="./collections.html#mixtapes" class="btn btn-outline"><i class="fas fa-headphones"></i> Listen to Mixtapes</a>
+    </div>
+  </section>
 
   <!-- ============================================================ PRE-ORDER -->
   <section id="preorder" class="preorder-section">
@@ -146,7 +203,7 @@
   <script src="../js/year.js"></script>
   <script>
     (function () {
-      const target = new Date("Jun 15, 2026 18:00:00").getTime();
+      const target = new Date("Oct 15, 2026 18:00:00").getTime();
       function tick() {
         const diff = target - Date.now();
         const safe = Math.max(0, diff);
@@ -154,7 +211,7 @@
         document.getElementById('t-hours').textContent = String(Math.floor((safe % 86400000) / 3600000)).padStart(2,'0');
         document.getElementById('t-mins').textContent  = String(Math.floor((safe % 3600000) / 60000)).padStart(2,'0');
         document.getElementById('t-secs').textContent  = String(Math.floor((safe % 60000) / 1000)).padStart(2,'0');
-        if (diff <= 0) document.querySelector('#countdown h2').textContent = 'Show Is Live!';
+        if (diff <= 0) document.querySelector('#countdown h2').textContent = 'The Album Is Live!';
       }
       tick(); setInterval(tick, 1000);
     })();
@@ -163,6 +220,7 @@
     }, { passive: true });
   </script>
   <script src="../js/nav.js"></script>
-  <script src="../js/countdown.js"></script>
+  <script src="../js/albumstory.js"></script>
+  <script src="../js/albumtracklist.js"></script>
 </body>
 </html>
